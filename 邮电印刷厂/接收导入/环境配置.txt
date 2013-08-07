@@ -1,0 +1,4 @@
+先安装Raize中exe
+再安装Sy\Grid\Pack_iGrid7.dpk
+如果不行,卸载Delphi7设置中packages选项卡中Raize有关的bpl
+再重新到Raize安装目录sonce中,dpk安装再安装Sy\Grid\Pack_iGrid7.dpk
