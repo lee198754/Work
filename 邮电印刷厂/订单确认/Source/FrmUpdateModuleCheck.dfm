@@ -1,0 +1,46 @@
+object Frm_UpdateModuleCheck: TFrm_UpdateModuleCheck
+  Left = 330
+  Top = 156
+  Width = 806
+  Height = 109
+  Caption = #25214#19981#21040#26356#26032#27169#22359
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = #23435#20307
+  Font.Style = []
+  FormStyle = fsStayOnTop
+  OldCreateOrder = False
+  Position = poDesktopCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Lbl_Info: Ti_Label
+    Left = 24
+    Top = 16
+    Width = 88
+    Height = 21
+    Caption = 'Lbl_Info'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clRed
+    Font.Height = -21
+    Font.Name = #23435#20307
+    Font.Style = []
+    ParentFont = False
+    Transparent = True
+    EditLabel.Width = 7
+    EditLabel.Height = 13
+    EditLabel.Transparent = True
+    LabelPosition = lpLeft
+    LabelSpacing = 3
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 8000
+    OnTimer = Timer1Timer
+    Left = 48
+    Top = 56
+  end
+end

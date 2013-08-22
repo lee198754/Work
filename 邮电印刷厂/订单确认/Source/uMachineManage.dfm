@@ -1,0 +1,363 @@
+object Fra_MachineManage: TFra_MachineManage
+  Left = 0
+  Top = 0
+  Width = 1008
+  Height = 475
+  Font.Charset = GB2312_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = #26032#23435#20307
+  Font.Style = []
+  ParentFont = False
+  TabOrder = 0
+  object RzGroupBox1: TRzGroupBox
+    Left = 0
+    Top = 0
+    Width = 1008
+    Height = 267
+    Align = alClient
+    Caption = #26448#26009#20449#24687
+    TabOrder = 0
+    object stg_jtxx: Ti_StgEdit
+      Left = 1
+      Top = 13
+      Width = 1006
+      Height = 253
+      Align = alClient
+      ColCount = 8
+      DefaultRowHeight = 20
+      FixedCols = 0
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -12
+      Font.Name = #23435#20307
+      Font.Style = []
+      Options = [goRangeSelect, goRowSizing, goColSizing]
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+      OnSelectCell = stg_jtxxSelectCell
+      pt_TitleHeight = 20
+      FixedFontStyle = []
+      OnLinkClick = stg_jtxxLinkClick
+      RowSelect = True
+      FocusColor = clBlack
+      RowSelectColor = clGrayText
+      RowSelect_TextColor_Highlight = True
+      AutoUpdate = True
+      Merge_FixedRow = True
+      Merge_FixedCol = False
+      Merge_Cell = False
+      FixedFontSize = 9
+      FixedFontName = #23435#20307
+      FixedGridLineColor = clBlack
+      GridLinesFixed = PGridInset
+      FormatString = #26426#21488#32534#21495'|'#26426#21488#21517#31216'|'#29983#25104#26448#26009#21517#32534#21495'|'#29983#25104#26448#26009#21517#31216'|'#29983#25104#26448#26009#21517#35268#26684'|'#29983#25104#26448#26009#21333#20301'|'#25805#20316'|'
+      FixedWordBreak = True
+      PermitCellSizing = False
+      PermitExport = True
+      WordBreak = False
+      FixedRowAlignmentCenter = True
+      ZeroToEmpty = True
+      KeepEdit = False
+      EnterAddRow = False
+      ColWidths = (
+        117
+        140
+        88
+        173
+        96
+        75
+        64
+        64)
+      RowHeights = (
+        20
+        20)
+    end
+  end
+  object RzGroupBox2: TRzGroupBox
+    Left = 0
+    Top = 267
+    Width = 1008
+    Height = 208
+    Align = alBottom
+    Caption = #24405#20837
+    TabOrder = 1
+    OnMouseDown = gb_scclMouseDown
+    object edt_jtbh: Ti_TxtFilter
+      Left = 80
+      Top = 24
+      Width = 121
+      Height = 20
+      Alignment = taLeftJustify
+      WordWrap = False
+      WantReturns = False
+      WantTabs = False
+      ZeroToEmpty = False
+      EditLabel.Width = 60
+      EditLabel.Height = 12
+      EditLabel.Caption = #26426#21488#32534#21495#65306
+      EditLabel.Transparent = True
+      LabelCaption = #26426#21488#32534#21495#65306
+      LabelPosition = lpLeft
+      LabelSpacing = 3
+      TabEnter = True
+      TabOrder = 0
+      OnMouseDown = gb_scclMouseDown
+      AllowNegative = True
+      BorderLine = False
+      BorderLineColor = clBlack
+      BorderLineGap = 0
+      ErrDialog = False
+      ErrLostFocus = False
+      FullEnter = True
+      LabelEnableFollow = True
+      LabelLeft = -1
+      LabelTransParent = True
+      LayOut = BIVCenter
+      Style = PNomal
+      ReadOnly_X = False
+      AllowEmpty_X = True
+    end
+    object edt_jtmc: Ti_TxtFilter
+      Left = 288
+      Top = 24
+      Width = 161
+      Height = 20
+      Alignment = taLeftJustify
+      WordWrap = False
+      WantReturns = False
+      WantTabs = False
+      ZeroToEmpty = False
+      EditLabel.Width = 60
+      EditLabel.Height = 12
+      EditLabel.Caption = #26426#21488#21517#31216#65306
+      EditLabel.Transparent = True
+      LabelCaption = #26426#21488#21517#31216#65306
+      LabelPosition = lpLeft
+      LabelSpacing = 3
+      TabEnter = True
+      TabOrder = 1
+      OnMouseDown = gb_scclMouseDown
+      AllowNegative = True
+      BorderLine = False
+      BorderLineColor = clBlack
+      BorderLineGap = 0
+      ErrDialog = False
+      ErrLostFocus = False
+      FullEnter = True
+      LabelEnableFollow = True
+      LabelLeft = -1
+      LabelTransParent = True
+      LayOut = BIVCenter
+      Style = PNomal
+      ReadOnly_X = False
+      AllowEmpty_X = True
+    end
+    object btn_add: TRzButton
+      Left = 223
+      Top = 171
+      Caption = #28155#21152
+      TabOrder = 2
+      OnClick = btn_addClick
+    end
+    object btn_mod: TRzButton
+      Left = 423
+      Top = 171
+      Caption = #20462#25913
+      TabOrder = 3
+      OnClick = btn_modClick
+    end
+    object gb_sccl: TRzGroupBox
+      Left = 22
+      Top = 53
+      Width = 427
+      Height = 73
+      Caption = #29983#25104#26448#26009
+      Enabled = False
+      TabOrder = 4
+      OnMouseDown = gb_scclMouseDown
+      object Label1: TLabel
+        Left = 237
+        Top = 47
+        Width = 24
+        Height = 12
+        Caption = #21333#20301
+      end
+      object edt_clbh: Ti_TxtFilter
+        Left = 48
+        Top = 16
+        Width = 121
+        Height = 20
+        Alignment = taLeftJustify
+        WordWrap = False
+        WantReturns = False
+        WantTabs = False
+        ZeroToEmpty = False
+        EditLabel.Width = 24
+        EditLabel.Height = 12
+        EditLabel.Caption = #32534#21495
+        EditLabel.Transparent = True
+        LabelCaption = #32534#21495
+        LabelPosition = lpLeft
+        LabelSpacing = 3
+        TabEnter = True
+        Color = clBtnFace
+        Enabled = False
+        TabOrder = 0
+        OnEnter = edt_clhEnter
+        OnExit = edt_clbhExit
+        OnKeyUp = edt_clbhKeyUp
+        OnMouseDown = edt_clbhMouseDown
+        AllowNegative = True
+        BorderLine = False
+        BorderLineColor = clBlack
+        BorderLineGap = 0
+        ErrDialog = False
+        ErrLostFocus = False
+        FullEnter = True
+        LabelEnableFollow = True
+        LabelLeft = -1
+        LabelTransParent = True
+        LayOut = BIVCenter
+        Style = PNomal
+        ReadOnly_X = False
+        AllowEmpty_X = True
+      end
+      object edt_clmc: Ti_TxtFilter
+        Left = 264
+        Top = 16
+        Width = 145
+        Height = 20
+        Alignment = taLeftJustify
+        WordWrap = False
+        WantReturns = False
+        WantTabs = False
+        ZeroToEmpty = False
+        EditLabel.Width = 48
+        EditLabel.Height = 12
+        EditLabel.Caption = #26448#26009#21517#31216
+        EditLabel.Transparent = True
+        LabelCaption = #26448#26009#21517#31216
+        LabelPosition = lpLeft
+        LabelSpacing = 3
+        TabEnter = True
+        Color = clBtnFace
+        Enabled = False
+        TabOrder = 1
+        OnEnter = edt_clhEnter
+        OnExit = edt_clbhExit
+        OnKeyUp = edt_clbhKeyUp
+        OnMouseDown = edt_clbhMouseDown
+        AllowNegative = True
+        BorderLine = False
+        BorderLineColor = clBlack
+        BorderLineGap = 0
+        ErrDialog = False
+        ErrLostFocus = False
+        FullEnter = True
+        LabelEnableFollow = True
+        LabelLeft = -1
+        LabelTransParent = True
+        LayOut = BIVCenter
+        Style = PNomal
+        ReadOnly_X = False
+        AllowEmpty_X = True
+      end
+      object edt_clgg: Ti_TxtFilter
+        Left = 48
+        Top = 45
+        Width = 121
+        Height = 20
+        Alignment = taLeftJustify
+        WordWrap = False
+        WantReturns = False
+        WantTabs = False
+        ZeroToEmpty = False
+        EditLabel.Width = 24
+        EditLabel.Height = 12
+        EditLabel.Caption = #35268#26684
+        EditLabel.Transparent = True
+        LabelCaption = #35268#26684
+        LabelPosition = lpLeft
+        LabelSpacing = 3
+        TabEnter = True
+        Color = clBtnFace
+        Enabled = False
+        TabOrder = 2
+        OnEnter = edt_clhEnter
+        OnExit = edt_clggExit
+        OnKeyUp = edt_clggKeyUp
+        OnMouseDown = edt_clggMouseDown
+        AllowNegative = True
+        BorderLine = False
+        BorderLineColor = clBlack
+        BorderLineGap = 0
+        ErrDialog = False
+        ErrLostFocus = False
+        FullEnter = True
+        LabelEnableFollow = True
+        LabelLeft = -1
+        LabelTransParent = True
+        LayOut = BIVCenter
+        Style = PNomal
+        ReadOnly_X = False
+        AllowEmpty_X = True
+      end
+      object cbb_dw: TComboBox
+        Left = 264
+        Top = 43
+        Width = 57
+        Height = 20
+        Color = clBtnFace
+        Enabled = False
+        ItemHeight = 12
+        ItemIndex = 0
+        TabOrder = 3
+        Text = #29255
+        Items.Strings = (
+          #29255)
+      end
+    end
+    object cb_sccl: TCheckBox
+      Left = 16
+      Top = 51
+      Width = 14
+      Height = 17
+      TabOrder = 5
+      OnClick = cb_scclClick
+    end
+    object lb_Temp: TListBox
+      Left = 488
+      Top = 47
+      Width = 121
+      Height = 98
+      Ctl3D = False
+      Font.Charset = GB2312_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -16
+      Font.Name = #26032#23435#20307
+      Font.Style = []
+      ItemHeight = 16
+      Items.Strings = (
+        '1'
+        '2'
+        '3'
+        '4'
+        '5'
+        '6'
+        '7')
+      ParentCtl3D = False
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 6
+      Visible = False
+      OnKeyDown = lb_TempKeyDown
+      OnKeyUp = lb_TempKeyUp
+      OnMouseDown = lb_TempMouseDown
+      OnMouseMove = lb_TempMouseMove
+    end
+  end
+end

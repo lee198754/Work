@@ -426,4 +426,10 @@ object Frm_OrderRec: TFrm_OrderRec
     Left = 352
     Top = 272
   end
+  object RzTrayIcon1: TRzTrayIcon
+    PopupMenu = PopupMenu_Sys
+    RestoreOn = ticLeftClickUp
+    Left = 424
+    Top = 392
+  end
 end

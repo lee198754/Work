@@ -1,0 +1,144 @@
+object Frm_TSGYGL_Dlg: TFrm_TSGYGL_Dlg
+  Left = 713
+  Top = 418
+  BorderStyle = bsDialog
+  Caption = #29305#27530#24037#33402
+  ClientHeight = 176
+  ClientWidth = 274
+  Color = clBtnFace
+  Font.Charset = GB2312_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -14
+  Font.Name = #26032#23435#20307
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 14
+  object Bevel1: TBevel
+    Left = 8
+    Top = 112
+    Width = 257
+    Height = 26
+    Shape = bsBottomLine
+  end
+  object btn_ok: TBitBtn
+    Left = 168
+    Top = 144
+    Width = 75
+    Height = 25
+    Caption = #30830#23450
+    TabOrder = 0
+    OnClick = btn_okClick
+  end
+  object gb_TSGY: TGroupBox
+    Left = 16
+    Top = 5
+    Width = 241
+    Height = 121
+    Caption = #28155#21152
+    TabOrder = 1
+    object edt_bm: Ti_TxtFilter
+      Left = 104
+      Top = 16
+      Width = 121
+      Height = 22
+      Alignment = taLeftJustify
+      WordWrap = False
+      WantReturns = False
+      WantTabs = False
+      ZeroToEmpty = False
+      EditLabel.Width = 91
+      EditLabel.Height = 14
+      EditLabel.Caption = #29305#27530#24037#33402#32534#21495' '
+      EditLabel.Transparent = True
+      LabelCaption = #29305#27530#24037#33402#32534#21495' '
+      LabelPosition = lpLeft
+      LabelSpacing = 3
+      TabEnter = True
+      TabOrder = 0
+      AllowNegative = True
+      BorderLine = False
+      BorderLineColor = clBlack
+      BorderLineGap = 0
+      ErrDialog = False
+      ErrLostFocus = False
+      FullEnter = True
+      LabelEnableFollow = True
+      LabelLeft = -1
+      LabelTransParent = True
+      LayOut = BIVCenter
+      Style = PNomal
+      ReadOnly_X = False
+      AllowEmpty_X = True
+    end
+    object edt_mc: Ti_TxtFilter
+      Left = 104
+      Top = 48
+      Width = 121
+      Height = 22
+      Alignment = taLeftJustify
+      WordWrap = False
+      WantReturns = False
+      WantTabs = False
+      ZeroToEmpty = False
+      EditLabel.Width = 91
+      EditLabel.Height = 14
+      EditLabel.Caption = #29305#27530#24037#33402#21517#31216' '
+      EditLabel.Transparent = True
+      LabelCaption = #29305#27530#24037#33402#21517#31216' '
+      LabelPosition = lpLeft
+      LabelSpacing = 3
+      TabEnter = True
+      TabOrder = 1
+      AllowNegative = True
+      BorderLine = False
+      BorderLineColor = clBlack
+      BorderLineGap = 0
+      ErrDialog = False
+      ErrLostFocus = False
+      FullEnter = True
+      LabelEnableFollow = True
+      LabelLeft = -1
+      LabelTransParent = True
+      LayOut = BIVCenter
+      Style = PNomal
+      ReadOnly_X = False
+      AllowEmpty_X = True
+    end
+    object edt_dj: Ti_TxtFilter
+      Left = 104
+      Top = 84
+      Width = 121
+      Height = 22
+      Alignment = taLeftJustify
+      WordWrap = False
+      WantReturns = False
+      WantTabs = False
+      ZeroToEmpty = False
+      EditLabel.Width = 91
+      EditLabel.Height = 14
+      EditLabel.Caption = #29305#27530#24037#33402#21333#20215' '
+      EditLabel.Transparent = True
+      LabelCaption = #29305#27530#24037#33402#21333#20215' '
+      LabelPosition = lpLeft
+      LabelSpacing = 3
+      TabEnter = True
+      TabOrder = 2
+      AllowNegative = True
+      BorderLine = False
+      BorderLineColor = clBlack
+      BorderLineGap = 0
+      ErrDialog = False
+      ErrLostFocus = False
+      FullEnter = True
+      LabelEnableFollow = True
+      LabelLeft = -1
+      LabelTransParent = True
+      LayOut = BIVCenter
+      Style = PNomal
+      ReadOnly_X = False
+      AllowEmpty_X = True
+    end
+  end
+end

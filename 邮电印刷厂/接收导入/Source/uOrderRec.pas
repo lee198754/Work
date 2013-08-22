@@ -86,6 +86,7 @@ type
     btn_OpenLog: TButton;
     btn_ggcx: TButton;
     tmr_Error: TTimer;
+    RzTrayIcon1: TRzTrayIcon;
     procedure Btn_NewListClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
@@ -118,8 +119,8 @@ type
     vbConnectionError: Boolean;
     vaConnectionErrorDate: array of TDate;
     pNotifyIcon: ^TNotifyIconData;
-    procedure SysCommand(var SysMsg: TMessage); message WM_SYSCOMMAND;
-    procedure WMNID(var msg:TMessage); message WM_NID;
+    procedure SysCommand(var SysMsg: TMessage);// message WM_SYSCOMMAND;
+    procedure WMNID(var msg:TMessage);// message WM_NID;
 
     function f_GetConnectionErrorDate: Boolean;
     function f_ContinueRecDate: Boolean;

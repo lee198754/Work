@@ -1,0 +1,147 @@
+object Frm_BulletinBoard: TFrm_BulletinBoard
+  Left = 565
+  Top = 249
+  Width = 538
+  Height = 484
+  Caption = #20844#21578#26639
+  Color = clBtnFace
+  Font.Charset = GB2312_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -14
+  Font.Name = #23435#20307
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 14
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 522
+    Height = 39
+    Align = alTop
+    BevelOuter = bvNone
+    TabOrder = 2
+    object edt_fbr: Ti_TxtFilter
+      Left = 64
+      Top = 10
+      Width = 145
+      Height = 22
+      Alignment = taLeftJustify
+      WordWrap = False
+      WantReturns = False
+      WantTabs = False
+      ZeroToEmpty = False
+      EditLabel.Width = 42
+      EditLabel.Height = 14
+      EditLabel.Caption = #21457#24067#20154
+      EditLabel.Transparent = True
+      LabelCaption = #21457#24067#20154
+      LabelPosition = lpLeft
+      LabelSpacing = 3
+      TabEnter = True
+      ReadOnly = True
+      TabOrder = 0
+      AllowNegative = True
+      BorderLine = False
+      BorderLineColor = clBlack
+      BorderLineGap = 0
+      ErrDialog = False
+      ErrLostFocus = False
+      FullEnter = True
+      LabelEnableFollow = True
+      LabelLeft = -1
+      LabelTransParent = True
+      LayOut = BIVCenter
+      Style = PNomal
+      ReadOnly_X = False
+      AllowEmpty_X = True
+    end
+    object edt_fjrq: Ti_TxtFilter
+      Left = 288
+      Top = 10
+      Width = 177
+      Height = 22
+      Alignment = taLeftJustify
+      WordWrap = False
+      WantReturns = False
+      WantTabs = False
+      ZeroToEmpty = False
+      EditLabel.Width = 56
+      EditLabel.Height = 14
+      EditLabel.Caption = #21457#24067#26102#38388
+      EditLabel.Transparent = True
+      LabelCaption = #21457#24067#26102#38388
+      LabelPosition = lpLeft
+      LabelSpacing = 3
+      TabEnter = True
+      ReadOnly = True
+      TabOrder = 1
+      AllowNegative = True
+      BorderLine = False
+      BorderLineColor = clBlack
+      BorderLineGap = 0
+      ErrDialog = False
+      ErrLostFocus = False
+      FullEnter = True
+      LabelEnableFollow = True
+      LabelLeft = -1
+      LabelTransParent = True
+      LayOut = BIVCenter
+      Style = PNomal
+      ReadOnly_X = False
+      AllowEmpty_X = True
+    end
+  end
+  object Panel3: TPanel
+    Left = 0
+    Top = 405
+    Width = 522
+    Height = 41
+    Align = alBottom
+    TabOrder = 1
+    DesignSize = (
+      522
+      41)
+    object btn_ok: TRzButton
+      Left = 40
+      Top = 8
+      Caption = #21457#24067
+      TabOrder = 0
+      OnClick = btn_okClick
+    end
+    object btn_close: TRzButton
+      Left = 408
+      Top = 8
+      ModalResult = 2
+      Anchors = [akTop, akBottom]
+      Caption = #20851#38381
+      TabOrder = 1
+    end
+    object btn_del: TRzButton
+      Left = 216
+      Top = 8
+      Caption = #21024#38500
+      TabOrder = 2
+      OnClick = btn_delClick
+    end
+  end
+  object RzGroupBox1: TRzGroupBox
+    Left = 0
+    Top = 39
+    Width = 522
+    Height = 366
+    Align = alClient
+    Caption = #20869#23481
+    TabOrder = 0
+    object mmo_Bulletin: TMemo
+      Left = 1
+      Top = 15
+      Width = 520
+      Height = 350
+      Align = alClient
+      TabOrder = 0
+    end
+  end
+end
