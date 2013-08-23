@@ -108,10 +108,10 @@ DebugCWD=
 [Version Info]
 IncludeVerInfo=1
 AutoIncBuild=0
-MajorVer=4
-MinorVer=3
-Release=2
-Build=182
+MajorVer=1
+MinorVer=7
+Release=0
+Build=1
 Debug=0
 PreRelease=0
 Special=0
@@ -120,17 +120,17 @@ DLL=0
 Locale=1033
 CodePage=1252
 [Version Info Keys]
-CompanyName=Raize Software, Inc.
-FileDescription=Raize Components 4 Package
-FileVersion=4.3.2.182
+CompanyName=XRUI Software, Inc.
+FileDescription=
+FileVersion=1.7.0.1
 InternalName=
-LegalCopyright=Copyright ? 1995-2007 Raize Software, Inc.
+LegalCopyright=
 LegalTrademarks=
 OriginalFilename=
-ProductName=Raize Components
-ProductVersion=4.3.2.0
+ProductName=pOrderRec
+ProductVersion=1.7
 Comments=
-LastCompiledTime=2013/8/22 17:00:08
+LastCompiledTime=2013/8/23 15:16:53
 [Excluded Packages]
 d:\borland\delphi7\Bin\dclite70.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlUnitAliases]
