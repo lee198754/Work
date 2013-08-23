@@ -165,8 +165,6 @@ object Frm_OrderRec: TFrm_OrderRec
     Top = 64
     Width = 537
     Height = 329
-    Lines.Strings = (
-      'Memo1')
     ScrollBars = ssVertical
     TabOrder = 2
   end

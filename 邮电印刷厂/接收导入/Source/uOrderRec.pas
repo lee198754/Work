@@ -20,19 +20,21 @@ const
 
 type
   TDownLoadPic=class(TThread)
-  protected
+  private
+    FPicUrl: string;
     procedure DownLoadPic;
-  public
-    vUrl: string;
   protected
-        procedure   Execute;override;
+    procedure Execute;override;
   end;
+
+  TFrm_OrderRec = class;
 
   TMyDownLoad=class(TThread)
   private
 //    procedure  LoadPic;        //读取数据和下载图片
-    procedure  DownCustomOrder;    //下载定制型订单
-    procedure  DownSellOrder;
+    FrmOrderRec: TFrm_OrderRec;
+    procedure DownCustomOrder;    //下载定制型订单
+    procedure DownSellOrder;
     procedure DownLoadOrder;    //下载销售型订单
 
     procedure WriteWorkLog(LogType,LogData: string);
@@ -119,9 +121,7 @@ type
     vbConnectionError: Boolean;
     vaConnectionErrorDate: array of TDate;
     pNotifyIcon: ^TNotifyIconData;
-    procedure SysCommand(var SysMsg: TMessage);// message WM_SYSCOMMAND;
-    procedure WMNID(var msg:TMessage);// message WM_NID;
-
+                                                                                           
     function f_GetConnectionErrorDate: Boolean;
     function f_ContinueRecDate: Boolean;
     function f_GetGGCXDate(_date: TDateTime): Boolean;
@@ -165,13 +165,18 @@ type
     function IsPosCpbh(Node: IXMLNode;SubStr: string): Boolean;    //产品编号是否包含 SubStr;
 
     procedure AppException(Sender: TObject; E: Exception);
-    procedure AppMinimize( Sender: TObject );
+
+    procedure AppMinimize( Sender: TObject );  //改写最小化(暂不用)
+    procedure SysCommand(var SysMsg: TMessage);// message WM_SYSCOMMAND;
+    procedure WMNID(var msg:TMessage);// message WM_NID;
 
     procedure  DownLoadPic(sUrl: string);    //下载图稿
 //    function CustomThread(p: Pointer): Integer; stdcall;
 //    function SellThread(p: Pointer): Integer; stdcall;
     procedure DelFileList(_Path: string;_Size: Int64);   //超过大小按日期顺序删除文件
   public
+    FUrl: string;
+    FPicPath: string;                    //自动下载图稿路径
     procedure WriteWorkLog(LogType,LogData: string);       //日志
 
 
@@ -182,13 +187,11 @@ type
 var
   Frm_OrderRec: TFrm_OrderRec;
   hTCustom,hTSell: THandle;
-  vUrl: string;
   vTime,vSJRQ: TDateTime;
   vRecCount: Integer=0;
   vIsFileDel: Integer=0;               //是否下载的XML导入后删除(0:否,1:是)
   vIsContinue: Integer=0;              //程序刚运行是否重新检查未接收订单并接收(0:否,1:是)
   vIsDownLoadPic: Integer=0;           //是否自动下载图稿(0:否,1:是)
-  vPicPath: string;                    //自动下载图稿路径
 
 implementation
 
@@ -199,7 +202,7 @@ uses
 
 {$R *.dfm}
 const
-  TitleName = '订单接收 v1.6 ';
+  TitleName = '订单接收 v1.7 ';
   c_Reg_Program = 'SOFTWARE\YDPrint\OrderRec\';
 
 function CustomThread(p: Pointer): Integer;
@@ -215,7 +218,7 @@ var
 begin
   while 1=1 do
   begin
-    obj := GetPostServicePortType(true, vUrl, nil);
+    obj := GetPostServicePortType(true, Frm_OrderRec.FUrl, nil);
     if obj = nil then exit;
     try
       data := obj.getOrderID(UserID, userpwd, 0, 0, '');
@@ -297,7 +300,7 @@ begin
   while 1=1 do
   begin
     try
-      obj := GetPostServicePortType(true, vUrl, nil);
+      obj := GetPostServicePortType(true, Frm_OrderRec.FUrl, nil);
       if obj = nil then exit;
       data := obj.getOrderID(UserID, userpwd, 1, 0, '');
     except
@@ -423,6 +426,7 @@ begin
           Memo1.Lines.Add(Data[i][2]);
           iYH := 1;
 lab_loop:
+          Application.ProcessMessages;
           if (Data[i][2] = '0') or (Data[i][2] = '3')  then
             s := obj.getOrderD(UserID, UserPwd, Data[i][0], iYH)
           //else if sType = 1 then
@@ -1166,7 +1170,7 @@ var
 begin
   Application.OnException := AppException;
 
-  Application.OnMinimize := AppMinimize;
+  //Application.OnMinimize := AppMinimize;
 
   MyReg := TRegistry.Create;
   MyReg.RootKey := HKEY_LOCAL_MACHINE;
@@ -1200,23 +1204,23 @@ begin
    str := 'Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=YDPrint;Data Source=.';
 //  str := str + ini.ReadString('Set','ServicesIP','.');
   ADOConnection1.ConnectionString := str+InstanceName;
-  vUrl := ini.ReadString('WebServices','Url','');
+  FUrl := ini.ReadString('WebServices','Url','');
   vIsFileDel := StrToNum(ini.ReadString('Set','IsFileDel','0'));
   vIsContinue := StrToNum(ini.ReadString('Set','IsContinue','0'));
   vIsDownLoadPic := StrToNum(ini.ReadString('Set','IsDownLoadPic','0'));
   if vIsDownLoadPic = 1 then
   begin
-    vPicPath  := ini.ReadString('Set','PicPath','');
-    if vPicPath = '' then
+    FPicPath  := ini.ReadString('Set','PicPath','');
+    if FPicPath = '' then
     begin
       Frm_PicPathDlg := TFrm_PicPathDlg.Create(Self);
       Frm_PicPathDlg.edt_Path.Text := ExtractFilePath(Application.ExeName)+'Pic\';
       Frm_PicPathDlg.dlgSave_Pic.FileName := ExtractFilePath(Application.ExeName);
       if Frm_PicPathDlg.ShowModal = mrOk then
       begin
-        vPicPath := Trim(Frm_PicPathDlg.edt_Path.Text);
-        if vPicPath <> '' then
-          ini.WriteString('Set','PicPath',vPicPath)
+        FPicPath := Trim(Frm_PicPathDlg.edt_Path.Text);
+        if FPicPath <> '' then
+          ini.WriteString('Set','PicPath',FPicPath)
         else
         begin
           vIsDownLoadPic := 0;
@@ -1224,17 +1228,17 @@ begin
       end;
       Frm_PicPathDlg.Free;
     end else
-    if vPicPath <> '' then
+    if FPicPath <> '' then
     begin
-      if PathIsRelative(PAnsiChar(vPicPath)) then
+      if PathIsRelative(PAnsiChar(FPicPath)) then
       begin
-        if StrLeft(vPicPath,1) <> '\' then
-          vPicPath := vPicPath + '\';
-        vPicPath := ExtractFilePath(Application.ExeName) + vPicPath;
+        if StrLeft(FPicPath,1) <> '\' then
+          FPicPath := FPicPath + '\';
+        FPicPath := ExtractFilePath(Application.ExeName) + FPicPath;
       end;
-      if (StrRight(vPicPath,1)<>'\') then
-        vPicPath := vPicPath + '\';
-      if not ForceDirectories(vPicPath) then
+      if (StrRight(FPicPath,1)<>'\') then
+        FPicPath := FPicPath + '\';
+      if not ForceDirectories(FPicPath) then
       begin
         Application.MessageBox('图稿下载路径创建失败', '提示', MB_OK +
           MB_ICONINFORMATION + MB_TOPMOST);
@@ -1271,7 +1275,7 @@ var
 begin
   try
     tmr_CustomRec.Enabled := False;
-    obj := GetPostServicePortType(true, vUrl, nil);
+    obj := GetPostServicePortType(true, FUrl, nil);
     if obj = nil then exit;
     try
       data := obj.getOrderID(UserID, userpwd, 0, 0, '');
@@ -1430,7 +1434,7 @@ var
 begin
   try
     tmr_SellRec.Enabled := False;
-    obj := GetPostServicePortType(true, vUrl, nil);
+    obj := GetPostServicePortType(true, FUrl, nil);
     if obj = nil then exit;
     try
       data := obj.getOrderID(UserID, userpwd, 1, 0, '');
@@ -1918,7 +1922,7 @@ begin
     ADO_Rec.Open;
     if ADO_Rec.RecordCount > 0 then
     begin
-      obj := GetPostServicePortType(true, vUrl, nil);
+      obj := GetPostServicePortType(true, FUrl, nil);
       if obj = nil then exit;
     end;
     while not ADO_Rec.Eof do
@@ -1982,7 +1986,7 @@ var
 begin
   try
 //    tmr_CustomRec.Enabled := False;
-    obj := GetPostServicePortType(true, vUrl, nil);
+    obj := GetPostServicePortType(true, Frm_OrderRec.FUrl, nil);
     if obj = nil then exit;
     try
       data := obj.getOrderID(UserID, userpwd, 0, 0, '');
@@ -2092,6 +2096,7 @@ end;
 procedure TMyDownLoad.Execute;
 begin
   inherited;
+  //FrmOrderRec := TFrm_OrderRec.Create(Self);
   DownCustomOrder;
   Sleep(5000);
   DownSellOrder;
@@ -2479,8 +2484,8 @@ begin
   //每天晚上23点删除不用的图稿
   if (HourOf(Now) = 23) and (DayOf(Now) > DayOf(vdSrartTime)) then
   begin
-    if vPicPath <> '' then
-      DelFileList(vPicPath,1024*1024*1024);
+    if FPicPath <> '' then
+      DelFileList(FPicPath,1024*1024*1024);
   end;
   //每天早上7点接收前一天的订单
   if (HourOf(Now) = 7) and (DayOf(Now) > DayOf(vdSrartTime)) then
@@ -2490,7 +2495,7 @@ begin
       btn_Rec.Click;
     try
       obj := nil;
-      obj := GetPostServicePortType(true, vUrl, nil);
+      obj := GetPostServicePortType(true, FUrl, nil);
       if obj = nil then exit;
 
       for t := 0 to 1 do
@@ -2640,7 +2645,7 @@ begin
     ADO_Rec := OpenQuery(sSqlData,[]);
     if Assigned(ADO_Rec) and (ADO_Rec.RecordCount >0) then
     begin
-      obj := GetPostServicePortType(true, vUrl, nil);
+      obj := GetPostServicePortType(true, FUrl, nil);
       if obj = nil then exit;
       while not ADO_Rec.Eof do
       begin
@@ -3194,7 +3199,7 @@ var
   ms: TMemoryStream;
 begin
     obj := nil;
-    obj := GetPostServicePortType(true, vUrl, nil);
+    obj := GetPostServicePortType(true, FUrl, nil);
     if obj = nil then exit;
 
     for k := 0 to 1 do
@@ -3407,7 +3412,7 @@ begin
       btn_Rec.Click;
     try
       obj := nil;
-      obj := GetPostServicePortType(true, vUrl, nil);
+      obj := GetPostServicePortType(true, FUrl, nil);
       if obj = nil then exit;
 
       for t := 0 to 1 do
@@ -3593,7 +3598,7 @@ begin
       btn_Rec.Click;
     try
       obj := nil;
-      obj := GetPostServicePortType(true, vUrl, nil);
+      obj := GetPostServicePortType(true, FUrl, nil);
       if obj = nil then exit;
 
       for t := 0 to 1 do
@@ -3732,7 +3737,7 @@ begin
   Result := False;
 
   obj := nil;
-  obj := GetPostServicePortType(true, vUrl, nil);
+  obj := GetPostServicePortType(true, FUrl, nil);
   if obj = nil then exit;
 
   for k := 0 to 1 do
@@ -3802,23 +3807,31 @@ procedure TDownLoadPic.DownLoadPic;
 var
   idhtp_pic:TIdHTTP;
   ms: TMemoryStream;
-  sPicPath,sFileName: string;
+  sPicPath,sFullPicPath,sFileName: string;
 begin
   try
     ms := TMemoryStream.Create;
     idhtp_pic := TIdHTTP.Create(nil);
-    sPicPath := vUrl;
+    sPicPath := FPicUrl;
     if sPicPath = '' then
     begin
       Frm_OrderRec.WriteWorkLog('图稿下载失败','图稿下载地址为空!');
       Exit;
     end;
-    sFileName :=  StrReplace(sPicPath,'/','\');
-    ms.Clear;
-    idhtp_pic.Get(c_PicUrl+sPicPath,ms);
-    if ForceDirectories(ExtractFilePath(vPicPath + sFileName)) then
+    if UpperCase(StrLeft(sPicPath,4)) = 'HTTP' then
     begin
-      ms.SaveToFile(vPicPath+sFileName);
+      sFullPicPath := sPicPath;
+      sFileName :=  StrReplace(Copy(sPicPath,8,Length(sPicPath)),'/','\');
+    end else
+    begin
+      sFullPicPath := c_PicUrl+sPicPath;
+      sFileName :=  StrReplace(sPicPath,'/','\');
+    end;
+    ms.Clear;
+    idhtp_pic.Get(sFullPicPath,ms);
+    if ForceDirectories(ExtractFilePath(Frm_OrderRec.FPicPath + sFileName)) then
+    begin
+      ms.SaveToFile(Frm_OrderRec.FPicPath+sFileName);
       Frm_OrderRec.WriteWorkLog('图稿下载成功','保存在'+sFileName);
     end;
   finally
@@ -3842,7 +3855,7 @@ procedure TFrm_OrderRec.DownLoadPic(sUrl: string);
 begin
   with TDownLoadPic.Create(True) do
   begin
-    vUrl := sUrl;
+    FPicUrl := sUrl;
     Resume;
   end;
 end;
