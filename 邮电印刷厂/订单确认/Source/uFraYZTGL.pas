@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms, 
   Dialogs, Grids, iGrid, RzButton, StdCtrls, ButtonEdit, RzCmboBx,
-  iComboBox, ExtCtrls, RzPanel,ADODB;
+  iComboBox, ExtCtrls, RzPanel,ADODB,uBaseForm;
 
 const
   c_cplb = 0;    //产品类别
@@ -13,11 +13,12 @@ const
   c_nf = 2;      //年份
   c_cplx = 3;    //产品类型
   c_yztmc = 4;   //邮资图名称
-  c_FHGL_MZ = 5;      //面值
-  c_F_iID = 6;    //Set_ProductCategory表ID
+  c_PPGZ = 5;    //匹配规则
+  c_FHGL_MZ = 6;      //面值
+  c_F_iID = 7;    //Set_ProductCategory表ID
 
 type
-  TFra_yztgl = class(TFrame)
+  TFra_yztgl = class(TFrmFrame)
     RzGroupBox1: TRzGroupBox;
     stg_yztxx: Ti_StgEdit;
     RzGroupBox2: TRzGroupBox;
@@ -30,6 +31,8 @@ type
     cbb_nf: Ti_TxtFilter;
     cbb_xh: Ti_TxtFilter;
     cbb_cplx: Ti_ComboBox;
+    edt_PPGZ: Ti_TxtFilter;
+    Label1: TLabel;
     procedure stg_yztxxSelectCell(Sender: TObject; ACol, ARow: Integer;
       var CanSelect: Boolean);
     procedure btn_ModifyClick(Sender: TObject);
@@ -42,15 +45,17 @@ type
     { Private declarations }
     stgSeletedID: Integer;
     function GetBlankData: string;
+    function IsCheck: Boolean;
+    procedure ReadDataYZTXX;
   public
     { Public declarations }
-    procedure ReadDataYZTXX;
+    procedure FraShow;
   end;
 
 implementation
 
 uses
-  uDM_DataBase,PubStr,uPub_Type,uPub_Func;
+  uDM_DataBase,PubStr,uPub_Type,uPub_Func,uPub_Text;
 
 {$R *.dfm}
 
@@ -82,6 +87,7 @@ begin
         stg_yztxx.cells[c_nf,n] := FieldByName('F_sNf').AsString;
         stg_yztxx.cells[c_cplx,n] := FieldByName('F_sCPLX').AsString;
         stg_yztxx.cells[c_yztmc,n] := FieldByName('F_sYZTMC').AsString ;
+        stg_yztxx.cells[c_PPGZ,n] := FieldByName('F_sPPGZ').AsString ;
         stg_yztxx.cells[c_FHGL_MZ,n] := FieldByName('F_sMz').AsString ;
         stg_yztxx.Cells[c_F_iID,n] := FieldByName('F_iID').AsString;
         inc(n);
@@ -107,6 +113,7 @@ begin
   CbbAdd(cbb_cplx,pkProductType,iProductCategoryID);
   cbb_cplx.ItemIndex := cbb_cplx.IndexOf(stg_yztxx.cells[c_cplx ,ARow]);
   cbb_yztmc.Text := stg_yztxx.cells[c_yztmc ,ARow];
+  edt_PPGZ.Text := stg_yztxx.cells[c_PPGZ ,ARow];
   cbb_mz.Text := stg_yztxx.cells[c_FHGL_MZ ,ARow];
   stgSeletedID := StrToNum(stg_yztxx.cells[c_F_iID ,ARow]);
 end;
@@ -130,16 +137,18 @@ begin
     Application.MessageBox(PChar(str),'提示',MB_ICONINFORMATION);
     Exit;
   end;
+  if not IsCheck then Exit;
   try
     try
       sSqlData := 'Select b.F_sClassName,a.F_sCPLX from Set_PostageType a,Set_ProductCategory b '
-        +' where a.F_iProductCategoryID=b.F_iID and a.F_sYZTMC=''%s'' and a.F_sNF=''%s'' and b.F_sClassName=''%s'' and a.F_iID <> %d ';
-      ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[cbb_yztmc.Text,cbb_nf.Text,cbb_cplb.Text,stgSeletedID],True);
+        +' where a.F_iProductCategoryID=b.F_iID and a.F_sYZTMC=''%s'' and a.F_sNF=''%s'' and b.F_sClassName=''%s'' and IsNull(a.F_sPPGZ,'''')=''%s'' '
+        +' and a.F_iID <> %d ';
+      ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[cbb_yztmc.Text,cbb_nf.Text,cbb_cplb.Text,edt_PPGZ.Text,stgSeletedID],True);
       if ADO_Rec.RecordCount > 0 then
       begin
         sClassName := ADO_Rec.FieldByName('F_sClassName').AsString;
         sCPLX := ADO_Rec.FieldByName('F_sCPLX').AsString;
-        str := '此邮资图已存在。'+'产品类别：'+sClassName+'; 产品类型：'+sCPLX+'！';
+        str := '此相同匹配规则的邮资图已存在。'+'产品类别：'+sClassName+'; 产品类型：'+sCPLX+'！';
         p_MessageBoxDlg(str);
         Exit;
       end;
@@ -155,6 +164,7 @@ begin
         FieldByName('F_sCPLX').AsString := cbb_cplx.Text;
         FieldByName('F_sYZTMC').AsString := cbb_yztmc.Text;
         FieldByName('F_sMz').AsString := cbb_mz.Text;
+        FieldByName('F_sPPGZ').AsString := edt_PPGZ.Text;
         iProductCategoryID := FindProductCategoryID(cbb_cplb.ItemIndex);
         FieldByName('F_iProductCategoryID').AsInteger := iProductCategoryID;
         Post;
@@ -188,18 +198,19 @@ begin
     Application.MessageBox(PChar(str),'提示',MB_ICONINFORMATION);
     Exit;
   end;
+  if not IsCheck then Exit;
   try
     try
       //暂不限制邮资图重复添加
       sSqlData := 'Select b.F_sClassName,a.F_sCPLX,a.F_sNF from Set_PostageType a,Set_ProductCategory b '
-        + ' where a.F_iProductCategoryID=b.F_iID and a.F_sYZTMC=''%s'' and a.F_sNF=''%s'' and b.F_sClassName=''%s'' ';
-      ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[cbb_yztmc.Text,cbb_nf.Text,cbb_cplb.Text],True);
+        + ' where a.F_iProductCategoryID=b.F_iID and a.F_sYZTMC=''%s'' and a.F_sNF=''%s'' and b.F_sClassName=''%s'' and IsNull(a.F_sPPGZ,'''')=''%s''';
+      ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[cbb_yztmc.Text,cbb_nf.Text,cbb_cplb.Text,edt_PPGZ.Text],True);
       if ADO_Rec.RecordCount > 0 then
       begin
         sClassName := ADO_Rec.FieldByName('F_sClassName').AsString;
         sCPLX := ADO_Rec.FieldByName('F_sCPLX').AsString;
         sNF := ADO_Rec.FieldByName('F_sNF').AsString;
-        str := '此邮资图已存在。'+'年份：'+sNF+'; 产品类别：'+sClassName+'; 产品类型：'+sCPLX+'！';
+        str := '此相同匹配规则的邮资图已存在。'+'年份：'+sNF+'; 产品类别：'+sClassName+'; 产品类型：'+sCPLX+'！';
         p_MessageBoxDlg(str);
         Exit;
       end;
@@ -215,6 +226,7 @@ begin
         FieldByName('F_iProductTypeID').AsInteger := iProductTypeID;
         FieldByName('F_sCPLX').AsString := cbb_cplx.Text;
         FieldByName('F_sYZTMC').AsString := cbb_yztmc.Text;
+        FieldByName('F_sPPGZ').AsString := edt_PPGZ.Text;
         FieldByName('F_sMz').AsString := cbb_mz.Text;
         iProductCategoryID := FindProductCategoryID(cbb_cplb.ItemIndex);
         FieldByName('F_iProductCategoryID').AsInteger := iProductCategoryID;
@@ -314,6 +326,47 @@ begin
     Result := Copy(Result,2,Length(Result))+'不能为空!';
 end;
 
+
+function TFra_yztgl.IsCheck: Boolean;
+var
+  iLen: integer;
+begin
+  Result := False;
+  iLen := Length(edt_PPGZ.Text);
+  if (iLen>0) and (iLen<>17) then
+  begin
+    p_MessageBoxDlg('请输入产品编号前17位!');
+    edt_PPGZ.SetFocus;
+    Exit;
+  end else
+  if iLen = 17 then
+  begin
+    if not (((Copy(edt_PPGZ.Text,3,1)='-') or (Copy(edt_PPGZ.Text,3,1)='*'))
+      and ((Copy(edt_PPGZ.Text,10,1)='-') or (Copy(edt_PPGZ.Text,10,1)='*'))
+      and ((Copy(edt_PPGZ.Text,13,1)='-') or (Copy(edt_PPGZ.Text,13,1)='*'))) then
+    begin
+      p_MessageBoxDlg('匹配规则输入有误!');
+      edt_PPGZ.SetFocus;
+      Exit;
+    end;
+  end;
+  Result := True;
+end;
+
+procedure TFra_yztgl.FraShow;
+var
+  sCplb,sCplx: string;
+begin
+  ReadDataYZTXX;
+  sCplb := cbb_cplb.Text;
+  cbb_cplb.Clear;
+  CbbAdd(cbb_cplb,pkProductCategory);
+  cbb_cplb.ItemIndex := cbb_cplb.IndexOf(sCplb);
+  sCplx := cbb_cplx.Text;
+  cbb_cplbChange(cbb_cplb);
+  cbb_cplx.ItemIndex := cbb_cplx.IndexOf(sCplx);
+
+end;
 
 end.
 

@@ -428,30 +428,6 @@ object Frm_Main: TFrm_Main
       Width = 128
     end
   end
-  inline Fra_yztgl1: TFra_yztgl
-    Left = 232
-    Top = 296
-    Width = 145
-    Height = 129
-    Font.Charset = GB2312_CHARSET
-    Font.Color = clWindowText
-    Font.Height = -12
-    Font.Name = #26032#23435#20307
-    Font.Style = []
-    ParentFont = False
-    TabOrder = 4
-    inherited RzGroupBox1: TRzGroupBox
-      Width = 145
-      Height = 4
-      inherited stg_yztxx: Ti_StgEdit
-        Width = 143
-      end
-    end
-    inherited RzGroupBox2: TRzGroupBox
-      Top = 4
-      Width = 145
-    end
-  end
   inline Fra_DDJY_CX1: TFra_DDJY_CX
     Left = 480
     Top = 0
@@ -463,7 +439,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 5
+    TabOrder = 4
     inherited gb_dd: TRzGroupBox
       Width = 88
       Height = 0
@@ -526,7 +502,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 6
+    TabOrder = 5
     inherited pan_Modify: TRzPanel
       Left = -146
     end
@@ -542,7 +518,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 7
+    TabOrder = 6
     inherited RzGroupBox1: TRzGroupBox
       Width = 72
       Height = 0
@@ -567,7 +543,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 8
+    TabOrder = 7
     inherited RzGroupBox1: TRzGroupBox
       Width = 72
       Height = 0
@@ -591,7 +567,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 9
+    TabOrder = 8
     inherited RzGroupBox1: TRzGroupBox
       Width = 97
     end
@@ -616,7 +592,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 10
+    TabOrder = 9
     inherited GroupBox1: TGroupBox
       Width = 64
       Height = 0
@@ -642,7 +618,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 11
+    TabOrder = 10
     inherited RzGroupBox1: TRzGroupBox
       Width = 88
       Height = 0
@@ -667,7 +643,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 12
+    TabOrder = 11
     inherited RzGroupBox1: TRzGroupBox
       Width = 105
     end
@@ -775,7 +751,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 13
+    TabOrder = 12
     inherited RzGroupBox1: TRzGroupBox
       Width = 112
     end
@@ -854,7 +830,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 14
+    TabOrder = 13
     inherited RzGroupBox1: TRzGroupBox
       Width = 113
     end
@@ -889,7 +865,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 15
+    TabOrder = 14
     inherited RzGroupBox1: TRzGroupBox
       Width = 105
     end
@@ -1420,7 +1396,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 16
+    TabOrder = 15
     inherited Splitter2: TSplitter
       Top = 121
       Width = 64
@@ -1497,7 +1473,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 17
+    TabOrder = 16
     inherited Splitter2: TSplitter
       Top = 81
       Width = 72
@@ -1577,7 +1553,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 18
+    TabOrder = 17
     inherited RzGroupBox1: TRzGroupBox
       Width = 73
     end
@@ -1781,7 +1757,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 19
+    TabOrder = 18
     inherited RzGroupBox1: TRzGroupBox
       Width = 72
       Height = 0
@@ -1812,7 +1788,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 20
+    TabOrder = 19
     inherited RzGroupBox1: TRzGroupBox
       Width = 81
     end
@@ -2067,7 +2043,7 @@ object Frm_Main: TFrm_Main
     Height = 111
     Align = alBottom
     TabIndex = 0
-    TabOrder = 21
+    TabOrder = 20
     Tabs = <
       item
         Caption = #20844#21578
@@ -2134,7 +2110,7 @@ object Frm_Main: TFrm_Main
     Width = 974
     Height = 35
     Align = alBottom
-    TabOrder = 22
+    TabOrder = 21
     Visible = False
     object lab_bulletin: TLabel
       Left = 73
@@ -2169,7 +2145,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 23
+    TabOrder = 22
     inherited RzGroupBox1: TRzGroupBox
       Width = 72
     end
@@ -2247,7 +2223,7 @@ object Frm_Main: TFrm_Main
     Font.Name = #26032#23435#20307
     Font.Style = []
     ParentFont = False
-    TabOrder = 24
+    TabOrder = 23
     inherited RzGroupBox1: TRzGroupBox
       Width = 80
     end

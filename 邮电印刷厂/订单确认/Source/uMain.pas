@@ -14,7 +14,8 @@ uses
   uFra_CPLB_GL, uFra_XHQD, uMachineManage, uFra_MatlManage,
   uFra_Pwd_Modify, uFra_DDJY_CX,  uFra_XQCX, uFra_YSMDDY,
   XPStyleActnCtrls, ActnMan, ActnList, msxmldom,uFra_WYNJQD,uFrm_TSGYGL,
-  uFrm_BulletinBoard,uFra_WarehEntryBarCode,uFra_DataArchiving, Menus,uBaseForm;
+  uFrm_BulletinBoard,uFra_WarehEntryBarCode,uFra_DataArchiving, Menus,uBaseForm,
+  iGrid;
 
 
 type
@@ -39,7 +40,6 @@ type
     rg_SysManage: TRzGroup;
     Fra_WorkerManage1: TFra_WorkerManage;
     Fra_cplx_gl1: TFra_cplx_gl;
-    Fra_yztgl1: TFra_yztgl;
     Fra_DDJY_CX1: TFra_DDJY_CX;
     Fra_Pwd_Modify1: TFra_Pwd_Modify;
     Fra_MatlManage1: TFra_MatlManage;
@@ -131,7 +131,6 @@ type
     procedure rg_sys_ddglItems1Click(Sender: TObject);
     procedure rg_sys_ddglItems2Click(Sender: TObject);
     procedure rg_SysManageItems3Click(Sender: TObject);
-    procedure Fra_yztgl1btn_AddClick(Sender: TObject);
     procedure rg_yhglItems1Click(Sender: TObject);
     procedure rg_sys_ddglItems3Click(Sender: TObject);
     procedure rg_sys_ddglItems0Click(Sender: TObject);
@@ -180,6 +179,7 @@ type
     Fra_DDLR1: TFra_DDLR;
     Fra_DataArchiving1: TFra_DataArchiving;
     Fra_UserAdd1: TFra_UserAdd;
+    Fra_yztgl1: TFra_yztgl;
     procedure FraHide(Sender: TObject);
     procedure MenuHide;
     procedure InitFra(Sender: TObject);
@@ -373,7 +373,6 @@ begin
   //Fra_UserAdd1.DoubleBuffered := True;
   Fra_scgl1.DoubleBuffered := True;
   Fra_WorkerManage1.DoubleBuffered := True;
-  Fra_yztgl1.DoubleBuffered := True;
 
   for i := 0 to Self.ComponentCount -1 do
   begin
@@ -603,14 +602,14 @@ procedure TFrm_Main.rg_SysManageItems2Click(Sender: TObject);
 begin
   Caption := c_TitleName +'--邮资图管理';
   FraHide(Sender);
-  Fra_yztgl1.Align := alclient;
-  Fra_yztgl1.ReadDataYZTXX;
-  Fra_yztgl1.cbb_cplb.Clear;
-  CbbAdd(Fra_yztgl1.cbb_cplb,pkProductCategory);
-  Fra_yztgl1.cbb_cplx.Clear;
-  Fra_yztgl1.cbb_cplb.ItemIndex := iif(c_Default_CPLB=0,0,c_Default_CPLB-1);       //默认选择邮政贺卡
-  CbbAdd(Fra_yztgl1.cbb_cplx,pkProductType,ProductCategory[1].m_iID);
-  Fra_yztgl1.Visible := True;
+//  Fra_yztgl1.Align := alclient;
+//  Fra_yztgl1.ReadDataYZTXX;
+//  Fra_yztgl1.cbb_cplb.Clear;
+//  CbbAdd(Fra_yztgl1.cbb_cplb,pkProductCategory);
+//  Fra_yztgl1.cbb_cplx.Clear;
+//  Fra_yztgl1.cbb_cplb.ItemIndex := iif(c_Default_CPLB=0,0,c_Default_CPLB-1);       //默认选择邮政贺卡
+//  CbbAdd(Fra_yztgl1.cbb_cplx,pkProductType,ProductCategory[1].m_iID);
+//  Fra_yztgl1.Visible := True;
 end;
 
 procedure TFrm_Main.rg_sys_ddglItems4Click(Sender: TObject);
@@ -779,12 +778,6 @@ begin
   CbbAdd(Fra_cplx_gl1.cbb_cplb,pkProductCategory);
   Fra_cplx_gl1.cbb_cplb.ItemIndex := iif(c_Default_CPLB=0,0,c_Default_CPLB-1);;       //默认选择邮政贺卡
   Fra_cplx_gl1.Visible := True;
-
-end;
-
-procedure TFrm_Main.Fra_yztgl1btn_AddClick(Sender: TObject);
-begin
-  Fra_yztgl1.btn_AddClick(Sender);
 
 end;
 
@@ -1261,11 +1254,24 @@ begin
       Fra_UserAdd1 := TFra_UserAdd.Create(Self);
       Fra_UserAdd1.Hide;
       Fra_UserAdd1.Parent := Self;
+      Fra_UserAdd1.stg_UserList.p_SetColSortType(0,c_SetColSortType_Str );
+      Fra_UserAdd1.stg_UserList.p_SetColSortType(1,c_SetColSortType_Str );
+      Fra_UserAdd1.stg_UserList.p_SetColSortType(2,c_SetColSortType_Str );
     end;
     Fra_UserAdd1.Align := alClient;
     Fra_UserAdd1.FraShow;
     Fra_UserAdd1.Visible := True;
     Application.ProcessMessages;
+  end else
+  if sCaption = '邮资图管理' then
+  begin
+    if not Assigned(Fra_yztgl1) then
+    begin
+      Fra_yztgl1 := TFra_yztgl.Create(Self);
+      Fra_yztgl1.cbb_cplb.ItemIndex := iif(c_Default_CPLB=0,0,c_Default_CPLB-1);       //默认选择邮政贺卡
+    end;
+    Fra_yztgl1.FraShow;
+    Fra_yztgl1.Visible := True;
   end;
 
 

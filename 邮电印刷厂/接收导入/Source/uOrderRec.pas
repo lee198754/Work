@@ -174,6 +174,8 @@ type
 //    function CustomThread(p: Pointer): Integer; stdcall;
 //    function SellThread(p: Pointer): Integer; stdcall;
     procedure DelFileList(_Path: string;_Size: Int64);   //超过大小按日期顺序删除文件
+
+    function IsGZPP(AsCPBH,AsPPGZ: string): Boolean;  //规则匹配是否成功
   public
     FUrl: string;
     FPicPath: string;                    //自动下载图稿路径
@@ -1686,7 +1688,7 @@ const
   c_PT=0;      //普通
   c_NJ=1;      //内件
 var
-  ADO_Rec, ADO_Type: TADOQuery;
+  ADO_Rec, ADO_Type,ADO_NJBZ: TADOQuery;
   sYztmc, sCpbh,sFjCpbh, sNJCPBH, sYl: string;
   i, iFJNJBZ, iFJBZ, iGjs,iDfbbz: Integer;
   sSqlData: string;
@@ -1729,7 +1731,17 @@ begin
           if StrRight(sCpbh,4)<>'-999' then iGjs := 1;
           sSqlData := Format('Select a.F_tiDfbbz from BI_CustomOrder a,BI_CustomOrderDetails b where a.F_iID=b.F_iCustomID and b.F_iID=%d',[iDetailsID]);
           iDfbbz := GetMaxID(sSqlData);
-          sSqlData := 'Select IsNull(Max(b.F_tiFJNJBZ),0) F_tiFJNJBZ from Set_PostageType a,Set_ProductType b where a.F_iProductTypeID = b.F_iID and a.F_sYZTMC='''+sYztmc+''' ';
+          sSqlData := 'Select IsNull(Max(b.F_tiFJNJBZ),0) F_tiFJNJBZ,a.F_sPPGZ from Set_PostageType a,Set_ProductType b where a.F_iProductTypeID = b.F_iID and a.F_sYZTMC='''+sYztmc+''' GROUP BY a.F_sPPGZ ';
+          ADO_NJBZ := OpenQuery(sSqlData,[]);
+          iFJNJBZ := 0;
+          if not Assigned(ADO_NJBZ) then Exit;
+          if (ADO_NJBZ.RecordCount > 0 ) then
+          begin
+            if IsGZPP(sCpbh,ADO_NJBZ.FieldByName('F_sPPGZ').AsString) then
+            begin
+              iFJNJBZ := ADO_NJBZ.FieldByName('F_tiFJNJBZ').AsInteger;
+            end;
+          end;
           iFJNJBZ := GetMaxID(sSqlData);
           for i := 0 to iGjs -1 do
           begin
@@ -4019,6 +4031,25 @@ begin
   SysMsg.Result := 0;
   SysCommand(SysMsg);
 
+end;
+
+function TFrm_OrderRec.IsGZPP(AsCPBH, AsPPGZ: string): Boolean;
+var
+  i: Integer;
+begin
+  Result := True;
+  if AsPPGZ = '' then Exit;
+  for i := 1 to Length(AsPPGZ) do
+  begin
+    if Copy(AsPPGZ,i,1) <> '*' then
+    begin
+      if Copy(AsCPBH,i,1) <> Copy(AsPPGZ,i,1) then
+      begin
+        Result := False;
+        Break;
+      end;
+    end;
+  end;
 end;
 
 end.

@@ -1302,12 +1302,13 @@ begin
 
   FraHide(Sender);
   Fra_yztgl1.Align := alclient;
-  Fra_yztgl1.ReadDataYZTXX;
-  Fra_yztgl1.cbb_cplb.Clear;
-  CbbAdd(Fra_yztgl1.cbb_cplb,pkProductCategory);
-  Fra_yztgl1.cbb_cplx.Clear;
-  Fra_yztgl1.cbb_cplb.ItemIndex := iif(c_Default_CPLB=0,0,c_Default_CPLB-1);       //默认选择邮政贺卡
-  CbbAdd(Fra_yztgl1.cbb_cplx,pkProductType,ProductCategory[1].m_iID);
+  Fra_yztgl1.FraShow;
+//  Fra_yztgl1.ReadDataYZTXX;
+//  Fra_yztgl1.cbb_cplb.Clear;
+//  CbbAdd(Fra_yztgl1.cbb_cplb,pkProductCategory);
+//  Fra_yztgl1.cbb_cplx.Clear;
+//  Fra_yztgl1.cbb_cplb.ItemIndex := iif(c_Default_CPLB=0,0,c_Default_CPLB-1);       //默认选择邮政贺卡
+//  CbbAdd(Fra_yztgl1.cbb_cplx,pkProductType,ProductCategory[1].m_iID);
   Fra_yztgl1.Visible := True;
 end;
 

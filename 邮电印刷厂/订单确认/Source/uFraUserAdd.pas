@@ -258,11 +258,7 @@ end;
 procedure TFra_UserAdd.FraShow;
 var
   i: Integer;
-begin
-  stg_UserList.p_SetColSortType(0,c_SetColSortType_Str );
-  stg_UserList.p_SetColSortType(1,c_SetColSortType_Str );
-  stg_UserList.p_SetColSortType(2,c_SetColSortType_Str );
-
+begin                               
   cbb_Type.Clear;
   cbb_Type.Add('--«Î—°‘Ò--');
   if LoginData.m_iUserType = c_Admin_Small then

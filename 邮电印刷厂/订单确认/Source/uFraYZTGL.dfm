@@ -1,30 +1,32 @@
 object Fra_yztgl: TFra_yztgl
-  Left = 0
-  Top = 0
+  Left = 468
+  Top = 94
   Width = 782
   Height = 530
+  Color = clBtnFace
   Font.Charset = GB2312_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = #26032#23435#20307
   Font.Style = []
-  ParentFont = False
-  TabOrder = 0
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 12
   object RzGroupBox1: TRzGroupBox
     Left = 0
     Top = 0
-    Width = 782
-    Height = 405
+    Width = 766
+    Height = 322
     Align = alClient
     Caption = #37038#36164#22270#20449#24687
     TabOrder = 0
     object stg_yztxx: Ti_StgEdit
       Left = 1
       Top = 13
-      Width = 780
-      Height = 391
+      Width = 764
+      Height = 308
       Align = alClient
-      ColCount = 7
+      ColCount = 8
       DefaultRowHeight = 20
       FixedCols = 0
       Font.Charset = DEFAULT_CHARSET
@@ -52,7 +54,7 @@ object Fra_yztgl: TFra_yztgl
       FixedFontName = #23435#20307
       FixedGridLineColor = clBlack
       GridLinesFixed = PGridInset
-      FormatString = #20135#21697#31867#21035'|'#24207#21495'|'#24180#20221'|'#20135#21697#31867#22411'|'#37038#36164#22270#21517#31216'|'#38754#20540
+      FormatString = #20135#21697#31867#21035'|'#24207#21495'|'#24180#20221'|'#20135#21697#31867#22411'|'#37038#36164#22270#21517#31216'|'#21305#37197#35268#21017'|'#38754#20540
       FixedWordBreak = False
       PermitCellSizing = False
       PermitExport = True
@@ -68,6 +70,7 @@ object Fra_yztgl: TFra_yztgl
         95
         85
         64
+        64
         64)
       RowHeights = (
         20
@@ -76,12 +79,25 @@ object Fra_yztgl: TFra_yztgl
   end
   object RzGroupBox2: TRzGroupBox
     Left = 0
-    Top = 405
-    Width = 782
-    Height = 125
+    Top = 322
+    Width = 766
+    Height = 170
     Align = alBottom
     Caption = #24405#20837
     TabOrder = 1
+    object Label1: TLabel
+      Left = 306
+      Top = 90
+      Width = 384
+      Height = 12
+      Caption = '('#27880':**-******-11-**** '#20135#21697#32534#21495#31532'3,10,13'#20301#20026'"-"'#31532'11~12'#20301#20026'"11"'#30340')'
+      Font.Charset = GB2312_CHARSET
+      Font.Color = clRed
+      Font.Height = -12
+      Font.Name = #26032#23435#20307
+      Font.Style = []
+      ParentFont = False
+    end
     object cbb_cplb: Ti_ComboBox
       Left = 72
       Top = 24
@@ -169,21 +185,21 @@ object Fra_yztgl: TFra_yztgl
     end
     object btn_Add: TRzButton
       Left = 48
-      Top = 88
+      Top = 128
       Caption = #28155#21152
       TabOrder = 6
       OnClick = btn_AddClick
     end
     object btn_Modify: TRzButton
       Left = 232
-      Top = 88
+      Top = 128
       Caption = #20462#25913
       TabOrder = 7
       OnClick = btn_ModifyClick
     end
     object btn_Del: TRzButton
       Left = 400
-      Top = 88
+      Top = 128
       Caption = #21024#38500
       TabOrder = 8
       OnClick = btn_DelClick
@@ -273,6 +289,40 @@ object Fra_yztgl: TFra_yztgl
       Style = csDropDownList
       ItemHeight = 12
       TabOrder = 3
+    end
+    object edt_PPGZ: Ti_TxtFilter
+      Left = 121
+      Top = 88
+      Width = 168
+      Height = 20
+      Alignment = taLeftJustify
+      WordWrap = False
+      WantReturns = False
+      WantTabs = False
+      ZeroToEmpty = False
+      EditLabel.Width = 108
+      EditLabel.Height = 12
+      EditLabel.Caption = #20135#21697#32534#21495#21305#37197#35268#21017#65306
+      EditLabel.Transparent = True
+      LabelCaption = #20135#21697#32534#21495#21305#37197#35268#21017#65306
+      LabelPosition = lpLeft
+      LabelSpacing = 3
+      TabEnter = True
+      TabOrder = 9
+      AllowNegative = True
+      BorderLine = False
+      BorderLineColor = clBlack
+      BorderLineGap = 0
+      ErrDialog = False
+      ErrLostFocus = False
+      FullEnter = True
+      LabelEnableFollow = True
+      LabelLeft = -1
+      LabelTransParent = True
+      LayOut = BIVCenter
+      Style = PNomal
+      ReadOnly_X = False
+      AllowEmpty_X = True
     end
   end
 end
