@@ -111,7 +111,7 @@ AutoIncBuild=0
 MajorVer=1
 MinorVer=7
 Release=0
-Build=6
+Build=8
 Debug=0
 PreRelease=0
 Special=0
@@ -122,7 +122,7 @@ CodePage=1252
 [Version Info Keys]
 CompanyName=XRUI Software, Inc.
 FileDescription=
-FileVersion=1.7.0.6
+FileVersion=1.7.0.8
 InternalName=
 LegalCopyright=
 LegalTrademarks=
@@ -130,7 +130,7 @@ OriginalFilename=
 ProductName=pOrderRec
 ProductVersion=1.7
 Comments=
-LastCompiledTime=2013/8/26 16:12:00
+LastCompiledTime=2013/8/27 16:50:46
 [Excluded Packages]
 d:\borland\delphi7\Bin\dclite70.bpl=Borland Integrated Translation Environment
 [HistoryLists\hlUnitAliases]

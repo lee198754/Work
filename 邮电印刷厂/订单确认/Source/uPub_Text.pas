@@ -4,7 +4,7 @@ interface
 
 const
   //c_TitleName = '印刷厂ERP系统贺卡子系统 V1.0 ';
-  c_TitleName = '邮电印刷厂 v3.0.11_12 ';
+  c_TitleName = '邮电印刷厂 v3.0.12 ';
 
 resourcestring
   c_Reg_Login_CookiePath     = 'SOFTWARE\YDPrint\Cookie\Frm_Login\';  {Frm_login}

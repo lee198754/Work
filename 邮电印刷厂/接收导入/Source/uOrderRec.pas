@@ -1731,15 +1731,20 @@ begin
           if StrRight(sCpbh,4)<>'-999' then iGjs := 1;
           sSqlData := Format('Select a.F_tiDfbbz from BI_CustomOrder a,BI_CustomOrderDetails b where a.F_iID=b.F_iCustomID and b.F_iID=%d',[iDetailsID]);
           iDfbbz := GetMaxID(sSqlData);
-          sSqlData := 'Select IsNull(Max(b.F_tiFJNJBZ),0) F_tiFJNJBZ,a.F_sPPGZ from Set_PostageType a,Set_ProductType b where a.F_iProductTypeID = b.F_iID and a.F_sYZTMC='''+sYztmc+''' GROUP BY a.F_sPPGZ ';
+          sSqlData := 'Select IsNull(Max(b.F_tiFJNJBZ),0) F_tiFJNJBZ,a.F_sPPGZ from Set_PostageType a,Set_ProductType b where a.F_iProductTypeID = b.F_iID and a.F_sYZTMC='''+sYztmc+''' GROUP BY a.F_sPPGZ,a.F_sNF ORDER BY a.F_sPPGZ  desc,a.F_sNF DESC ';
           ADO_NJBZ := OpenQuery(sSqlData,[]);
           iFJNJBZ := 0;
           if not Assigned(ADO_NJBZ) then Exit;
           if (ADO_NJBZ.RecordCount > 0 ) then
           begin
-            if IsGZPP(sCpbh,ADO_NJBZ.FieldByName('F_sPPGZ').AsString) then
+            while not ADO_NJBZ.Eof do
             begin
-              iFJNJBZ := ADO_NJBZ.FieldByName('F_tiFJNJBZ').AsInteger;
+              if IsGZPP(sCpbh,ADO_NJBZ.FieldByName('F_sPPGZ').AsString) then
+              begin
+                iFJNJBZ := ADO_NJBZ.FieldByName('F_tiFJNJBZ').AsInteger;
+                Break;
+              end;
+              ADO_NJBZ.Next;
             end;
           end;
           iFJNJBZ := GetMaxID(sSqlData);
