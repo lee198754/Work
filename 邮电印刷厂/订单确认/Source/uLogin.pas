@@ -117,29 +117,36 @@ begin
 
   try
     ADO_Rec := TADOQuery.Create(Self);
-    DM_DataBase.GetTableData(ADO_Rec,'BI_UserList','F_sName='''+Trim(edt_Name.Text)+''' and F_sPwd='''+StrMD5(Trim(edt_Pwd.Text))+'''');
+    DM_DataBase.GetTableData(ADO_Rec,'BI_UserList','F_sName='''+Trim(edt_Name.Text)+''' ');
     if ADO_Rec.RecordCount > 0 then
     begin
-      LoginData.m_iUserID := ADO_Rec.FieldByName('F_iID').AsInteger;
-      LoginData.m_sUserName := ADO_Rec.FieldByName('F_sName').AsString;
-      LoginData.m_iUserType := ADO_Rec.FieldByName('F_iType').AsInteger;
-      LoginData.m_sRealName := ADO_Rec.FieldByName('F_sRealName').AsString;
-      if ADO_Rec.FieldByName('F_iLicenseCode').IsNull then
-        LoginData.m_iLicenseCode := 0
-      else
-        LoginData.m_iLicenseCode := ADO_Rec['F_iLicenseCode'];
-      if ADO_Rec.FieldByName('F_iAllowCode').IsNull then
-        LoginData.m_iAllowCode := 0
-      else
-        LoginData.m_iAllowCode := ADO_Rec['F_iAllowCode'];
+      if ADO_Rec.FieldByName('F_sPwd').AsString = StrMD5(Trim(edt_Pwd.Text)) then
+      begin
+        LoginData.m_iUserID := ADO_Rec.FieldByName('F_iID').AsInteger;
+        LoginData.m_sUserName := ADO_Rec.FieldByName('F_sName').AsString;
+        LoginData.m_iUserType := ADO_Rec.FieldByName('F_iType').AsInteger;
+        LoginData.m_sRealName := ADO_Rec.FieldByName('F_sRealName').AsString;
+        if ADO_Rec.FieldByName('F_iLicenseCode').IsNull then
+          LoginData.m_iLicenseCode := 0
+        else
+          LoginData.m_iLicenseCode := ADO_Rec['F_iLicenseCode'];
+        if ADO_Rec.FieldByName('F_iAllowCode').IsNull then
+          LoginData.m_iAllowCode := 0
+        else
+          LoginData.m_iAllowCode := ADO_Rec['F_iAllowCode'];
 
-      ModalResult := mrOk;
+        ModalResult := mrOk;
+      end else
+      begin
+        Application.MessageBox('密码错误!','提示',MB_ICONINFORMATION);
+        edt_Pwd.Text := '';
+        edt_Pwd.SetFocus;
+      end;
     end else
     begin
-      Application.MessageBox('用户名或密码错误','提示',MB_ICONINFORMATION);
+      Application.MessageBox('用户名错误!','提示',MB_ICONINFORMATION);
       //EditBalloonTip(edt_Pwd.Handle,'密码错误!','提示');
-      edt_Pwd.Text := '';
-      edt_Pwd.SetFocus;
+      edt_Name.SetFocus;
 
     end;
   finally
