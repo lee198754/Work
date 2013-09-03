@@ -335,7 +335,8 @@ begin
   iLen := Length(edt_PPGZ.Text);
   if (iLen>0) and (iLen<>17) then
   begin
-    p_MessageBoxDlg('请输入产品编号前17位!');
+
+    p_MessageBoxDlg('请输入产品编号前 17 位!(当前输入了 '+IntToStr(iLen)+' 位)');
     edt_PPGZ.SetFocus;
     Exit;
   end else

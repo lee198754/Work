@@ -3,6 +3,7 @@ object Frm_Main: TFrm_Main
   Top = 213
   Width = 1007
   Height = 632
+  VertScrollBar.Position = 208
   Caption = #37038#30005#21360#21047#21378
   Color = clBtnFace
   Font.Charset = GB2312_CHARSET
@@ -49,7 +50,7 @@ object Frm_Main: TFrm_Main
   TextHeight = 12
   object Splitter1: TSplitter
     Left = 0
-    Top = 667
+    Top = 459
     Width = 974
     Height = 5
     Cursor = crVSplit
@@ -58,7 +59,7 @@ object Frm_Main: TFrm_Main
   end
   object RzSizePanel1: TRzSizePanel
     Left = 0
-    Top = 0
+    Top = -208
     Width = 183
     Height = 632
     Color = clBtnShadow
@@ -320,7 +321,7 @@ object Frm_Main: TFrm_Main
   end
   object stat_zt: TStatusBar
     Left = 0
-    Top = 783
+    Top = 575
     Width = 974
     Height = 19
     Panels = <
@@ -368,7 +369,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_WorkerManage1: TFra_WorkerManage
     Left = 816
-    Top = 128
+    Top = -80
     Width = 145
     Height = 177
     Font.Charset = GB2312_CHARSET
@@ -405,7 +406,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_cplx_gl1: TFra_cplx_gl
     Left = 408
-    Top = 304
+    Top = 96
     Width = 145
     Height = 97
     Font.Charset = GB2312_CHARSET
@@ -430,7 +431,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_DDJY_CX1: TFra_DDJY_CX
     Left = 480
-    Top = 0
+    Top = -208
     Width = 105
     Height = 89
     Font.Charset = GB2312_CHARSET
@@ -493,7 +494,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_Pwd_Modify1: TFra_Pwd_Modify
     Left = 760
-    Top = 432
+    Top = 224
     Width = 73
     Height = 65
     Font.Charset = GB2312_CHARSET
@@ -509,7 +510,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_MatlManage1: TFra_MatlManage
     Left = 872
-    Top = 336
+    Top = 128
     Width = 89
     Height = 81
     Font.Charset = GB2312_CHARSET
@@ -534,7 +535,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_MachineManage1: TFra_MachineManage
     Left = 864
-    Top = 440
+    Top = 232
     Width = 89
     Height = 65
     Font.Charset = GB2312_CHARSET
@@ -558,7 +559,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_XHQD1: TFra_XHQD
     Left = 240
-    Top = 528
+    Top = 320
     Width = 97
     Height = 65
     Font.Charset = GB2312_CHARSET
@@ -583,7 +584,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_CPLB_GL1: TFra_CPLB_GL
     Left = 384
-    Top = 520
+    Top = 312
     Width = 81
     Height = 65
     Font.Charset = GB2312_CHARSET
@@ -609,7 +610,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_ZBGX_GL1: TFra_ZBGX_GL
     Left = 520
-    Top = 512
+    Top = 304
     Width = 105
     Height = 81
     Font.Charset = GB2312_CHARSET
@@ -634,7 +635,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_ywtj1: TFra_ywtj
     Left = 584
-    Top = 312
+    Top = 104
     Width = 105
     Height = 89
     Font.Charset = GB2312_CHARSET
@@ -742,7 +743,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_scgl1: TFra_scgl
     Left = 479
-    Top = 128
+    Top = -80
     Width = 129
     Height = 105
     Font.Charset = GB2312_CHARSET
@@ -821,7 +822,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_FYDHLR1: TFra_FYDHLR
     Left = 664
-    Top = 520
+    Top = 312
     Width = 113
     Height = 73
     Font.Charset = GB2312_CHARSET
@@ -856,7 +857,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_sctj1: TFra_sctj
     Left = 728
-    Top = 320
+    Top = 112
     Width = 105
     Height = 81
     Font.Charset = GB2312_CHARSET
@@ -1387,7 +1388,7 @@ object Frm_Main: TFrm_Main
   end
   inline fra_gdcx1: Tfra_gdcx
     Left = 216
-    Top = 127
+    Top = -81
     Width = 81
     Height = 89
     Font.Charset = GB2312_CHARSET
@@ -1464,7 +1465,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_FHGL_DYCX1: TFra_FHGL_DYCX
     Left = 648
-    Top = 423
+    Top = 215
     Width = 89
     Height = 81
     Font.Charset = GB2312_CHARSET
@@ -1544,7 +1545,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_JTTJ1: TFra_JTTJ
     Left = 488
-    Top = 602
+    Top = 394
     Width = 73
     Height = 49
     Font.Charset = GB2312_CHARSET
@@ -1748,7 +1749,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_CLRK1: TFra_CLRK
     Left = 864
-    Top = 530
+    Top = 322
     Width = 89
     Height = 65
     Font.Charset = GB2312_CHARSET
@@ -1779,7 +1780,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_CLTJ1: TFra_CLTJ
     Left = 384
-    Top = 602
+    Top = 394
     Width = 81
     Height = 65
     Font.Charset = GB2312_CHARSET
@@ -2038,7 +2039,7 @@ object Frm_Main: TFrm_Main
   end
   object tc_bulletin: TRzTabControl
     Left = 0
-    Top = 672
+    Top = 464
     Width = 974
     Height = 111
     Align = alBottom
@@ -2106,7 +2107,7 @@ object Frm_Main: TFrm_Main
   end
   object gb_bulletin: TGroupBox
     Left = 0
-    Top = 632
+    Top = 424
     Width = 974
     Height = 35
     Align = alBottom
@@ -2136,7 +2137,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_kd1: TFra_kd
     Left = 856
-    Top = 24
+    Top = -184
     Width = 89
     Height = 81
     Font.Charset = GB2312_CHARSET
@@ -2214,7 +2215,7 @@ object Frm_Main: TFrm_Main
   end
   inline Fra_FHTJ1: TFra_FHTJ
     Left = 232
-    Top = 600
+    Top = 392
     Width = 97
     Height = 33
     Font.Charset = GB2312_CHARSET

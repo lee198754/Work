@@ -243,7 +243,8 @@ function TDM_DataBase.OpenQuery(SQLText: String;
 begin
   Result := nil;
   try
-    Result:= TADOQuery.Create(Self);
+    Result := TADOQuery.Create(Self);
+    //Result.Close
     Result.Connection := ADOCon;
     if Length(Args) > 0 then
       Result.SQL.Text := Format(SQLText,Args)
