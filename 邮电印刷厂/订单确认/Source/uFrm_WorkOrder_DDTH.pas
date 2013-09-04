@@ -449,7 +449,7 @@ end;
 
 procedure TFrm_ddth.btn_okClick(Sender: TObject);
 var
-  i, n, iOrderID, iTemp, iOrderType: Integer;
+  i, n, iOrderID, iOrderType: Integer;
   str, sCPBH, sKhmc, sSl, sYl, sCPLX, sYZTMC, sXPL, sApartID: string;
 begin
   if lv_jhxd.ItemIndex > -1 then
@@ -466,8 +466,6 @@ begin
     sYZTMC := lv_jhxd.Items[i].SubItems[c_jhxd_yztmc];
     sXPL := lv_jhxd.Items[i].SubItems[c_jhxd_xpl];
     iOrderID := StrToNum(lv_jhxd.Items[i].SubItems[c_jhxd_OrderID]);
-    if iTemp = 0 then iTemp := iOrderID;
-    if iTemp <> iOrderID then  iTemp := -1;
     iOrderType := StrToInt(lv_jhxd.Items[i].SubItems[c_jhxd_OrderType]);
     sApartID := lv_jhxd.Items[i].SubItems[c_jhxd_ApartID];
     if pos('(内件)',sCpbh) >0 then
@@ -490,7 +488,12 @@ begin
     end;
     if OrderData[n].m_iSyyl > StrToInt(sSl) then
     begin
-      p_MessageBoxDlg(sCpbh+'剩余印量 '+sSl+' 小于被替换的订单剩余印量 '+FloatToStr(OrderData[n].m_iSyyl)+' !','提示');
+      if p_MessageBoxDlg(sCpbh+'剩余印量 '+sSl+' 小于被替换的订单剩余印量 '+FloatToStr(OrderData[n].m_iSyyl)+' ,是否进行修改?','提示',MB_ICONINFORMATION+MB_YESNO)= IDNO then
+        Exit;
+    end;
+    if StrToInt(sSl) <= 0 then
+    begin
+      p_MessageBoxDlg(sCpbh+'剩余印量 '+sSl+' 小于等于0 不能替换!','提示');
       Exit;
     end;
     if OrderData[n].m_iSyyl < StrToInt(sSl) then
@@ -512,6 +515,8 @@ begin
     OrderData[n].m_sYztmc := sYZTMC;
     OrderData[n].m_iXPL := iif(sXPL='小批量',1,0);
     OrderData[n].m_iSyyl := StrToInt(sSl);
+    if OrderData[n].m_iBCYL > OrderData[n].m_iSyyl then
+      OrderData  [n].m_iBCYL := Trunc(OrderData[n].m_iSyyl);
     OrderData[n].m_iYl := StrToInt(sYl);
     OrderData[n].m_iApartID := StrToInt(sApartID);
     OrderData[n].m_iType := iOrderType;

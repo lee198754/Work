@@ -1536,4 +1536,23 @@ object Frm_DDMX_DZX: TFrm_DDMX_DZX
       OnClick = btn_yzjgClick
     end
   end
+  object pm_jgp: TPopupMenu
+    Left = 728
+    Top = 112
+    object menu_SaveTo: TMenuItem
+      Caption = #21478#23384#20026
+    end
+  end
+  object dlg_SavePic: TSaveDialog
+    Filter = 
+      'All (*.png;*.png;*.png;*.jpg;*.jpeg;*.bmp;*.ico;*.emf;*.wmf)|*.p' +
+      'ng;*.png;*.png;*.jpg;*.jpeg;*.bmp;*.ico;*.emf;*.wmf|Portable net' +
+      'work graphics (AlphaControls) (*.png)|*.png|PNG graphics from De' +
+      'vExpress (*.png)|*.png|Portable Network Graphics (*.png)|*.png|J' +
+      'PEG Image File (*.jpg)|*.jpg|JPEG Image File (*.jpeg)|*.jpeg|Bit' +
+      'maps (*.bmp)|*.bmp|Icons (*.ico)|*.ico|Enhanced Metafiles (*.emf' +
+      ')|*.emf|Metafiles (*.wmf)|*.wmf'
+    Left = 728
+    Top = 72
+  end
 end

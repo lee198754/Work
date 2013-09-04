@@ -5,13 +5,14 @@ interface
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, iLabel, ADODB, IdComponent,
-  IdHTTP,jpeg,GIFImage,ShellAPI, IdIOHandler, IdIOHandlerThrottle,
-  IdBaseComponent, IdTCPConnection, IdTCPClient,IdGlobal;
+  IdHTTP,jpeg,GIFImage,ShellAPI,IdGlobal, Menus;
 
 
 type
   TPicInfo = record
     m_sPath: string;
+    m_sFileName: string;
+    m_sUrlPicPath: string;
   end;
   TFrm_DDMX_DZX = class;
 
@@ -180,6 +181,9 @@ type
     Shape23: TShape;
     lab_nbbz: Ti_Label;
     btn_yzjg: TButton;
+    pm_jgp: TPopupMenu;
+    menu_SaveTo: TMenuItem;
+    dlg_SavePic: TSaveDialog;
     procedure FormShow(Sender: TObject);
     procedure i_Label13Click(Sender: TObject);
     procedure FormMouseWheelDown(Sender: TObject; Shift: TShiftState;
@@ -197,16 +201,21 @@ type
     ImgList: array of TImage;
     PicInfo: array of TPicInfo;
     MyThread: TMyDownLoad;
-    procedure ImgDblClick(Sender: TObject);
     procedure LoadPic;
     function f_MakeAllow: Boolean;   //操作允许
     procedure WndProc(var Message: TMessage); override;
+    procedure FileSaveTo(AsFileName: string);
+    procedure SaveToClick(Sender: TObject);
+    procedure ImgDblClick(Sender: TObject);
+    procedure ImgMouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
   public
     { Public declarations }
     Lab: array of TLabel;
     vCustomID: Integer;
     vTGSHOW: Boolean;
     LabProg: array of TLabel;
+    LabSaveTo: array of TLabel;
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   end;
@@ -216,13 +225,12 @@ type
 implementation
 
 uses
-  PubStr, uDM_DataBase,DateUtils,uFrm_Tsgy_modif, uPub_Type, uPub_Func, uPub_Text;
+  PubStr, uDM_DataBase,uFrm_Tsgy_modif, uPub_Type, uPub_Func, uPub_Text;
 
 {$R *.dfm}
 
 const
   WM_FREE = WM_USER + 100;
-
 
 function FrmDDMX_DZX(_iOrderID: Integer;_bTGSHOW: Boolean): TFrm_DDMX_DZX;
 var
@@ -273,7 +281,6 @@ procedure TFrm_DDMX_DZX.LoadPic;
 var
   ms: TMemoryStream;
   sTempPath,sPicCpbh,sPicName,sPicPath: string;
-  sFileName: string;
   ADO_Rec: TADOQuery;
   sSqlData: string;
   Len, iWidth: Integer;
@@ -287,8 +294,6 @@ begin
   sSqlData := 'Select * from BI_CustomOrderImg where F_iCustomDetailsID=%d order by F_sCPBH';
   ADO_Rec :=  DM_DataBase.OpenQuery(sSqlData,[Self.vCustomID]);
   try
-    Len := 0;
-    iWidth := 800;
     with ADO_Rec do
     begin
       //加印订单图稿信息不全,用原订单图稿信息带替
@@ -333,11 +338,12 @@ begin
         end;
       end;
       First;
+      Len := 0;
+      iWidth := 800;
       while not Eof do
       begin
         sPicCpbh := FieldByName('F_sCpbh').AsString;
         sPicPath := FieldByName('F_sPath').AsString;
-        sFileName :=  StrReplace(sPicPath,'/','\');
         sPicName := FieldByName('F_sName').AsString;
         with Self do
         begin
@@ -345,25 +351,36 @@ begin
           SetLength(PicInfo,Len+1);
           SetLength(Lab,Len+1);
           SetLength(LabProg,Len+1);
-          ImgList[Len] := TImage.Create(self);
-          Lab[Len] := TLabel.Create(self);
+          SetLength(LabSaveTo,Len+1);
           LabProg[Len] := TLabel.Create(self);
-          LabProg[Len].Parent := Self;
-          LabProg[Len].Visible := True;
-          LabProg[Len].Top := Len*10;
-          //LabProg[Len].Caption := 'uu';
-          if Len = 0 then
-            Lab[Len].Top := Self.pan_gy.Top + Self.pan_gy.Height
-          else
-            Lab[Len].Top := ImgList[Len-1].Top+ImgList[Len-1].Height + 15;
-          Lab[Len].Parent := Self;
-          Lab[Len].Caption := Format('产品编号：%s   文件类型：%s',[sPicCpbh,sPicName])+'   (双击图片查看原图)';
-          Lab[Len].Left := 16;
-          ImgList[Len].Top := Lab[Len].Top + Lab[Len].Height +5;
-          ImgList[Len].Width := iWidth - 54;
-          ImgList[Len].Height := 150;
-          ImgList[Len].Center := True;
-          ImgList[Len].Left := Lab[Len].Left;
+          with LabProg[Len] do
+          begin
+            Parent := Self;
+            Hide;
+            Top := Len*10;
+          end;
+          LabSaveTo[Len] := TLabel.Create(self);
+          with LabSaveTo[Len] do
+          begin
+            Parent := Self;
+            Hide;
+            Top := Len*10;
+            Font.Color := clHighlight;
+            Tag := Len;
+            Cursor := crHandPoint;
+            Caption := '另存为...';
+          end;
+          Lab[Len] := TLabel.Create(self);
+          with Lab[Len] do
+          begin
+            if Len = 0 then
+              Top := Self.pan_gy.Top + Self.pan_gy.Height
+            else
+              Top := ImgList[Len-1].Top+ImgList[Len-1].Height + 15;
+            Parent := Self;
+            Caption := Format('产品编号：%s   文件类型：%s',[sPicCpbh,sPicName])+'   (双击图片查看原图)';
+            Left := 16;
+          end;
           if not FileExists(sTempPath+'jz.gif') then
           begin
             rs := TResourceStream.Create(HInstance,'Loading','MyGIF');
@@ -371,15 +388,26 @@ begin
             rs.SaveToFile(sTempPath+'jz.gif');
             rs.Free;
           end;
-          ImgList[Len].Transparent := True;
-          ImgList[Len].Visible := False;
-          ImgList[Len].Picture.LoadFromFile(sTempPath+'jz.gif');
-          ImgList[Len].Parent := self;
-          ImgList[Len].Visible := True;
-          ImgList[Len].Hint := '双击查看原图';
-          //ImgList[Len].ShowHint := True;      //显示Hint后会被切换到主窗口上,待解决  (猜想原因是Hint和主窗口有联系,此航窗口的父窗口是桌面)
-          ImgList[Len].Tag := Len;
-          PicInfo[Len].m_sPath := sPicPath
+          ImgList[Len] := TImage.Create(self);
+          with ImgList[Len] do
+          begin
+            Top := Lab[Len].Top + Lab[Len].Height +5;
+            Width := iWidth - 54;
+            Height := 150;
+            Center := True;
+            Left := Lab[Len].Left;
+            Transparent := True;
+            Visible := False;
+            Picture.LoadFromFile(sTempPath+'jz.gif');
+            Parent := self;
+            Visible := True;
+            Hint := '双击查看原图';
+            //ImgList[Len].ShowHint := True;      //显示Hint后会被切换到主窗口上,待解决  (猜想原因是Hint和主窗口有联系,此航窗口的父窗口是桌面)
+            Tag := Len;
+          end;
+          PicInfo[Len].m_sPath := sPicPath;
+          PicInfo[Len].m_sFileName := '';
+          PicInfo[Len].m_sUrlPicPath := '';
         end;
         Inc(Len);
         Next;
@@ -522,7 +550,7 @@ begin
       ADO_Rec.Next;
     end;
   end;
-
+  menu_SaveTo.OnClick := SaveToClick;
   if vTGSHOW  then
   begin
     LoadPic;
@@ -605,11 +633,9 @@ var
   sFileName: string;
   idhtp_pic: TIdHTTP;
   jpg: TJPEGImage;
-  rBl: Real;  //长宽比例
+  rBl: Double;  //长宽比例
   i, j, Len: Integer;
   FileRec: TSearchRec;
-  iFileSize: Integer;
-  TempImage: TImage;
 function CovFileDate(Fd:_FileTime):TDateTime;
 { 转换文件的时间格式 }
 var
@@ -645,8 +671,10 @@ begin
         sPicPath := PicInfo[i].m_sPath;
         //SetLength(LabProg,i+1);
         //LabProg[i] := TLabel.Create(Frm_DDMX_DZX);
+        LabProg[i].Show;
         LabProg[i].Top := Lab[i].Top;
         LabProg[i].Left := Lab[i].Left+Lab[i].Width+30;
+
         //LabProg[i].Caption := '';
        // LabProg[i].Parent := Frm_DDMX_DZX;
         if sPicPath = '' then
@@ -664,6 +692,8 @@ begin
           sFullPicPath := c_PicUrl+sPicPath;
           sFileName :=  StrReplace(sPicPath,'/','\');
         end;
+        PicInfo[i].m_sFileName := sTempPath+sFileName;
+        PicInfo[i].m_sUrlPicPath := sFullPicPath;
         if FileExists(sTempPath+sFileName) then
         begin
           if SysUtils.FindFirst(sTempPath+sFileName,faAnyfile,FileRec) = 0 then
@@ -706,7 +736,14 @@ begin
         ImgList[i].Visible := False;
         ImgList[i].Picture.LoadFromFile(sTempPath+sFileName);
         ImgList[i].OnDblClick := ImgDblClick;
-        ImgList[i].Visible := True;
+        ImgList[i].PopupMenu := pm_jgp;
+        ImgList[i].OnMouseDown := ImgMouseDown;
+        ImgList[i].Show;
+        LabSaveTo[i].Top := LabProg[i].Top;
+        LabSaveTo[i].Left := LabProg[i].Left+LabProg[i].Width+30;
+        LabSaveTo[i].OnClick := SaveToClick;
+        LabSaveTo[i].Show;
+
        for j := i to Len -2 do
         begin
           Lab[j+1].Top := ImgList[j].Top +ImgList[j].Height +20 ;
@@ -769,6 +806,7 @@ var
 
 begin
   Frm_Tsgy_modif := TFrm_Tsgy_modif.Create(Self);
+  iNJBZ := 0;
   if TButton(Sender) = btn_tsgy then
     iNJBZ := 0
   else if TButton(Sender) = btn_yzjg then
@@ -800,19 +838,28 @@ end;
 
 procedure TFrm_DDMX_DZX.ImgDblClick(Sender: TObject);
 var
-  ImgDes,ImgSrc: TImage;
-  Frm: TForm;
-  hRect : TRect;
+  ImgSrc: TImage;
   sTempPath,sPicPath,sFileName: string;
-//bottom: Integer;
-  Len,frame,TitleHeight: Integer;
-  bBig: Boolean;
+  Len: Integer;
+//  ImgDes: TImage;
+//  Frm: TForm;
+//  hRect : TRect;
+//  bottom: Integer;
+//  frame,TitleHeight: Integer;
+//  bBig: Boolean;
 begin
   ImgSrc := TImage(Sender);
   Len := ImgSrc.Tag;
   sTempPath := GetTempDirectory + c_TempPicPath;
   sPicPath := PicInfo[Len].m_sPath;
-  sFileName :=  StrReplace(sPicPath,'/','\');
+  //sFileName :=  StrReplace(sPicPath,'/','\');
+  if UpperCase(StrLeft(sPicPath,4)) = 'HTTP' then
+  begin
+    sFileName :=  StrReplace(Copy(sPicPath,8,Length(sPicPath)),'/','\');
+  end else
+  begin
+    sFileName :=  StrReplace(sPicPath,'/','\');
+  end;
   ShellExecute(0,nil,pchar(sTempPath+sFileName),nil,nil,sw_shownormal);
 {  SystemParametersInfo(SPI_GETWORKAREA,0,@hRect, 0);    //获取桌面分辨率(不含任务栏)
   Frm := TForm.Create(Self);
@@ -924,7 +971,6 @@ end;
 procedure TFrm_DDMX_DZX.FormClose(Sender: TObject;
   var Action: TCloseAction);
 var
-  i: Integer;
   ExitCode: Cardinal;
 begin
   ExitCode := 0;
@@ -944,11 +990,13 @@ const
   c_NUM = 0;
   c_STRING = 1;
 var
-  sBZ, sSqlData: string;
+  sSqlData: string;
   sCaption,sPrompt,sValue, sFieldName: string;
   lab: Ti_Label;
   iType: integer;
 begin
+  lab := nil;
+  iType := -1;
   if TButton(Sender).Name = 'btn_bz' then
   begin
     lab := lab_nbbz;
@@ -1051,6 +1099,43 @@ begin
 
   inherited WndProc(Message);
 
+end;
+
+procedure TFrm_DDMX_DZX.FileSaveTo(AsFileName: string);
+var
+  sFileName: string;
+begin
+  with dlg_SavePic do
+  begin
+    DefaultExt := ExtractFileExt(AsFileName);
+    FileName := ExtractFileName(AsFileName);
+    if Execute then
+    begin
+      sFileName := ExtractFileName(AsFileName);;
+      if not CopyFileTo(AsFileName,FileName) then
+      begin
+        if p_MessageBoxDlg(sFileName+' 已存在。'+#13#10+'要替换它吗?','确认另存为',MB_ICONINFORMATION + MB_YESNO) = IDYES then
+        begin
+          CopyFile(PChar(AsFileName),PChar(FileName),False);
+        end;
+      end;
+    end;
+  end;
+end;
+
+procedure TFrm_DDMX_DZX.SaveToClick(Sender: TObject);
+var
+  n: Integer;
+begin
+  n := TControl(Sender).Tag;
+  if PicInfo[n].m_sFileName <> '' then
+    FileSaveTo(PicInfo[n].m_sFileName);
+end;
+
+procedure TFrm_DDMX_DZX.ImgMouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  menu_SaveTo.Tag := TControl(Sender).Tag;
 end;
 
 end.
