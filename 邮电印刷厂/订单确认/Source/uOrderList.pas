@@ -67,6 +67,7 @@ begin
   begin
     lv_dd.OnColumnClick := nil;
     lv_dd.OnMouseDown := nil;
+    lv_dd.Enabled := False;
     btn_ok.Enabled := False;
     edt_Temp.ReadOnly := True;
     btn_ddth.Enabled := False;
@@ -253,7 +254,7 @@ var
   bCheck, bInsert: Boolean;       {bCheck:是否已选择,bInsert:是否要插入}
   str, sCPBH: string;
   QH: string; //区号
-
+  sCode: string;
 begin
   sApartID := Item.SubItems.Strings[c_LV_ApartID];
   bCheck := False;
@@ -348,18 +349,39 @@ begin
         QH := Copy(stg_list.Cells[c_List_CPBH,i],4,4);
         for j := 0 to Length(aDeclareNumbers) -1 do
         begin
-          if QH = aDeclareNumbers[j].m_sCode then
+          sCode := aDeclareNumbers[j].m_sCode;
+          if aDeclareNumbers[j].m_iFlag = 2 then
           begin
-            str := aDeclareNumbers[j].m_sPlaceName;
-            if Pos('发布',stg_list.Cells[c_List_BZ,i])= 0 then
+            if QH = sCode then
             begin
-              if Trim(stg_list.Cells[c_List_BZ,i]) <> '' then
-                stg_list.Cells[c_List_BZ,i] := Format('%s市邮政函件局发布 %s',[str,stg_list.Cells[c_List_BZ,i]])
-              else
-                stg_list.Cells[c_List_BZ,i] := Format('%s市邮政函件局发布',[str]);
+              str := aDeclareNumbers[j].m_sPlaceName;
+              if Pos('发布',stg_list.Cells[c_List_BZ,i])= 0 then
+              begin
+                if Trim(stg_list.Cells[c_List_BZ,i]) <> '' then
+                  stg_list.Cells[c_List_BZ,i] := Format('%s市邮政函件局发布 %s',[str,stg_list.Cells[c_List_BZ,i]])
+                else
+                  stg_list.Cells[c_List_BZ,i] := Format('%s市邮政函件局发布',[str]);
+              end;
+              Break;
             end;
-            Break;
-          end;
+          end else
+          if aDeclareNumbers[j].m_iFlag = 1 then
+          begin
+            if Length(sCode)=2 then
+              sCode := sCode + '00';
+            if QH = sCode then
+            begin
+              str := aDeclareNumbers[j].m_sPlaceName;
+              if Pos('发布',stg_list.Cells[c_List_BZ,i])= 0 then
+              begin
+                if Trim(stg_list.Cells[c_List_BZ,i]) <> '' then
+                  stg_list.Cells[c_List_BZ,i] := Format('%s省邮政函件局发布 %s',[str,stg_list.Cells[c_List_BZ,i]])
+                else
+                  stg_list.Cells[c_List_BZ,i] := Format('%s省邮政函件局发布',[str]);
+              end;
+              Break;
+            end;
+           end;
         end;
       end;
     end;
