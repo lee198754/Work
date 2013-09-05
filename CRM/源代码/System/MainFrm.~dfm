@@ -1,6 +1,6 @@
 inherited Main_Frm: TMain_Frm
-  Left = 154
-  Top = 40
+  Left = 265
+  Top = 43
   Width = 969
   Height = 689
   Caption = #23458#25143#20851#31995#31649#29702#31995#32479
@@ -19,29 +19,13 @@ inherited Main_Frm: TMain_Frm
     Left = 0
     Top = 47
     Width = 150
-    Height = 556
+    Height = 552
     Align = alLeft
     ActiveGroupIndex = 0
     TabOrder = 0
     View = 11
     OptionsBehavior.Common.AllowSelectLinks = True
     OptionsImage.LargeImages = ImageList2
-    OptionsStyle.DefaultStyles.Background.BackColor = clWindow
-    OptionsStyle.DefaultStyles.Background.BackColor2 = clWindow
-    OptionsStyle.DefaultStyles.Background.Font.Charset = DEFAULT_CHARSET
-    OptionsStyle.DefaultStyles.Background.Font.Color = clWindowText
-    OptionsStyle.DefaultStyles.Background.Font.Height = -11
-    OptionsStyle.DefaultStyles.Background.Font.Name = 'MS Sans Serif'
-    OptionsStyle.DefaultStyles.Background.Font.Style = []
-    OptionsStyle.DefaultStyles.Background.HAlignment = haLeft
-    OptionsStyle.DefaultStyles.GroupBackground.BackColor = clWindow
-    OptionsStyle.DefaultStyles.GroupBackground.BackColor2 = clWindow
-    OptionsStyle.DefaultStyles.GroupBackground.Font.Charset = DEFAULT_CHARSET
-    OptionsStyle.DefaultStyles.GroupBackground.Font.Color = clWindowText
-    OptionsStyle.DefaultStyles.GroupBackground.Font.Height = -11
-    OptionsStyle.DefaultStyles.GroupBackground.Font.Name = 'MS Sans Serif'
-    OptionsStyle.DefaultStyles.GroupBackground.Font.Style = []
-    OptionsStyle.DefaultStyles.GroupBackground.HAlignment = haLeft
     OptionsStyle.DefaultStyles.GroupHeader.BackColor = clBtnFace
     OptionsStyle.DefaultStyles.GroupHeader.BackColor2 = clBtnFace
     OptionsStyle.DefaultStyles.GroupHeader.Font.Charset = DEFAULT_CHARSET
@@ -50,13 +34,6 @@ inherited Main_Frm: TMain_Frm
     OptionsStyle.DefaultStyles.GroupHeader.Font.Name = 'MS Sans Serif'
     OptionsStyle.DefaultStyles.GroupHeader.Font.Style = [fsBold]
     OptionsStyle.DefaultStyles.GroupHeader.HAlignment = haLeft
-    OptionsStyle.DefaultStyles.Item.BackColor = clWhite
-    OptionsStyle.DefaultStyles.Item.BackColor2 = clWhite
-    OptionsStyle.DefaultStyles.Item.Font.Charset = DEFAULT_CHARSET
-    OptionsStyle.DefaultStyles.Item.Font.Color = clWindowText
-    OptionsStyle.DefaultStyles.Item.Font.Height = -11
-    OptionsStyle.DefaultStyles.Item.Font.Name = 'MS Sans Serif'
-    OptionsStyle.DefaultStyles.Item.Font.Style = []
     object NBCustomer: TdxNavBarGroup
       Caption = #23458#25143#31649#29702
       LinksUseSmallImages = False
@@ -281,8 +258,8 @@ inherited Main_Frm: TMain_Frm
   end
   object StatusBar1: TStatusBar [1]
     Left = 0
-    Top = 603
-    Width = 951
+    Top = 599
+    Width = 943
     Height = 22
     Panels = <
       item
@@ -305,14 +282,14 @@ inherited Main_Frm: TMain_Frm
   object CoolBar1: TCoolBar [2]
     Left = 0
     Top = 0
-    Width = 951
+    Width = 943
     Height = 47
     Bands = <
       item
         Control = TBar
         ImageIndex = -1
         MinHeight = 40
-        Width = 947
+        Width = 939
       end>
     Color = clBackground
     ParentColor = False
@@ -4162,7 +4139,7 @@ inherited Main_Frm: TMain_Frm
     object TBar: TToolBar
       Left = 9
       Top = 0
-      Width = 934
+      Width = 926
       Height = 40
       Align = alClient
       ButtonHeight = 21
@@ -4177,8 +4154,8 @@ inherited Main_Frm: TMain_Frm
   object cxPageControl1: TcxPageControl [3]
     Left = 158
     Top = 47
-    Width = 793
-    Height = 556
+    Width = 785
+    Height = 552
     Align = alClient
     Color = clSilver
     LookAndFeel.Kind = lfFlat
@@ -4190,8 +4167,8 @@ inherited Main_Frm: TMain_Frm
     TabSlants.Kind = skCutCorner
     TabSlants.Positions = []
     OnChange = cxPageControl1Change
-    ClientRectBottom = 556
-    ClientRectRight = 793
+    ClientRectBottom = 552
+    ClientRectRight = 785
     ClientRectTop = 0
   end
   object cxScheduler1: TcxScheduler [4]
@@ -4208,6 +4185,7 @@ inherited Main_Frm: TMain_Frm
     Storage = Storage
     TabOrder = 1
     Visible = False
+    Selection = 1
     Splitters = {
       83FFFFFF7E00000012000000830000007EFFFFFF0100000083FFFFFF11000000}
     StoredClientBounds = {01000000010000001200000011000000}
@@ -4216,7 +4194,7 @@ inherited Main_Frm: TMain_Frm
     Left = 150
     Top = 47
     Width = 8
-    Height = 556
+    Height = 552
     HotZoneClassName = 'TcxSimpleStyle'
     PositionAfterOpen = 20
     MinSize = 20
@@ -4381,7 +4359,6 @@ inherited Main_Frm: TMain_Frm
   end
   object cxLookAndFeelController1: TcxLookAndFeelController
     Kind = lfFlat
-    NativeStyle = True
     Left = 593
     Top = 16
   end

@@ -75,7 +75,8 @@ var cxgrid:TcxCustomGrid;
 begin
    if control is TcxGrid then begin
      cxgrid:=TcxGrid(control);
-     cxgrid.LookAndFeel.Kind := lfFlat;
+     //cxgrid.LookAndFeel.Kind := lfFlat;
+     cxgrid.LookAndFeel.Kind := lfOffice11;  //2013.09.03 lpj改:TcxGrid风格样式
      cxgrid.LookAndFeel.NativeStyle := False;
      for i:= 0 to cxgrid.ViewCount-1 do begin
        if cxgrid.Views[i] is TcxGridTableView then begin

@@ -96,7 +96,6 @@ type
     MHelp: TMenuItem;
     M_Frm_HelpTools: TMenuItem;
     M_Frm_About: TMenuItem;
-    cxPageControl1: TcxPageControl;
     cxLookAndFeelController1: TcxLookAndFeelController;
     PopupMenu1: TPopupMenu;
     actlst1: TActionList;
@@ -151,6 +150,7 @@ type
     ActSupply: TAction;
     N4: TMenuItem;
     NBISupply: TdxNavBarItem;
+    cxPageControl1: TcxPageControl;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure NBCustomerExpanded(Sender: TObject);
