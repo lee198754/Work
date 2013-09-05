@@ -130,7 +130,6 @@ type
     actChange: TAction;
     actNote: TAction;
     actCount: TAction;
-    cxspltr1: TcxSplitter;
     NBCustomerControl: TdxNavBarGroupControl;
     skndt1: TSkinData;
     actmail: TAction;
@@ -879,7 +878,7 @@ begin
   Styleini:=TiniFile.Create(ExtractFilePath(Application.ExeName)+'style.ini');
   Case StrToInt(Styleini.ReadString('option','style','')) OF
   1:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\mxskin28.skn';
-  2:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\iTunes.skn';
+  2:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\office2003.skn';
   3:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\mxskin24.skn';
   End;
   Styleini.Free;

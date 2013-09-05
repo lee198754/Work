@@ -1,6 +1,6 @@
 inherited Frm_PreService: TFrm_PreService
-  Left = 129
-  Top = 19
+  Left = 230
+  Top = 55
   VertScrollBar.Range = 0
   Align = alClient
   BorderStyle = bsNone

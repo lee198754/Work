@@ -1,6 +1,6 @@
 object Base_Frm: TBase_Frm
-  Left = 223
-  Top = 179
+  Left = 179
+  Top = 173
   Width = 692
   Height = 476
   BiDiMode = bdLeftToRight

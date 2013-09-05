@@ -14,7 +14,16 @@ uses
   cxRadioGroup , cxGridExportLink, frxClass, frxDBSet, cxSplitter, cxMemo,
   cxTextEdit, cxMaskEdit, cxDropDownEdit, cxBlobEdit,
   cxLookAndFeelPainters, cxButtons, cxHyperLinkEdit, dxdbtree, dxtree,
-  OleCtrls, TMNC_OCX_TLB, MPlayer;
+  OleCtrls, TMNC_OCX_TLB, MPlayer, dxSkinsCore, dxSkinBlack, dxSkinBlue,
+  dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide, dxSkinFoggy,
+  dxSkinGlassOceans, dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky,
+  dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSharp, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
+  dxSkinXmas2008Blue, dxSkinsdxBarPainter, dxSkinscxPCPainter;
 
 type
   TFrm_CustManager = class(TBaseData_Frm)
@@ -60,8 +69,6 @@ type
     dlgSave1: TSaveDialog;
     LAdoExpend: TbainaADOQuery;
     lbl1: TLabel;
-    cxSplitter1: TcxSplitter;
-    cxSplitter2: TcxSplitter;
     LAdoSale: TbainaADOQuery;
     LAdoCust: TbainaADOQuery;
     N26: TMenuItem;
@@ -219,6 +226,8 @@ type
     N35: TMenuItem;
     RBShareRightCust: TcxRadioButton;
     GrdCustColumn26: TcxGridDBColumn;
+    Splitter1: TSplitter;
+    Splitter2: TSplitter;
     procedure N4Click(Sender: TObject);
     procedure N5Click(Sender: TObject);
     procedure N6Click(Sender: TObject);

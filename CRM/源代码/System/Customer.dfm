@@ -18,20 +18,26 @@ inherited Frm_CustManager: TFrm_CustManager
     Height = 13
     Caption = 'lbl1'
   end
-  object Panel1: TPanel [1]
+  object Splitter1: TSplitter [1]
+    Left = 233
+    Top = 0
+    Height = 598
+  end
+  object Panel1: TPanel [2]
     Left = 0
     Top = 0
-    Width = 145
+    Width = 233
     Height = 598
     Align = alLeft
+    BevelOuter = bvNone
     Caption = 'Panel1'
     Locked = True
     TabOrder = 1
     object TreeView: TcxTreeView
-      Left = 1
-      Top = 42
-      Width = 143
-      Height = 555
+      Left = 0
+      Top = 33
+      Width = 233
+      Height = 565
       Align = alClient
       Style.Color = clInfoBk
       TabOrder = 0
@@ -64,24 +70,24 @@ inherited Frm_CustManager: TFrm_CustManager
       OnChange = TreeViewChange
     end
     object Panel5: TPanel
-      Left = 1
-      Top = 1
-      Width = 143
-      Height = 41
+      Left = 0
+      Top = 0
+      Width = 233
+      Height = 33
       Align = alTop
-      BevelOuter = bvLowered
+      BevelOuter = bvNone
       TabOrder = 1
       object CustFind: TcxTextEdit
         Left = 4
-        Top = 12
+        Top = 4
         TabOrder = 0
         OnKeyUp = CustFindKeyUp
-        Width = 101
+        Width = 125
       end
       object cxButton2: TcxButton
-        Left = 104
-        Top = 10
-        Width = 35
+        Left = 136
+        Top = 2
+        Width = 73
         Height = 25
         Caption = #21830#23478
         TabOrder = 1
@@ -89,32 +95,30 @@ inherited Frm_CustManager: TFrm_CustManager
       end
     end
   end
-  object Panel3: TPanel [2]
-    Left = 153
+  object Panel3: TPanel [3]
+    Left = 236
     Top = 0
-    Width = 705
+    Width = 622
     Height = 598
     Align = alClient
+    BevelOuter = bvNone
     TabOrder = 4
-    object cxSplitter2: TcxSplitter
-      Left = 1
-      Top = 336
-      Width = 703
-      Height = 8
-      HotZoneClassName = 'TcxXPTaskBarStyle'
-      AlignSplitter = salBottom
-      PositionAfterOpen = 20
-      MinSize = 20
-      Control = CustSon
+    object Splitter2: TSplitter
+      Left = 0
+      Top = 342
+      Width = 622
+      Height = 3
+      Cursor = crVSplit
+      Align = alBottom
     end
     object cxGrid1: TcxGrid
-      Left = 1
-      Top = 1
-      Width = 703
-      Height = 335
+      Left = 0
+      Top = 0
+      Width = 622
+      Height = 342
       Align = alClient
       PopupMenu = PopupMenu2
-      TabOrder = 1
+      TabOrder = 0
       LookAndFeel.NativeStyle = False
       object GrdCust: TcxGridDBTableView
         PopupMenu = PopupMenu2
@@ -280,7 +284,7 @@ inherited Frm_CustManager: TFrm_CustManager
       end
     end
     object RBRightCust: TcxRadioButton
-      Left = 248
+      Left = 254
       Top = 8
       Width = 73
       Height = 17
@@ -291,12 +295,12 @@ inherited Frm_CustManager: TFrm_CustManager
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 2
+      TabOrder = 1
       OnClick = RBRightCustClick
       Transparent = True
     end
     object RBMyCust: TcxRadioButton
-      Left = 152
+      Left = 158
       Top = 8
       Width = 73
       Height = 17
@@ -308,15 +312,15 @@ inherited Frm_CustManager: TFrm_CustManager
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 3
+      TabOrder = 2
       TabStop = True
       OnClick = RBMyCustClick
       Transparent = True
     end
     object CustSon: TcxPageControl
-      Left = 1
-      Top = 344
-      Width = 703
+      Left = 0
+      Top = 345
+      Width = 622
       Height = 253
       ActivePage = TabActive
       Align = alBottom
@@ -326,13 +330,13 @@ inherited Frm_CustManager: TFrm_CustManager
       MultiLine = True
       ParentColor = False
       Style = 9
-      TabOrder = 4
+      TabOrder = 3
       TabSlants.Kind = skCutCorner
       TabSlants.Positions = [spRight]
       OnChange = CustSonChange
       ClientRectBottom = 253
-      ClientRectRight = 703
-      ClientRectTop = 20
+      ClientRectRight = 622
+      ClientRectTop = 36
       object TabContact: TcxTabSheet
         Caption = #32852#31995#20154
         ImageIndex = 0
@@ -369,8 +373,8 @@ inherited Frm_CustManager: TFrm_CustManager
         object cxgrd1: TcxGrid
           Left = 0
           Top = 0
-          Width = 703
-          Height = 192
+          Width = 622
+          Height = 176
           Align = alClient
           TabOrder = 0
           object cxgrdbtblvwGrid11DBTableView1: TcxGridDBTableView
@@ -458,8 +462,8 @@ inherited Frm_CustManager: TFrm_CustManager
         end
         object Panel2: TPanel
           Left = 0
-          Top = 192
-          Width = 703
+          Top = 176
+          Width = 622
           Height = 41
           Align = alBottom
           TabOrder = 1
@@ -563,8 +567,8 @@ inherited Frm_CustManager: TFrm_CustManager
         object cxGrid3: TcxGrid
           Left = 0
           Top = 0
-          Width = 703
-          Height = 233
+          Width = 622
+          Height = 217
           Align = alClient
           TabOrder = 0
           LookAndFeel.NativeStyle = False
@@ -978,7 +982,7 @@ inherited Frm_CustManager: TFrm_CustManager
       end
     end
     object RBShareCust: TcxRadioButton
-      Left = 336
+      Left = 342
       Top = 8
       Width = 97
       Height = 17
@@ -989,12 +993,12 @@ inherited Frm_CustManager: TFrm_CustManager
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 5
+      TabOrder = 4
       OnClick = RBShareCustClick
       Transparent = True
     end
     object RBShareRightCust: TcxRadioButton
-      Left = 448
+      Left = 454
       Top = 8
       Width = 97
       Height = 17
@@ -1005,20 +1009,10 @@ inherited Frm_CustManager: TFrm_CustManager
       Font.Name = 'MS Sans Serif'
       Font.Style = []
       ParentFont = False
-      TabOrder = 6
+      TabOrder = 5
       OnClick = RBShareRightCustClick
       Transparent = True
     end
-  end
-  object cxSplitter1: TcxSplitter [3]
-    Left = 145
-    Top = 0
-    Width = 8
-    Height = 598
-    HotZoneClassName = 'TcxXPTaskBarStyle'
-    PositionAfterOpen = 20
-    MinSize = 20
-    Control = Panel1
   end
   inherited xpmn1: TXPMenu
     Left = 696

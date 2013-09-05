@@ -96,7 +96,6 @@ type
     MHelp: TMenuItem;
     M_Frm_HelpTools: TMenuItem;
     M_Frm_About: TMenuItem;
-    cxPageControl1: TcxPageControl;
     cxLookAndFeelController1: TcxLookAndFeelController;
     PopupMenu1: TPopupMenu;
     actlst1: TActionList;
@@ -131,7 +130,6 @@ type
     actChange: TAction;
     actNote: TAction;
     actCount: TAction;
-    cxspltr1: TcxSplitter;
     NBCustomerControl: TdxNavBarGroupControl;
     skndt1: TSkinData;
     actmail: TAction;
@@ -151,6 +149,7 @@ type
     ActSupply: TAction;
     N4: TMenuItem;
     NBISupply: TdxNavBarItem;
+    cxPageControl1: TcxPageControl;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure NBCustomerExpanded(Sender: TObject);
@@ -879,7 +878,7 @@ begin
   Styleini:=TiniFile.Create(ExtractFilePath(Application.ExeName)+'style.ini');
   Case StrToInt(Styleini.ReadString('option','style','')) OF
   1:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\mxskin28.skn';
-  2:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\iTunes.skn';
+  2:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\office2003.skn';
   3:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\mxskin24.skn';
   End;
   Styleini.Free;

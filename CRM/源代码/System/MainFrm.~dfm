@@ -1,6 +1,5 @@
 inherited Main_Frm: TMain_Frm
-  Left = 265
-  Top = 43
+  Left = 345
   Width = 969
   Height = 689
   Caption = #23458#25143#20851#31995#31649#29702#31995#32479
@@ -19,21 +18,13 @@ inherited Main_Frm: TMain_Frm
     Left = 0
     Top = 47
     Width = 150
-    Height = 552
+    Height = 562
     Align = alLeft
     ActiveGroupIndex = 0
     TabOrder = 0
-    View = 11
+    View = 12
     OptionsBehavior.Common.AllowSelectLinks = True
     OptionsImage.LargeImages = ImageList2
-    OptionsStyle.DefaultStyles.GroupHeader.BackColor = clBtnFace
-    OptionsStyle.DefaultStyles.GroupHeader.BackColor2 = clBtnFace
-    OptionsStyle.DefaultStyles.GroupHeader.Font.Charset = DEFAULT_CHARSET
-    OptionsStyle.DefaultStyles.GroupHeader.Font.Color = clBtnText
-    OptionsStyle.DefaultStyles.GroupHeader.Font.Height = -11
-    OptionsStyle.DefaultStyles.GroupHeader.Font.Name = 'MS Sans Serif'
-    OptionsStyle.DefaultStyles.GroupHeader.Font.Style = [fsBold]
-    OptionsStyle.DefaultStyles.GroupHeader.HAlignment = haLeft
     object NBCustomer: TdxNavBarGroup
       Caption = #23458#25143#31649#29702
       LinksUseSmallImages = False
@@ -258,8 +249,8 @@ inherited Main_Frm: TMain_Frm
   end
   object StatusBar1: TStatusBar [1]
     Left = 0
-    Top = 599
-    Width = 943
+    Top = 609
+    Width = 953
     Height = 22
     Panels = <
       item
@@ -282,14 +273,14 @@ inherited Main_Frm: TMain_Frm
   object CoolBar1: TCoolBar [2]
     Left = 0
     Top = 0
-    Width = 943
+    Width = 953
     Height = 47
     Bands = <
       item
         Control = TBar
         ImageIndex = -1
         MinHeight = 40
-        Width = 939
+        Width = 949
       end>
     Color = clBackground
     ParentColor = False
@@ -4139,7 +4130,7 @@ inherited Main_Frm: TMain_Frm
     object TBar: TToolBar
       Left = 9
       Top = 0
-      Width = 926
+      Width = 936
       Height = 40
       Align = alClient
       ButtonHeight = 21
@@ -4152,23 +4143,22 @@ inherited Main_Frm: TMain_Frm
     end
   end
   object cxPageControl1: TcxPageControl [3]
-    Left = 158
+    Left = 150
     Top = 47
-    Width = 785
-    Height = 552
+    Width = 803
+    Height = 562
     Align = alClient
     Color = clSilver
-    LookAndFeel.Kind = lfFlat
+    LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     ParentColor = False
     PopupMenu = PopupMenu1
-    Style = 10
     TabOrder = 4
     TabSlants.Kind = skCutCorner
     TabSlants.Positions = []
     OnChange = cxPageControl1Change
-    ClientRectBottom = 552
-    ClientRectRight = 785
+    ClientRectBottom = 562
+    ClientRectRight = 803
     ClientRectTop = 0
   end
   object cxScheduler1: TcxScheduler [4]
@@ -4185,22 +4175,9 @@ inherited Main_Frm: TMain_Frm
     Storage = Storage
     TabOrder = 1
     Visible = False
-    Selection = 1
     Splitters = {
       83FFFFFF7E00000012000000830000007EFFFFFF0100000083FFFFFF11000000}
     StoredClientBounds = {01000000010000001200000011000000}
-  end
-  object cxspltr1: TcxSplitter [5]
-    Left = 150
-    Top = 47
-    Width = 8
-    Height = 552
-    HotZoneClassName = 'TcxSimpleStyle'
-    PositionAfterOpen = 20
-    MinSize = 20
-    Control = NavBar
-    Color = clSilver
-    ParentColor = False
   end
   inherited xpmn1: TXPMenu
     Left = 288

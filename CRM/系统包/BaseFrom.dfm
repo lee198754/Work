@@ -4,7 +4,6 @@ object Base_Frm: TBase_Frm
   Width = 692
   Height = 476
   BiDiMode = bdLeftToRight
-  BorderWidth = 5
   Caption = 'Base_Frm'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET

@@ -1,6 +1,6 @@
 inherited Frm_Supply: TFrm_Supply
-  Left = 122
-  Top = 62
+  Left = 276
+  Top = 69
   VertScrollBar.Range = 0
   Align = alClient
   BorderStyle = bsNone
@@ -25,14 +25,15 @@ inherited Frm_Supply: TFrm_Supply
     Width = 169
     Height = 598
     Align = alLeft
+    BevelOuter = bvNone
     Caption = 'Panel1'
     Locked = True
     TabOrder = 1
     object TreeView: TcxTreeView
-      Left = 1
-      Top = 105
-      Width = 167
-      Height = 492
+      Left = 0
+      Top = 104
+      Width = 169
+      Height = 494
       Align = alClient
       TabOrder = 0
       OnClick = TreeViewClick
@@ -64,9 +65,9 @@ inherited Frm_Supply: TFrm_Supply
       OnChange = TreeViewChange
     end
     object Panel5: TPanel
-      Left = 1
-      Top = 1
-      Width = 167
+      Left = 0
+      Top = 0
+      Width = 169
       Height = 104
       Align = alTop
       BevelOuter = bvNone
@@ -113,12 +114,13 @@ inherited Frm_Supply: TFrm_Supply
     Width = 681
     Height = 598
     Align = alClient
+    BevelOuter = bvNone
     Caption = 'Panel3'
     TabOrder = 4
     object CustSon: TcxPageControl
-      Left = 1
-      Top = 372
-      Width = 679
+      Left = 0
+      Top = 373
+      Width = 681
       Height = 225
       ActivePage = TabContact
       Align = alBottom
@@ -128,7 +130,7 @@ inherited Frm_Supply: TFrm_Supply
       TabSlants.Kind = skCutCorner
       OnChange = CustSonChange
       ClientRectBottom = 225
-      ClientRectRight = 679
+      ClientRectRight = 681
       ClientRectTop = 19
       object TabContact: TcxTabSheet
         Caption = #32852#31995#20154
@@ -137,7 +139,7 @@ inherited Frm_Supply: TFrm_Supply
         object cxGrid2: TcxGrid
           Left = 0
           Top = 0
-          Width = 679
+          Width = 681
           Height = 206
           Align = alClient
           TabOrder = 0
@@ -167,7 +169,7 @@ inherited Frm_Supply: TFrm_Supply
         object cxgrd1: TcxGrid
           Left = 0
           Top = 0
-          Width = 679
+          Width = 681
           Height = 165
           Align = alClient
           TabOrder = 0
@@ -257,7 +259,7 @@ inherited Frm_Supply: TFrm_Supply
         object Panel2: TPanel
           Left = 0
           Top = 165
-          Width = 679
+          Width = 681
           Height = 41
           Align = alBottom
           TabOrder = 1
@@ -591,9 +593,9 @@ inherited Frm_Supply: TFrm_Supply
       end
     end
     object cxSplitter2: TcxSplitter
-      Left = 1
-      Top = 364
-      Width = 679
+      Left = 0
+      Top = 365
+      Width = 681
       Height = 8
       HotZoneClassName = 'TcxXPTaskBarStyle'
       AlignSplitter = salBottom
@@ -602,10 +604,10 @@ inherited Frm_Supply: TFrm_Supply
       Control = CustSon
     end
     object cxGrid1: TcxGrid
-      Left = 1
-      Top = 1
-      Width = 679
-      Height = 363
+      Left = 0
+      Top = 0
+      Width = 681
+      Height = 365
       Align = alClient
       PopupMenu = PopupMenu2
       TabOrder = 2
