@@ -1,0 +1,9 @@
+C:\工程文件\工程文件\Bll\bin\Debug\Bll.dll
+C:\工程文件\工程文件\Bll\bin\Debug\Bll.pdb
+C:\工程文件\工程文件\Bll\bin\Debug\Dal.dll
+C:\工程文件\工程文件\Bll\bin\Debug\Model.dll
+C:\工程文件\工程文件\Bll\bin\Debug\Model.pdb
+C:\工程文件\工程文件\Bll\bin\Debug\Dal.pdb
+C:\工程文件\工程文件\Bll\obj\Debug\ResolveAssemblyReference.cache
+C:\工程文件\工程文件\Bll\obj\Debug\Bll.dll
+C:\工程文件\工程文件\Bll\obj\Debug\Bll.pdb

@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc11="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapenc12="http://www.w3.org/2003/05/soap-encoding" xmlns:soap11="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.chinapost.cn/PostService" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope" targetNamespace="http://www.chinapost.cn/PostService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://www.chinapost.cn/PostService">
+      <xsd:element name="setChang">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="sbid" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setChangResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="isNewOrder">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Type" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="isNewOrderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getFXSJ">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="sbid" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="msbz" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getFXSJResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ChangYc">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ArrayOfArrayOfString">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfString">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ChangYcResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="tns:ArrayOfArrayOfString" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setWXNJSHQR">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Type" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Wxfhid" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Jszt" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setWXNJSHQRResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setOutInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Type" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="ID" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="ProductCode" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Tao" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Out" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="OutCode" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="JiangCode" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="OutWay" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="OverDate" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="OutNum" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="TXM" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="ZXS" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="CBSL" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="BZ" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setOutInfoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setProductInfo">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="ProductType" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="ID" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="ProductCode" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Type" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setProductInfoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getGGCXD">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="fhsj" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getGGCXDResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOrderID">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Type" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="State" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="CheckDate" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOrderIDResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="tns:ArrayOfArrayOfString" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOrderD">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="OrderID" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="num" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOrderDResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setCXFH">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Type" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Sbid" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setCXFHResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="checkUser">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="checkUserResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOrderQY">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Type" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Sbid" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Cpbh" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="CheckDate" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOrderQYResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="tns:ArrayOfArrayOfString" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getWXNJFH">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Type" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="num" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getWXNJFHResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setDYQR">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Type" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="sbid" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Yzjhid" type="xsd:int" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Cpbh" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="setDYQRResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getGGCX">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="fhsj" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getGGCXResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOrderX">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="User" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="Pwd" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="OrderID" nillable="true" type="xsd:string" />
+            <xsd:element minOccurs="1" maxOccurs="1" name="num" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getOrderXResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="1" maxOccurs="1" name="out" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="setOutInfoRequest">
+    <wsdl:part name="parameters" element="tns:setOutInfo" />
+  </wsdl:message>
+  <wsdl:message name="checkUserRequest">
+    <wsdl:part name="parameters" element="tns:checkUser" />
+  </wsdl:message>
+  <wsdl:message name="ChangYcRequest">
+    <wsdl:part name="parameters" element="tns:ChangYc" />
+  </wsdl:message>
+  <wsdl:message name="setCXFHRequest">
+    <wsdl:part name="parameters" element="tns:setCXFH" />
+  </wsdl:message>
+  <wsdl:message name="getOrderQYResponse">
+    <wsdl:part name="parameters" element="tns:getOrderQYResponse" />
+  </wsdl:message>
+  <wsdl:message name="setWXNJSHQRRequest">
+    <wsdl:part name="parameters" element="tns:setWXNJSHQR" />
+  </wsdl:message>
+  <wsdl:message name="getOrderXResponse">
+    <wsdl:part name="parameters" element="tns:getOrderXResponse" />
+  </wsdl:message>
+  <wsdl:message name="setOutInfoResponse">
+    <wsdl:part name="parameters" element="tns:setOutInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="setWXNJSHQRResponse">
+    <wsdl:part name="parameters" element="tns:setWXNJSHQRResponse" />
+  </wsdl:message>
+  <wsdl:message name="isNewOrderRequest">
+    <wsdl:part name="parameters" element="tns:isNewOrder" />
+  </wsdl:message>
+  <wsdl:message name="getGGCXResponse">
+    <wsdl:part name="parameters" element="tns:getGGCXResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangYcResponse">
+    <wsdl:part name="parameters" element="tns:ChangYcResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOrderIDRequest">
+    <wsdl:part name="parameters" element="tns:getOrderID" />
+  </wsdl:message>
+  <wsdl:message name="setChangRequest">
+    <wsdl:part name="parameters" element="tns:setChang" />
+  </wsdl:message>
+  <wsdl:message name="getWXNJFHResponse">
+    <wsdl:part name="parameters" element="tns:getWXNJFHResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOrderQYRequest">
+    <wsdl:part name="parameters" element="tns:getOrderQY" />
+  </wsdl:message>
+  <wsdl:message name="setProductInfoResponse">
+    <wsdl:part name="parameters" element="tns:setProductInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getFXSJRequest">
+    <wsdl:part name="parameters" element="tns:getFXSJ" />
+  </wsdl:message>
+  <wsdl:message name="getOrderXRequest">
+    <wsdl:part name="parameters" element="tns:getOrderX" />
+  </wsdl:message>
+  <wsdl:message name="setDYQRResponse">
+    <wsdl:part name="parameters" element="tns:setDYQRResponse" />
+  </wsdl:message>
+  <wsdl:message name="getWXNJFHRequest">
+    <wsdl:part name="parameters" element="tns:getWXNJFH" />
+  </wsdl:message>
+  <wsdl:message name="setProductInfoRequest">
+    <wsdl:part name="parameters" element="tns:setProductInfo" />
+  </wsdl:message>
+  <wsdl:message name="isNewOrderResponse">
+    <wsdl:part name="parameters" element="tns:isNewOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGGCXDRequest">
+    <wsdl:part name="parameters" element="tns:getGGCXD" />
+  </wsdl:message>
+  <wsdl:message name="setCXFHResponse">
+    <wsdl:part name="parameters" element="tns:setCXFHResponse" />
+  </wsdl:message>
+  <wsdl:message name="checkUserResponse">
+    <wsdl:part name="parameters" element="tns:checkUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="getOrderDRequest">
+    <wsdl:part name="parameters" element="tns:getOrderD" />
+  </wsdl:message>
+  <wsdl:message name="getOrderIDResponse">
+    <wsdl:part name="parameters" element="tns:getOrderIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="setDYQRRequest">
+    <wsdl:part name="parameters" element="tns:setDYQR" />
+  </wsdl:message>
+  <wsdl:message name="getOrderDResponse">
+    <wsdl:part name="parameters" element="tns:getOrderDResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGGCXDResponse">
+    <wsdl:part name="parameters" element="tns:getGGCXDResponse" />
+  </wsdl:message>
+  <wsdl:message name="setChangResponse">
+    <wsdl:part name="parameters" element="tns:setChangResponse" />
+  </wsdl:message>
+  <wsdl:message name="getGGCXRequest">
+    <wsdl:part name="parameters" element="tns:getGGCX" />
+  </wsdl:message>
+  <wsdl:message name="getFXSJResponse">
+    <wsdl:part name="parameters" element="tns:getFXSJResponse" />
+  </wsdl:message>
+  <wsdl:portType name="PostServicePortType">
+    <wsdl:operation name="setChang">
+      <wsdl:input name="setChangRequest" message="tns:setChangRequest" />
+      <wsdl:output name="setChangResponse" message="tns:setChangResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="isNewOrder">
+      <wsdl:input name="isNewOrderRequest" message="tns:isNewOrderRequest" />
+      <wsdl:output name="isNewOrderResponse" message="tns:isNewOrderResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getFXSJ">
+      <wsdl:input name="getFXSJRequest" message="tns:getFXSJRequest" />
+      <wsdl:output name="getFXSJResponse" message="tns:getFXSJResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangYc">
+      <wsdl:input name="ChangYcRequest" message="tns:ChangYcRequest" />
+      <wsdl:output name="ChangYcResponse" message="tns:ChangYcResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setWXNJSHQR">
+      <wsdl:input name="setWXNJSHQRRequest" message="tns:setWXNJSHQRRequest" />
+      <wsdl:output name="setWXNJSHQRResponse" message="tns:setWXNJSHQRResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setOutInfo">
+      <wsdl:input name="setOutInfoRequest" message="tns:setOutInfoRequest" />
+      <wsdl:output name="setOutInfoResponse" message="tns:setOutInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setProductInfo">
+      <wsdl:input name="setProductInfoRequest" message="tns:setProductInfoRequest" />
+      <wsdl:output name="setProductInfoResponse" message="tns:setProductInfoResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getGGCXD">
+      <wsdl:input name="getGGCXDRequest" message="tns:getGGCXDRequest" />
+      <wsdl:output name="getGGCXDResponse" message="tns:getGGCXDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderID">
+      <wsdl:input name="getOrderIDRequest" message="tns:getOrderIDRequest" />
+      <wsdl:output name="getOrderIDResponse" message="tns:getOrderIDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderD">
+      <wsdl:input name="getOrderDRequest" message="tns:getOrderDRequest" />
+      <wsdl:output name="getOrderDResponse" message="tns:getOrderDResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setCXFH">
+      <wsdl:input name="setCXFHRequest" message="tns:setCXFHRequest" />
+      <wsdl:output name="setCXFHResponse" message="tns:setCXFHResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="checkUser">
+      <wsdl:input name="checkUserRequest" message="tns:checkUserRequest" />
+      <wsdl:output name="checkUserResponse" message="tns:checkUserResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderQY">
+      <wsdl:input name="getOrderQYRequest" message="tns:getOrderQYRequest" />
+      <wsdl:output name="getOrderQYResponse" message="tns:getOrderQYResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getWXNJFH">
+      <wsdl:input name="getWXNJFHRequest" message="tns:getWXNJFHRequest" />
+      <wsdl:output name="getWXNJFHResponse" message="tns:getWXNJFHResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="setDYQR">
+      <wsdl:input name="setDYQRRequest" message="tns:setDYQRRequest" />
+      <wsdl:output name="setDYQRResponse" message="tns:setDYQRResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getGGCX">
+      <wsdl:input name="getGGCXRequest" message="tns:getGGCXRequest" />
+      <wsdl:output name="getGGCXResponse" message="tns:getGGCXResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderX">
+      <wsdl:input name="getOrderXRequest" message="tns:getOrderXRequest" />
+      <wsdl:output name="getOrderXResponse" message="tns:getOrderXResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PostServiceHttpBinding" type="tns:PostServicePortType">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="setChang">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setChangRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="setChangResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isNewOrder">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="isNewOrderRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="isNewOrderResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getFXSJ">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getFXSJRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getFXSJResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangYc">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="ChangYcRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ChangYcResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setWXNJSHQR">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setWXNJSHQRRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="setWXNJSHQRResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setOutInfo">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setOutInfoRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="setOutInfoResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setProductInfo">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setProductInfoRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="setProductInfoResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGGCXD">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getGGCXDRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getGGCXDResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderID">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getOrderIDRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getOrderIDResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderD">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getOrderDRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getOrderDResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setCXFH">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setCXFHRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="setCXFHResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checkUser">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="checkUserRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="checkUserResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderQY">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getOrderQYRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getOrderQYResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getWXNJFH">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getWXNJFHRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getWXNJFHResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setDYQR">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="setDYQRRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="setDYQRResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getGGCX">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getGGCXRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getGGCXResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderX">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getOrderXRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getOrderXResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PostService">
+    <wsdl:port name="PostServiceHttpPort" binding="tns:PostServiceHttpBinding">
+      <wsdlsoap:address location="http://211.156.193.139/PostWebService/services/PostService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

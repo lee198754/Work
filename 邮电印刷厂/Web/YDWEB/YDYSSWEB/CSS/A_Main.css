@@ -1,0 +1,241 @@
+﻿/*body
+{
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	overflow-y: auto;
+	scrollbar-face-color:#ffffff;
+	scrollbar-highlight-color:#ffffff;
+	scrollbar-shadow-color: #ffffff;
+    scrollbar-3dlight-color:#66ada7;
+    scrollbar-arrow-color: #66ada7;
+    scrollbar-track-color: #ffffff;
+    scrollbar-darkshadow-color: #66ada7;
+    scrollbar-basw-color: #ffffff
+}*/
+html,body,form
+{
+	height:100%
+}
+body,td,th,div,option,select,button,input,TextBox,textarea {
+	font-size: 12px;
+	font-family:  Verdana,  "宋体" ,  Arial, Helvetica;
+}
+ a 
+{
+	font-size: 12px;
+	color: #3a3a3b;
+	height:20px;
+	text-decoration: none;
+}
+
+ a:hover 
+{
+	font-size: 12px;
+	text-decoration: none;
+	height:20px;
+	color: #3a3a3b;
+}
+.PageTextBox
+{
+	border:#3a3a3b 1px solid;
+	color:#3a3a3b;
+	font-size: 12px;
+	height:14px;
+
+	}
+.sContent
+{
+	width: 99%;
+	text-align: left;
+	margin: 3px 0px 0px 0px;
+	
+}
+.sContent1
+{
+	width: 99%;
+	text-align: left;
+	margin: 3px 0px 0px 0px;
+	height:90%
+}
+.HeadTable
+{
+	width:100%;
+	background: url(../Images/tab_05.gif) repeat-x 0% -1px;
+	height:28px;
+	line-height:28px;
+
+}
+.HeadTd1
+{
+	width:12px;
+	background: url(../Images/tab_03.gif) no-repeat -3px -1px;
+	height:28px;
+	line-height:28px;
+
+}
+.HeadTd2
+{
+	width:20px;
+	background: url(../Images/tb.gif) no-repeat 0% 6px;
+	height:28px;
+	line-height:28px;
+
+}
+.HeadTdAdd
+{
+	width:55px;
+	height:28px;
+	line-height:28px;
+
+}
+
+.HeadTdAdd a 
+{
+	font-size: 12px;
+	color: #3a3a3b;
+	height:22px;
+	text-decoration: none;
+	display:block;
+	line-height:22px;
+}
+
+.HeadTdAdd a:hover 
+{
+	font-size: 12px;
+	text-decoration: none;
+	height:22px;
+	color: #3a3a3b;
+	background: url(../Images/ABG.png) no-repeat;
+	display:block;
+	line-height:22px;
+}
+.HeadImage
+{
+	margin:0px 5px -4px 5px !Important;
+	margin:4px 5px -4px 5px;
+
+}
+
+.HeadTd3
+{
+	width:16px;
+	background: url(../Images/tab_07.gif) no-repeat 4px -1px;
+	height:28px;
+	line-height:28px;
+
+}
+.sList
+{
+	padding:5px;
+    border-right: #a5d1ec 1px solid;
+	border-top: #a5d1ec 1px solid;
+	border-left: #a5d1ec 1px solid;
+	border-bottom: #a5d1ec 1px solid;
+	height:500px;
+}
+.sList1
+{
+	padding:5px;
+    border-right: #a5d1ec 1px solid;
+	border-top: #a5d1ec 1px solid;
+	border-left: #a5d1ec 1px solid;
+	border-bottom: #a5d1ec 1px solid;
+	height:99%;
+}
+
+.ListTH
+{
+	background: url(../Images/ListTH.gif) repeat-x 0% 0px;
+	height:20px;
+	text-align:center;
+	border-right: #a5d1ec 1px solid;
+	border-top: #a5d1ec 1px solid;
+	border-left: #a5d1ec 1px solid;
+	border-bottom: #a5d1ec 1px solid;
+	font-weight:100;
+
+	}
+.ListTd
+{
+   height:22px;
+   text-align:left;
+   border-right: #a5d1ec 1px solid;
+   border-top: #a5d1ec 1px solid;
+   border-left: #a5d1ec 1px solid;
+   border-bottom: #a5d1ec 1px solid;
+	}	
+.ListTd1
+{
+   height:22px;
+   text-align:center;
+   border-right: #a5d1ec 1px solid;
+   border-top: #a5d1ec 1px solid;
+   border-left: #a5d1ec 1px solid;
+   border-bottom: #a5d1ec 1px solid;
+	}
+.MenuIcon
+{
+	 margin:1px 5px -4px 0px;
+}
+.TextBox
+{
+	border-right: #a5d1ec 1px solid;
+	border-top: #a5d1ec 1px solid;
+	border-left: #a5d1ec 1px solid;
+	border-bottom: #a5d1ec 1px solid;
+	}	
+.TextBox1
+{
+	height:18px;
+	font-size: 13px;
+	border:solid 1px; 
+	border-top-color:#9f9f9f; 
+	border-left-color:#9f9f9f;  
+	border-bottom-color:#dcdcdc; 
+	border-right-color:#dcdcdc; 
+
+}
+.Update
+{
+   background: url(../Images/arrow_refresh.png) no-repeat;
+   border:#ffffff 0px solid;
+   color: #3a3a3b;
+   padding:0px 0px 0px 8px;
+   cursor:pointer;
+	}
+	.Search
+{
+   background: url(../Images/kaoqin.gif) no-repeat;
+   border:#ffffff 0px solid;
+   color: #3a3a3b;
+   padding:0px 0px 0px 8px;
+   cursor:pointer;
+	}
+
+.TextBox1
+{
+	height:18px;
+	font-size: 13px;
+	border-bottom:solid 1px;
+	
+	border-top-color:#9f9f9f; 
+	border-left-color:#9f9f9f;  
+	border-bottom-color:#dcdcdc; 
+	border-right-color:#dcdcdc; }
+	.Wdate
+{
+	border: #7f9db9 1px solid;
+	height: 18px;
+	background: url(Images/datePicker.gif) #fff no-repeat right 50%;
+}
+.txt
+	{
+	  height:12px;
+	  font-size:9pt;
+	  color:dimgray;   
+	}
+	.img
+	{
+		 border:1px;
+		  border-color:#ddb473;
+	}

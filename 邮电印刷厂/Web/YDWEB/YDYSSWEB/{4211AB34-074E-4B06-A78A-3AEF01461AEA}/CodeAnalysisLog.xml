@@ -1,0 +1,960 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="d:\microsoft visual studio 9.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="1.36">
+ <Targets>
+  <Target Name="C:\Users\Administrator.MINI-20120925TT\AppData\Local\Temp\tmp64CA.tmp.cadir\bin\App_Code.dll">
+   <Modules>
+    <Module Name="app_code.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="PdaService" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="DeclareTypesInNamespaces" Category="Microsoft.Design" CheckId="CA1050" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+           <Issue Certainty="95" Level="Error">'PdaService' 应在命名空间内声明。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#ExecuteSql(System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Pwd" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="55">在成员 'PdaService.ExecuteSql(string, string, string)' 中，更正参数名称 'Pwd' 中“Pwd”的大小写，将其改为“pwd”。</Issue>
+            </Message>
+            <Message Id="SQL" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="55">在成员 'PdaService.ExecuteSql(string, string, string)' 中，更正参数名称 'SQLString' 中“SQL”的大小写，将其改为“sql”。</Issue>
+            </Message>
+            <Message Id="User" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="55">在成员 'PdaService.ExecuteSql(string, string, string)' 中，更正参数名称 'User' 中“User”的大小写，将其改为“user”。</Issue>
+            </Message>
+            <Message Id="string" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="LanguageIndependentMemberParameter" Certainty="75" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="55">在成员 'PdaService.ExecuteSql(string, string, string)' 中，考虑将参数名称 'SQLString' 中的数据类型标识符“String”替换为一个更通用的词条，如“value”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Getp_GetOut(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="TXM" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="30">在成员 'PdaService.Getp_GetOut(string)' 中，更正参数名称 'TXM' 中“TXM”的大小写，将其改为“txm”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Getp_SaveOut(System.Int32,System.Int32,System.Int32,System.String,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.Int32,System.String,System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="BZ" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'BZ' 中“BZ”的大小写，将其改为“bz”。</Issue>
+            </Message>
+            <Message Id="CBSL" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'CBSL' 中“CBSL”的大小写，将其改为“cbsl”。</Issue>
+            </Message>
+            <Message Id="Jiang" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'JiangCode' 中“Jiang”的大小写，将其改为“jiang”。</Issue>
+            </Message>
+            <Message Id="Out" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'Out' 中“Out”的大小写，将其改为“out”。</Issue>
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'OutCode' 中“Out”的大小写，将其改为“out”。</Issue>
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'OutNum' 中“Out”的大小写，将其改为“out”。</Issue>
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'OutWay' 中“Out”的大小写，将其改为“out”。</Issue>
+            </Message>
+            <Message Id="Over" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'OverDate' 中“Over”的大小写，将其改为“over”。</Issue>
+            </Message>
+            <Message Id="Product" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'ProductCode' 中“Product”的大小写，将其改为“product”。</Issue>
+            </Message>
+            <Message Id="Rec" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'Rec' 中“Rec”的大小写，将其改为“rec”。</Issue>
+            </Message>
+            <Message Id="SBID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'SBID' 中“SBID”的大小写，将其改为“sbid”。</Issue>
+            </Message>
+            <Message Id="TXM" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'TXM' 中“TXM”的大小写，将其改为“txm”。</Issue>
+            </Message>
+            <Message Id="Tao" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'Tao' 中“Tao”的大小写，将其改为“tao”。</Issue>
+            </Message>
+            <Message Id="Type" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'Type' 中“Type”的大小写，将其改为“type”。</Issue>
+            </Message>
+            <Message Id="ZXS" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="38">在成员 'PdaService.Getp_SaveOut(int, int, int, string, int, int, string, string, string, string, int, string, string, string, string)' 中，更正参数名称 'ZXS' 中“ZXS”的大小写，将其改为“zxs”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Query(System.String,System.String,System.String,System.Int32)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="Pwd" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="44">在成员 'PdaService.Query(string, string, string, int)' 中，更正参数名称 'Pwd' 中“Pwd”的大小写，将其改为“pwd”。</Issue>
+            </Message>
+            <Message Id="SQL" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="44">在成员 'PdaService.Query(string, string, string, int)' 中，更正参数名称 'SQLString' 中“SQL”的大小写，将其改为“sql”。</Issue>
+            </Message>
+            <Message Id="Times" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="44">在成员 'PdaService.Query(string, string, string, int)' 中，更正参数名称 'Times' 中“Times”的大小写，将其改为“times”。</Issue>
+            </Message>
+            <Message Id="User" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="44">在成员 'PdaService.Query(string, string, string, int)' 中，更正参数名称 'User' 中“User”的大小写，将其改为“user”。</Issue>
+            </Message>
+            <Message Id="string" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="LanguageIndependentMemberParameter" Certainty="75" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="PdaService.cs" Line="44">在成员 'PdaService.Query(string, string, string, int)' 中，考虑将参数名称 'SQLString' 中的数据类型标识符“String”替换为一个更通用的词条，如“value”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SQLcs" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="DeclareTypesInNamespaces" Category="Microsoft.Design" CheckId="CA1050" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+           <Issue Certainty="95" Level="Error">'SQLcs' 应在命名空间内声明。</Issue>
+          </Message>
+          <Message TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+           <Issue Certainty="90" Level="Error">从 'SQLcs' 中移除公共构造函数。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#AlertShow(System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="1#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="SQLcs.cs" Line="39">将方法 'SQLcs.AlertShow(string, string)' 的参数 'url' 的类型从字符串改为 System.Uri，或者提供 'SQLcs.AlertShow(string, string)' 的重载，允许将 'url' 作为 System.Uri 对象来传递。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DataOperater(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB\App_Code" File="SQLcs.cs" Line="58">修改 'SQLcs.DataOperater(string)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="C:\Users\Administrator.MINI-20120925TT\AppData\Local\Temp\tmp64CA.tmp.cadir\bin\App_Web_jmse6bmy.dll">
+   <Modules>
+    <Module Name="app_web_jmse6bmy.dll">
+     <Namespaces>
+      <Namespace Name="">
+       <Types>
+        <Type Name="_Default" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Button1_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="Default.aspx.cs" Line="45">修改 '_Default.Button1_Click(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="Default.aspx.cs" Line="27">修改 '_Default.Page_Load(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="A_User" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.cctor()" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Warning" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="20">'A_User.A_User()' 将类型为 'int' 的字段 'A_User.F_iID' 初始化为 0。由于此初始化过程将由运行库自动完成，因此请移除它。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#BindType()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="221">只要 'A_User.BindType()' 创建了 DataTable 类型的实例，就必须设置这一 Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btn_Confrim_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="84">修改 'A_User.btn_Confrim_Click(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="btn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="48">更正成员名称 'A_User.btn_Confrim_Click(object, EventArgs)' 中“btn”的大小写，将其改为“Btn”。</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="53">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'A_User.btn_Confrim_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btn_Return_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="201">修改 'A_User.btn_Return_Click(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="btn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="196">更正成员名称 'A_User.btn_Return_Click(object, EventArgs)' 中“btn”的大小写，将其改为“Btn”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ConfrimUser()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="183">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'A_User.ConfrimUser()' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#F_iID" Kind="Field" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Warning">考虑将 'A_User.F_iID' 设为非公共的或使它成为常量。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetChkvalue(System.Web.UI.WebControls.CheckBoxList)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="276">考虑将 'A_User.GetChkvalue(CheckBoxList)' 中参数 'chklist' 的类型从 'CheckBoxList' 改为其基类型 'ListControl'。此方法在其实现中似乎只需要基类成员。如果方法签名中确实需要此派生类型，则禁止显示此冲突。</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="296">修改 'A_User.GetChkvalue(CheckBoxList)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Name="IsNullOrEmpty" Certainty="95" Level="Warning" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="284">使用“String.IsNullOrEmpty”调用来替换 'A_User.GetChkvalue(CheckBoxList)' 中的 'string.Equals(string)' 调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="35">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'A_User.Page_Load(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetChked(System.String,System.Web.UI.WebControls.CheckBoxList)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Certainty="50" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="235">考虑将 'A_User.SetChked(string, CheckBoxList)' 中参数 'chklist' 的类型从 'CheckBoxList' 改为其基类型 'ListControl'。此方法在其实现中似乎只需要基类成员。如果方法签名中确实需要此派生类型，则禁止显示此冲突。</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="246">修改 'A_User.SetChked(string, CheckBoxList)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SetValue(System.String,System.Web.UI.WebControls.CheckBoxList)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="268">修改 'A_User.SetValue(string, CheckBoxList)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="ID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameterAbbreviation" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="255">在成员 'A_User.SetValue(string, CheckBoxList)' 中，更正参数名称 'strperID' 中“ID”的大小写，将其改为“Id”。“Id”是一个缩写词，因此无需遵守首字母缩略词大小写规则。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#ValidateString()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="A_User.aspx.cs" Line="152">修改 'A_User.ValidateString()' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="EidtPassWord" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#btn_submit_ServerClick(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="EidtPassWord.aspx.cs" Line="53">修改 'EidtPassWord.btn_submit_ServerClick(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="btn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="EidtPassWord.aspx.cs" Line="25">更正成员名称 'EidtPassWord.btn_submit_ServerClick(object, EventArgs)' 中“btn”的大小写，将其改为“Btn”。</Issue>
+            </Message>
+            <Message Id="submit" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="EidtPassWord.aspx.cs" Line="25">更正成员名称 'EidtPassWord.btn_submit_ServerClick(object, EventArgs)' 中“submit”的大小写，将其改为“Submit”。</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="EidtPassWord.aspx.cs" Line="39">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'EidtPassWord.btn_submit_ServerClick(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="FlieTest" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CreateFile(System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="FlieTest.aspx.cs" Line="81">修改 'FlieTest.CreateFile(string, string)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#CreateFolder(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="FlieTest.aspx.cs" Line="179">修改 'FlieTest.CreateFolder(string)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="Folder" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="FlieTest.aspx.cs" Line="162">在成员 'FlieTest.CreateFolder(string)' 中，更正参数名称 'FolderName' 中“Folder”的大小写，将其改为“folder”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Delete(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="FlieTest.aspx.cs" Line="154">修改 'FlieTest.Delete(string)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#DeleteDirctory(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="FlieTest.aspx.cs" Line="200">修改 'FlieTest.DeleteDirctory(string)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetDir(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="FlieTest.aspx.cs" Line="227">修改 'FlieTest.GetDir(string)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="FlieTest.aspx.cs" Line="213">只要 'FlieTest.GetDir(string)' 创建了 DataTable 类型的实例，就必须设置这一 Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#UpdateFile(System.String,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="FlieTest.aspx.cs" Line="139">修改 'FlieTest.UpdateFile(string, string)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#WriteFile(System.Byte[],System.String)" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="c:\工程文件\工程文件\YDYSSWEB" File="FlieTest.aspx.cs" Line="39">'FlieTest.WriteFile(byte[], string)' 似乎没有上游 public 或 protected 调用方。</Issue>
+            </Message>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="FlieTest.aspx.cs" Line="54">修改 'FlieTest.WriteFile(byte[], string)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#WriteFile(System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="FlieTest.aspx.cs" Line="103">修改 'FlieTest.WriteFile(string)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="index" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="index" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="85" Level="Error">更正类型名称 'index' 中“index”的大小写，将其改为“Index”。</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="Login" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="Login" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">将类型名称 'Login' 中的词条“Login”替换为首选替代项“LogOn”。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#btn_login_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="Login.aspx.cs" Line="93">修改 'Login.btn_login_Click(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="btn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Login.aspx.cs" Line="35">更正成员名称 'Login.btn_login_Click(object, EventArgs)' 中“btn”的大小写，将其改为“Btn”。</Issue>
+            </Message>
+            <Message Id="login" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Login.aspx.cs" Line="35">更正成员名称 'Login.btn_login_Click(object, EventArgs)' 中“login”的大小写，将其改为“Login”。</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Login.aspx.cs" Line="57">只要 'Login.btn_login_Click(object, EventArgs)' 创建了 DataTable 类型的实例，就必须设置这一 Locale 属性。</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Login.aspx.cs" Line="72">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Login.btn_login_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+            <Message Id="login" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Login.aspx.cs" Line="35">将成员名称 'Login.btn_login_Click(object, EventArgs)' 中的词条“login”替换为首选替代项“LogOn”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="logout" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="logout" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="85" Level="Error">更正类型名称 'logout' 中“logout”的大小写，将其改为“Logout”。</Issue>
+          </Message>
+          <Message Id="logout" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="95" Level="Error">将类型名称 'logout' 中的词条“logout”替换为首选替代项“LogOff”。</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="managedata" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="managedata" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="85" Level="Error">更正类型名称 'managedata' 中“managedata”的大小写，将其改为“Managedata”。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#btn_DelFile_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="141">修改 'managedata.btn_DelFile_Click(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="btn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="129">更正成员名称 'managedata.btn_DelFile_Click(object, EventArgs)' 中“btn”的大小写，将其改为“Btn”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btndownload_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="btndownload" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="90">更正成员名称 'managedata.btndownload_Click(object, EventArgs)' 中“btndownload”的大小写，将其改为“Btndownload”。</Issue>
+            </Message>
+            <Message Id="System.Int64.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="98">由于 'long.ToString()' 的行为可能因当前用户的区域设置不同而不同，请将 'managedata.btndownload_Click(object, EventArgs)' 中的此调用替换为对 'long.ToString(IFormatProvider)' 的调用。如果要向用户显示 'long.ToString(IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btnreturn_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="80">修改 'managedata.btnreturn_Click(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="btnreturn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="62">更正成员名称 'managedata.btnreturn_Click(object, EventArgs)' 中“btnreturn”的大小写，将其改为“Btnreturn”。</Issue>
+            </Message>
+            <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Name="IsNullOrEmpty" Certainty="95" Level="Warning" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="66">使用“String.IsNullOrEmpty”调用来替换 'managedata.btnreturn_Click(object, EventArgs)' 中的 'string.operator ==(string, string)' 调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btnupload_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="121">修改 'managedata.btnupload_Click(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="btnupload" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="107">更正成员名称 'managedata.btnupload_Click(object, EventArgs)' 中“btnupload”的大小写，将其改为“Btnupload”。</Issue>
+            </Message>
+            <Message Id="System.String.LastIndexOf(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="109">'managedata.btnupload_Click(object, EventArgs)' 调用不显式提供 StringComparison 的 'string.LastIndexOf(string)'。应将其替换为对 'string.LastIndexOf(string, StringComparison)' 的调用。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="110">'managedata.btnupload_Click(object, EventArgs)' 调用不显式提供 StringComparison 的 'string.LastIndexOf(string)'。应将其替换为对 'string.LastIndexOf(string, StringComparison)' 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Button1_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="54">修改 'managedata.Button1_Click(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message Id="System.String.LastIndexOf(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="managedata.aspx.cs" Line="30">'managedata.Page_Load(object, EventArgs)' 调用不显式提供 StringComparison 的 'string.LastIndexOf(string)'。应将其替换为对 'string.LastIndexOf(string, StringComparison)' 的调用。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Sel_Detail" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#mes" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">似乎从未使用过字段 'Sel_Detail.mes' 或只对它进行过赋值。请使用此字段或将它移除。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_Detail.aspx.cs" Line="77">修改 'Sel_Detail.Page_Load(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_Detail.aspx.cs" Line="29">只要 'Sel_Detail.Page_Load(object, EventArgs)' 创建了 DataTable 类型的实例，就必须设置这一 Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Sel_SCTJ" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="SCTJ" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="85" Level="Error">更正类型名称 'Sel_SCTJ' 中“SCTJ”的大小写，将其改为“Sctj”。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#BindDrop()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="160">只要 'Sel_SCTJ.BindDrop()' 创建了 DataTable 类型的实例，就必须设置这一 Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btn_sel_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="152">修改 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="btn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="42">更正成员名称 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中“btn”的大小写，将其改为“Btn”。</Issue>
+            </Message>
+            <Message Id="sel" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="42">更正成员名称 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中“sel”的大小写，将其改为“Sel”。</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="45">只要 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 创建了 DataTable 类型的实例，就必须设置这一 Locale 属性。</Issue>
+            </Message>
+            <Message Id="System.Double.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="68">由于 'double.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'double.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="68">由于 'double.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'double.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="79">由于 'double.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'double.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="79">由于 'double.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'double.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="90">由于 'double.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'double.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="90">由于 'double.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'double.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="102">由于 'double.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'double.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="102">由于 'double.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'double.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+            <Message Id="System.Double.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="69">由于 'double.ToString(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.ToString(string, IFormatProvider)' 的调用。如果要向用户显示 'double.ToString(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="80">由于 'double.ToString(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.ToString(string, IFormatProvider)' 的调用。如果要向用户显示 'double.ToString(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="91">由于 'double.ToString(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.ToString(string, IFormatProvider)' 的调用。如果要向用户显示 'double.ToString(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="103">由于 'double.ToString(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'double.ToString(string, IFormatProvider)' 的调用。如果要向用户显示 'double.ToString(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="46">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="66">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="66">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="77">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="77">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="88">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="88">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="100">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="100">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="67">由于 'int.ToString()' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.ToString(IFormatProvider)' 的调用。如果要向用户显示 'int.ToString(IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="68">由于 'int.ToString()' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.ToString(IFormatProvider)' 的调用。如果要向用户显示 'int.ToString(IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="78">由于 'int.ToString()' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.ToString(IFormatProvider)' 的调用。如果要向用户显示 'int.ToString(IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="79">由于 'int.ToString()' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.ToString(IFormatProvider)' 的调用。如果要向用户显示 'int.ToString(IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="89">由于 'int.ToString()' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.ToString(IFormatProvider)' 的调用。如果要向用户显示 'int.ToString(IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="90">由于 'int.ToString()' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.ToString(IFormatProvider)' 的调用。如果要向用户显示 'int.ToString(IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="101">由于 'int.ToString()' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.ToString(IFormatProvider)' 的调用。如果要向用户显示 'int.ToString(IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="102">由于 'int.ToString()' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.ToString(IFormatProvider)' 的调用。如果要向用户显示 'int.ToString(IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#mes" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">似乎从未使用过字段 'Sel_SCTJ.mes' 或只对它进行过赋值。请使用此字段或将它移除。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="35">修改 'Sel_SCTJ.Page_Load(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="27">由于 'DateTime.ToString(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.Page_Load(object, EventArgs)' 中的此调用替换为对 'DateTime.ToString(string, IFormatProvider)' 的调用。如果要向用户显示 'DateTime.ToString(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_SCTJ.aspx.cs" Line="28">由于 'DateTime.ToString(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_SCTJ.Page_Load(object, EventArgs)' 中的此调用替换为对 'DateTime.ToString(string, IFormatProvider)' 的调用。如果要向用户显示 'DateTime.ToString(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Sel_YWTJ" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message Id="YWTJ" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+           <Issue Name="Type" Certainty="85" Level="Error">更正类型名称 'Sel_YWTJ' 中“YWTJ”的大小写，将其改为“Ywtj”。</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#BindDrop()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_YWTJ.aspx.cs" Line="83">只要 'Sel_YWTJ.BindDrop()' 创建了 DataTable 类型的实例，就必须设置这一 Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#btn_sel_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_YWTJ.aspx.cs" Line="75">修改 'Sel_YWTJ.btn_sel_Click(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="btn" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_YWTJ.aspx.cs" Line="48">更正成员名称 'Sel_YWTJ.btn_sel_Click(object, EventArgs)' 中“btn”的大小写，将其改为“Btn”。</Issue>
+            </Message>
+            <Message Id="sel" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_YWTJ.aspx.cs" Line="48">更正成员名称 'Sel_YWTJ.btn_sel_Click(object, EventArgs)' 中“sel”的大小写，将其改为“Sel”。</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_YWTJ.aspx.cs" Line="51">只要 'Sel_YWTJ.btn_sel_Click(object, EventArgs)' 创建了 DataTable 类型的实例，就必须设置这一 Locale 属性。</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_YWTJ.aspx.cs" Line="52">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_YWTJ.btn_sel_Click(object, EventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#mes" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">似乎从未使用过字段 'Sel_YWTJ.mes' 或只对它进行过赋值。请使用此字段或将它移除。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_YWTJ.aspx.cs" Line="41">修改 'Sel_YWTJ.Page_Load(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="System.DateTime.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_YWTJ.aspx.cs" Line="27">由于 'DateTime.ToString(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_YWTJ.Page_Load(object, EventArgs)' 中的此调用替换为对 'DateTime.ToString(string, IFormatProvider)' 的调用。如果要向用户显示 'DateTime.ToString(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="Sel_YWTJ.aspx.cs" Line="28">由于 'DateTime.ToString(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'Sel_YWTJ.Page_Load(object, EventArgs)' 中的此调用替换为对 'DateTime.ToString(string, IFormatProvider)' 的调用。如果要向用户显示 'DateTime.ToString(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SelectList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#bindInfo()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="115">修改 'SelectList.bindInfo()' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="bind" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="51">更正成员名称 'SelectList.bindInfo()' 中“bind”的大小写，将其改为“Bind”。</Issue>
+            </Message>
+            <Message TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="90" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="80">只要 'SelectList.bindInfo()' 创建了 DataTable 类型的实例，就必须设置这一 Locale 属性。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Button1_Click(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="322">修改 'SelectList.Button1_Click(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GetID(System.Object)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="F" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="330">在成员 'SelectList.GetID(object)' 中，更正参数名称 'F_iID' 中“F”的大小写，将其改为“f”。</Issue>
+            </Message>
+            <Message Id="ID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberAbbreviation" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="330">更正成员名称 'SelectList.GetID(object)' 中“ID”的大小写，将其改为“Id”。“Id”是一个缩写词，因此无需遵守首字母缩略词大小写规则。</Issue>
+             <Issue Name="MemberParameterAbbreviation" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="330">在成员 'SelectList.GetID(object)' 中，更正参数名称 'F_iID' 中“ID”的大小写，将其改为“Id”。“Id”是一个缩写词，因此无需遵守首字母缩略词大小写规则。</Issue>
+            </Message>
+            <Message Id="i" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="330">在成员 'SelectList.GetID(object)' 中，更正参数名称 'F_iID' 中“i”的大小写，将其改为“I”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GridView_News_PageIndexChanging(System.Object,System.Web.UI.WebControls.GridViewPageEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="203">修改 'SelectList.GridView_News_PageIndexChanging(object, GridViewPageEventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="188">修改 'SelectList.GridView_News_PageIndexChanging(object, GridViewPageEventArgs)' 以便捕捉比 'object' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="186">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'SelectList.GridView_News_PageIndexChanging(object, GridViewPageEventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GridView_News_RowDataBound(System.Object,System.Web.UI.WebControls.GridViewRowEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="160">修改 'SelectList.GridView_News_RowDataBound(object, GridViewRowEventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="System.Double.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="148">由于 'double.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'SelectList.GridView_News_RowDataBound(object, GridViewRowEventArgs)' 中的此调用替换为对 'double.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'double.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="148">由于 'double.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'SelectList.GridView_News_RowDataBound(object, GridViewRowEventArgs)' 中的此调用替换为对 'double.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'double.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+            <Message Id="System.Double.ToString(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="149">由于 'double.ToString(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'SelectList.GridView_News_RowDataBound(object, GridViewRowEventArgs)' 中的此调用替换为对 'double.ToString(string, IFormatProvider)' 的调用。如果要向用户显示 'double.ToString(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="156">由于 'int.ToString()' 的行为可能因当前用户的区域设置不同而不同，请将 'SelectList.GridView_News_RowDataBound(object, GridViewRowEventArgs)' 中的此调用替换为对 'int.ToString(IFormatProvider)' 的调用。如果要向用户显示 'int.ToString(IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#mes" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">似乎从未使用过字段 'SelectList.mes' 或只对它进行过赋值。请使用此字段或将它移除。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Page_Load(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="SelectList.aspx.cs" Line="42">修改 'SelectList.Page_Load(object, EventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="UserList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#BindUser()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="UserList.aspx.cs" Line="47">修改 'UserList.BindUser()' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GridView_UserName_PageIndexChanging(System.Object,System.Web.UI.WebControls.GridViewPageEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="UserList.aspx.cs" Line="73">修改 'UserList.GridView_UserName_PageIndexChanging(object, GridViewPageEventArgs)' 以便捕捉比 'object' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="UserList.aspx.cs" Line="71">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'UserList.GridView_UserName_PageIndexChanging(object, GridViewPageEventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GridView_UserName_RowDataBound(System.Object,System.Web.UI.WebControls.GridViewRowEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="UserList.aspx.cs" Line="146">修改 'UserList.GridView_UserName_RowDataBound(object, GridViewRowEventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GridView_UserName_RowDeleting(System.Object,System.Web.UI.WebControls.GridViewDeleteEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="UserList.aspx.cs" Line="109">修改 'UserList.GridView_UserName_RowDeleting(object, GridViewDeleteEventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="UserList.aspx.cs" Line="96">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'UserList.GridView_UserName_RowDeleting(object, GridViewDeleteEventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#GridView_UserName_RowEditing(System.Object,System.Web.UI.WebControls.GridViewEditEventArgs)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="c:\工程文件\工程文件\YDYSSWEB" File="UserList.aspx.cs" Line="161">修改 'UserList.GridView_UserName_RowEditing(object, GridViewEditEventArgs)' 以便捕捉比 'Exception' 更具体的异常，或者再次引发该异常。</Issue>
+            </Message>
+            <Message Id="System.Int32.Parse(System.String)" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="UserList.aspx.cs" Line="158">由于 'int.Parse(string)' 的行为可能因当前用户的区域设置不同而不同，请将 'UserList.GridView_UserName_RowEditing(object, GridViewEditEventArgs)' 中的此调用替换为对 'int.Parse(string, IFormatProvider)' 的调用。如果要向用户显示 'int.Parse(string, IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+            <Message Id="System.Int32.ToString" TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305" Status="Active" Created="2013-05-13 02:32:51Z" FixCategory="DependsOnFix">
+             <Issue Certainty="95" Level="Error" Path="c:\工程文件\工程文件\YDYSSWEB" File="UserList.aspx.cs" Line="159">由于 'int.ToString()' 的行为可能因当前用户的区域设置不同而不同，请将 'UserList.GridView_UserName_RowEditing(object, GridViewEditEventArgs)' 中的此调用替换为对 'int.ToString(IFormatProvider)' 的调用。如果要向用户显示 'int.ToString(IFormatProvider)' 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+   <Name>避免使用未调用的私有代码</Name>
+   <Description>存在对外部不可见的未调用代码，该代码不是已知的运行库入口点。如果错误地引发此冲突，请向 Visual Studio 代码分析团队发送问题报告。</Description>
+   <Resolution Name="Default">{0} 似乎没有上游 public 或 protected 调用方。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182264(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+   <Name>避免未使用的私有字段</Name>
+   <Description>检测到程序集内有似乎未访问过的私有字段。如果错误地引发了此冲突，请向 Visual Studio 代码分析团队发送问题报告。</Description>
+   <Resolution Name="Default">似乎从未使用过字段 {0} 或只对它进行过赋值。请使用此字段或将它移除。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms245042(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011">
+   <Name>考虑将基类型作为参数传递</Name>
+   <Description>如果仅使用参数的基类中的方法和属性，则将基类型用作方法的参数可以提高这些方法的重复利用率。例如，如果仅调用 Stream.Read()，则使用 Stream 而不是 FileStream 作为参数，这可以使该方法适用于所有类型的流，而不仅仅适用于 File 流。</Description>
+   <Resolution Name="Default">考虑将 {1} 中参数 {0} 的类型从 {2} 改为其基类型 {3}。此方法在其实现中似乎只需要基类成员。如果方法签名中确实需要此派生类型，则禁止显示此冲突。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/3hk32yyz(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="50">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="DeclareTypesInNamespaces" Category="Microsoft.Design" CheckId="CA1050">
+   <Name>在命名空间中声明类型</Name>
+   <Description>应在命名空间内定义类型以避免重复。</Description>
+   <Resolution Name="Default">{0} 应在命名空间内声明。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182134(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+   <Name>不要捕捉一般异常类型</Name>
+   <Description>不应捕捉 Exception 或 SystemException。捕捉一般异常类型会使库用户看不到运行时问题，并会使调试复杂化。您应该仅捕捉自己可以进行适当处理的异常。</Description>
+   <Resolution Name="Default">修改 {0} 以便捕捉比 {1} 更具体的异常，或者再次引发该异常。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182137(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="DesignRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotInitializeUnnecessarily" Category="Microsoft.Performance" CheckId="CA1805">
+   <Name>避免进行不必要的初始化</Name>
+   <Description>不要执行运行库已完成的初始化过程。</Description>
+   <Resolution Name="Default">{0} 将类型为 {2} 的字段 {1} 初始化为 {3}。由于此初始化过程将由运行库自动完成，因此请移除它。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182274(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+   <Name>标识符的大小写应当正确</Name>
+   <Description>类型、命名空间和成员标识符应采用 Pascal 大小写格式。参数标识符应采用 Camel 大小写格式。这些标识符内由两个字母组成的首字母缩略词应全部大写，例如，应采用 System.IO，而不是 System.Io。由三个或更多个字母组成的首字母缩略词应采用 Pascal 大小写格式，例如，应采用 System.Xml，而不是 System.XML。Pascal 大小写格式约定每个单词的首字母大写，如 BackColor。Camel 大小写格式约定第一个单词的首字母小写，所有后续单词的首字母都大写，如 backgroundColor。尽管有些由两个字母组成的首字母缩略词习惯采用不完全大写形式，但不能因此而排斥此规则。例如，“DbConnection”很常见，但并不正确，应采用 DBConnection。为了与现有的非托管符号方案兼容，可能需要违反此规则。但一般来说，这些符号在使用它们的程序集之外不可见。</Description>
+   <Resolution Name="Member">更正成员名称 {1} 中“{0}”的大小写，将其改为“{2}”。</Resolution>
+   <Resolution Name="MemberAbbreviation">更正成员名称 {1} 中“{0}”的大小写，将其改为“{2}”。“{2}”是一个缩写词，因此无需遵守首字母缩略词大小写规则。</Resolution>
+   <Resolution Name="MemberParameter">在成员 {0} 中，更正参数名称 {2} 中“{1}”的大小写，将其改为“{3}”。</Resolution>
+   <Resolution Name="MemberParameterAbbreviation">在成员 {0} 中，更正参数名称 {2} 中“{1}”的大小写，将其改为“{3}”。“{3}”是一个缩写词，因此无需遵守首字母缩略词大小写规则。</Resolution>
+   <Resolution Name="Type">更正类型名称 {1} 中“{0}”的大小写，将其改为“{2}”。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182240(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="85">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720">
+   <Name>标识符不应包含类型名称</Name>
+   <Description>应避免在参数和成员中使用特定于某一种语言的类型名称，避免在参数中使用数据类型标识符。类型名对于所有开发人员来说可能不够直观。建议选用通用名称，如“value”。如果不足以区分，应确保采用 .NET Framework 库中定义的类型名，并完全避免采用特定于某一种语言的类型名称。例如，特定于 C# 的类型名有“float”(如果通用名称不足以区分，则使用“Single”)和“ulong”(如果通用名称不足以区分，则使用“UInt64”)等等。</Description>
+   <Resolution Name="LanguageIndependentMemberParameter">在成员 {0} 中，考虑将参数名称 {2} 中的数据类型标识符“{1}”替换为一个更通用的词条，如“value”。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182234(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="NonConstantFieldsShouldNotBeVisible" Category="Microsoft.Usage" CheckId="CA2211">
+   <Name>非常量字段不应是可见的</Name>
+   <Description>除非您使用锁来小心地管理对静态字段的访问，否则这些字段应为常量。如果使用静态变量而不保证它们是线程安全的，则可能威胁到执行状态。此规则适用于托管代码库。如果分析的程序集是应用程序，则忽略此规则冲突通常是安全的。</Description>
+   <Resolution Name="Default">考虑将 {0} 设为非公共的或使它成为常量。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182353(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Warning</MessageLevel>
+   <File Name="UsageRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="SetLocaleForDataTypes" Category="Microsoft.Globalization" CheckId="CA1306">
+   <Name>设置数据类型的区域设置</Name>
+   <Description>在多数情况下，应将 DataSet 和 DataTable 实例的 Locale 显式设置为 CultureInfo.InvariantCulture。在创建 DataSet 或 DataTable 实例时，将 Locale 设置为当前区域。在多数情况下，应将 Locale 设置为 CultureInfo.InvariantCulture，以保证所有区域中的排序行为都正确。</Description>
+   <Resolution Name="Default">只要 {1} 创建了 {0} 类型的实例，就必须设置这一 Locale 属性。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182188(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyIFormatProvider" Category="Microsoft.Globalization" CheckId="CA1305">
+   <Name>指定 IFormatProvider</Name>
+   <Description>如果存在一个采用 IFormatProvider 参数的重载，则应始终调用该重载，而不调用未采用该参数的重载。运行库中的某些方法可以将值与字符串表示形式相互进行转换，并采用一个字符串参数。该参数中包含一个或多个称为格式说明符的字符，用于指示如何对值进行转换。如果格式说明符的含义因区域性而异，则格式设置对象提供在字符串表示形式中使用的实际字符。如果排序和比较行为不得因区域性而改变，请指定 CultureInfo.InvariantCulture，否则，请指定 CultureInfo.CurrentCulture。</Description>
+   <Resolution Name="Default">由于 {0} 的行为可能因当前用户的区域设置不同而不同，请将 {1} 中的此调用替换为对 {2} 的调用。如果要向用户显示 {2} 的结果，请将“CultureInfo.CurrentCulture”指定为“IFormatProvider”参数；另外，如果软件将存储和访问此结果(例如，要将它保留到磁盘或数据库中)，则指定“CultureInfo.InvariantCulture”。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182190(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307">
+   <Name>指定 StringComparison</Name>
+   <Description>如果存在采用 StringComparison 参数的重载，则始终先调用此重载，而不是那些不接受该参数的重载。</Description>
+   <Resolution Name="Default">{0} 调用不显式提供 StringComparison 的 {1}。应将其替换为对 {2} 的调用。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/bb386080(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="GlobalizationRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="StaticHolderTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1053">
+   <Name>静态容器类型不应具有构造函数</Name>
+   <Description>不需要创建只定义静态成员的类型的实例。如果没有指定构造函数，许多编译器都会自动添加公共的默认构造函数。为了避免出现这种情况，可能需要添加一个空的私有构造函数。</Description>
+   <Resolution Name="Default">从 {0} 中移除公共构造函数。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182169(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820">
+   <Name>使用字符串长度测试是否有空字符串</Name>
+   <Description>若要测试是否有空字符串，请检查 String.Length 是否等于零。对于如 "".Equals(someString) 和 String.Empty.Equals(someString) 之类的构造，其效率低于字符串长度测试。请使用 someString.Length == 0 检查来替换它们。</Description>
+   <Resolution Name="IsNullOrEmpty">使用“String.IsNullOrEmpty”调用来替换 {1} 中的 {0} 调用。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182279(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054">
+   <Name>URI 参数不应为字符串</Name>
+   <Description>如果某个参数的名称中包含“uri”、“url”或“urn”，并且该参数被类型化为字符串，则应将该参数的类型改为 System.Uri，除非有一个重载方法已将该参数类型化为 URI。</Description>
+   <Resolution Name="Default">将方法 {1} 的参数 {0} 的类型从字符串改为 System.Uri，或者提供 {1} 的重载，允许将 {0} 作为 System.Uri 对象来传递。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182174(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="60">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="9.0.0.0" />
+  </Rule>
+  <Rule TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726">
+   <Name>使用首选词条</Name>
+   <Description>使用首先词条，不使用已否决的词条。</Description>
+   <Resolution Name="Member">将成员名称 {1} 中的词条“{0}”替换为首选替代项“{2}”。</Resolution>
+   <Resolution Name="Type">将类型名称 {1} 中的词条“{0}”替换为首选替代项“{2}”。</Resolution>
+   <Owner />
+   <Url>http://msdn2.microsoft.com/ms182258(VS.90).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="9.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">类别</String>
+  <String Key="Certainty">确定性</String>
+  <String Key="CollapseAll">全部折叠</String>
+  <String Key="CheckId">检查 ID</String>
+  <String Key="Error">错误</String>
+  <String Key="Errors">错误</String>
+  <String Key="ExpandAll">全部展开</String>
+  <String Key="Help">帮助</String>
+  <String Key="Line">行</String>
+  <String Key="Messages">消息</String>
+  <String Key="LocationNotStoredInPdb">[位置未存储在 Pdb 中]</String>
+  <String Key="Project">项目</String>
+  <String Key="Resolution">解析</String>
+  <String Key="Rule">规则</String>
+  <String Key="RuleFile">规则文件</String>
+  <String Key="RuleDescription">规则说明</String>
+  <String Key="Source">源</String>
+  <String Key="Status">状态</String>
+  <String Key="Target">目标</String>
+  <String Key="Warning">警告</String>
+  <String Key="Warnings">警告</String>
+  <String Key="ReportTitle">代码分析报告</String>
+ </Localized>
+</FxCopReport>

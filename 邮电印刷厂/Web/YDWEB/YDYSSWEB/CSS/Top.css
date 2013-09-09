@@ -1,0 +1,30 @@
+﻿body 
+{	
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+body,td,th,div {
+	font-size: 10pt;
+	font-family:  "宋体";
+}
+#top li {
+	margin: 0px 0px 2px 0px;
+	padding: 0px 0px 0px 0px;
+	}
+#top ul 
+{
+	list-style-type: none;
+	margin: 0px 0px 0px 0px;
+	padding: 8px 0px 0px 10px;
+	}
+div
+{
+   margin : 0px 0px 0px 0px;
+	}
+.DivHead
+ {
+  height:99px; 
+  background: url(../Images/top1.jpg) no-repeat right;
+	}

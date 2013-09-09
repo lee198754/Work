@@ -1,0 +1,7 @@
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Dal\obj\Debug\ResolveAssemblyReference.cache
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Dal\bin\Debug\Dal.dll
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Dal\bin\Debug\Dal.pdb
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Dal\bin\Debug\Model.dll
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Dal\bin\Debug\Model.pdb
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Dal\obj\Debug\Dal.dll
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Dal\obj\Debug\Dal.pdb

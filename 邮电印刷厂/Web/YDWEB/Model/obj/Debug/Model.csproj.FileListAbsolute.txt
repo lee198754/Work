@@ -1,0 +1,5 @@
+C:\工程文件\工程文件\Model\bin\Debug\Model.dll
+C:\工程文件\工程文件\Model\bin\Debug\Model.pdb
+C:\工程文件\工程文件\Model\obj\Debug\ResolveAssemblyReference.cache
+C:\工程文件\工程文件\Model\obj\Debug\Model.dll
+C:\工程文件\工程文件\Model\obj\Debug\Model.pdb

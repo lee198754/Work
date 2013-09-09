@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="YDYSSWEB">
+</Property><Property Name="解决方案文件" Value="C:\工程文件\工程文件\YDYSSWEB.sln">
+</Property><Property Name="用户选项文件" Value="C:\工程文件\工程文件\YDYSSWEB.suo">
+</Property><Property Name="Date" Value="2013年5月11日">
+</Property><Property Name="Time" Value="9:27">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="YDYSSWEB.sln" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\YDYSSWEB.sln">
+</Event><Event ErrorLevel="0" Project="" Source="YDYSSWEB.suo" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\YDYSSWEB.suo">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Model.csproj" Description="项目文件已成功备份为 C:\工程文件\工程文件\Backup\Model\Model.csproj">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\M_Log_WebLoginLog.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Model\M_Log_WebLoginLog.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\M_Sys_UserInfo.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Model\M_Sys_UserInfo.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Properties\AssemblyInfo.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Model\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Model.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Model" Source="Model\Model.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Dal" Source="Dal\Dal.csproj" Description="项目文件已成功备份为 C:\工程文件\工程文件\Backup\Dal\Dal.csproj">
+</Event><Event ErrorLevel="0" Project="Dal" Source="Dal\DB\DataBase.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Dal\DB\DataBase.cs">
+</Event><Event ErrorLevel="0" Project="Dal" Source="Dal\DB\DbHelperSQL.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Dal\DB\DbHelperSQL.cs">
+</Event><Event ErrorLevel="0" Project="Dal" Source="Dal\DB\DbHelperSQL2.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Dal\DB\DbHelperSQL2.cs">
+</Event><Event ErrorLevel="0" Project="Dal" Source="Dal\D_Log_WebLoginLog.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Dal\D_Log_WebLoginLog.cs">
+</Event><Event ErrorLevel="0" Project="Dal" Source="Dal\D_SelectList.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Dal\D_SelectList.cs">
+</Event><Event ErrorLevel="0" Project="Dal" Source="Dal\D_Sys_UserInfo.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Dal\D_Sys_UserInfo.cs">
+</Event><Event ErrorLevel="0" Project="Dal" Source="Dal\Properties\AssemblyInfo.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Dal\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Dal" Source="Dal\Dal.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Dal" Source="Dal\Dal.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Bll" Source="Bll\Bll.csproj" Description="项目文件已成功备份为 C:\工程文件\工程文件\Backup\Bll\Bll.csproj">
+</Event><Event ErrorLevel="0" Project="Bll" Source="Bll\B_Log_WebLoginLog.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Bll\B_Log_WebLoginLog.cs">
+</Event><Event ErrorLevel="0" Project="Bll" Source="Bll\B_SelectList.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Bll\B_SelectList.cs">
+</Event><Event ErrorLevel="0" Project="Bll" Source="Bll\B_Sys_UserInfo.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Bll\B_Sys_UserInfo.cs">
+</Event><Event ErrorLevel="0" Project="Bll" Source="Bll\Properties\AssemblyInfo.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Bll\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Bll" Source="Bll\Bll.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Bll" Source="Bll\Bll.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\Common.csproj" Description="项目文件已成功备份为 C:\工程文件\工程文件\Backup\Common\Common.csproj">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\CutStrings.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\CutStrings.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\DESEncrypt.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\DESEncrypt.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\DrawStrings.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\DrawStrings.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\DropDownListBind.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\DropDownListBind.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\Excels.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\Excels.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\FileDownload.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\FileDownload.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\Functions.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\Functions.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\GenerateRandom.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\GenerateRandom.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\GetSepll.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\GetSepll.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\HtmlProxy.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\HtmlProxy.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\Logs.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\Logs.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\MD5.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\MD5.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\Message.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\Message.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\MoneyWrite.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\MoneyWrite.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\Properties\AssemblyInfo.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\StringUtil.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\StringUtil.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\WinFromWebservice.cs" Description="文件已成功备份为 C:\工程文件\工程文件\Backup\Common\WinFromWebservice.cs">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\Common.csproj" Description="项目已成功转换">
+</Event><Event ErrorLevel="3" Project="Common" Source="Common\Common.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="YDYSSWEB.sln" Description="成功转换解决方案">
+</Event><Event ErrorLevel="3" Project="" Source="YDYSSWEB.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Model" Source="Model\Model.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="Dal" Source="Dal\Dal.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="Bll" Source="Bll\Bll.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event><Event ErrorLevel="0" Project="Common" Source="Common\Common.csproj" Description="扫描完成: 项目文件不需要升级。">
+</Event></UpgradeLog>

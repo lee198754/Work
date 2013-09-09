@@ -1,0 +1,7 @@
+C:\工程文件\工程文件\Dal\bin\Debug\Dal.dll
+C:\工程文件\工程文件\Dal\bin\Debug\Dal.pdb
+C:\工程文件\工程文件\Dal\bin\Debug\Model.dll
+C:\工程文件\工程文件\Dal\bin\Debug\Model.pdb
+C:\工程文件\工程文件\Dal\obj\Debug\ResolveAssemblyReference.cache
+C:\工程文件\工程文件\Dal\obj\Debug\Dal.dll
+C:\工程文件\工程文件\Dal\obj\Debug\Dal.pdb

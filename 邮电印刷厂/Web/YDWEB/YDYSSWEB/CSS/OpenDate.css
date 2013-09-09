@@ -1,0 +1,317 @@
+﻿body 
+{	
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+body, td, th, div,textarea
+{
+	font-size: 10pt;
+	font-family: "宋体";
+}
+a:link {
+	color: #3333CC;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #3333CC;
+}
+a:hover {
+	text-decoration: none;
+	color: #0099FF;
+}
+a:active {
+	text-decoration: none;
+	color: #0099FF;
+}
+.GridViewHead
+{
+   background-image : url(../../Images/lanse.png);
+   
+}
+.HeadTitle
+{
+    text-align:center; 
+	padding:10px 0px 0px 0px; 
+	font-size:13px; 
+	font-weight:bold; 
+	color:White;
+	height:28px !Important;
+	height:30px;
+	}
+
+.HeadTitle1
+{
+	margin:0px 0px 0px 0px !Important;
+	margin:0px 0px 0px 0px; 
+	height:35px;
+	width:98%;
+	border:solid 1px #0c87ab;
+    background:url(../../Images/lan.png) repeat-x top;	
+	}
+.HeadTitle2
+{
+	text-align:left; 
+	padding:6px 0px 0px 10px; 
+	font-size:12px; 
+	color:Black;
+	height:30px;
+
+	}
+.HeadTitle3
+{
+	background:url(../../Images/top1.jpg) no-repeat right center; 
+	height:70px;
+	}
+.HeadTitle4
+{
+	margin:0px 0px 0px 0px !Important;
+	margin:0px 0px 0px 0px; 
+	height:36px;
+	width:98%;
+	}
+
+.HeadTitle4 ul
+{
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+	list-style-type:none;
+	 display:inline;
+	}
+.HeadTitle4 li
+{
+	float:left;
+	margin:0px 5px 0px 0px;
+	padding:0px 0px 0px 0px;
+	 display:inline;
+	}
+.HeadTitle6
+{
+	width:110px;
+	height:36px;
+	background:url('../../images/XD.png') no-repeat bottom;
+	font-size:12px;
+	color:#305450;
+	font-weight:bold;
+	text-align:center
+	
+	}
+.HeadTitle5
+{
+	width: 113px;
+	height: 36px;
+	background: url( '../../images/WXD.png' ) no-repeat bottom;
+	font-size: 12px;
+	color: White;
+	font-weight: bold;
+	text-align:center
+}
+
+.HeadTitle6 A:link, .HeadTitle6 A:visited, .HeadTitle6 A:hover, .HeadTitle6 A:active
+{
+	text-align: center;
+	padding: 15px 0px 0px 0px;
+	display: block;
+	font-size: 12px;
+	color: #305450;
+	font-weight: bold;
+	width: 110px;
+	height: 20px;
+	top:10px;
+	vertical-align: bottom;
+}
+.HeadTitle5 A:link,.HeadTitle5 A:visited,.HeadTitle5 A:hover,.HeadTitle5 A:active
+{
+	text-align:center;
+	padding:15px 0px 0px 0px;
+	display:block;
+	font-size:12px;
+	color:White;
+	font-weight:bold;
+	width:113px;
+	height:20px;
+	vertical-align: bottom;
+	}
+
+
+
+ .HeadTitle3 ul
+ {
+	margin:0px 0px 0px 0px;
+    padding:45px 0px 0px 5px;
+    list-style-type:none;
+	}
+.HeadTitle3 li
+ {
+	margin:0px 5px 0px 0px;
+    padding:0px 0px 0px 0px;
+    float:left;
+    display:inline;
+	}
+.Content
+{
+    width:98%; 
+    height:500px; 
+    background-color:White;
+    border: solid 1px #0c7ab1;
+
+	}
+.Content1
+{
+	margin:5px 0px 0px 0px;
+    width:98%; 
+    height:460px; 
+    background-color:White;
+    border: solid 1px #0c7ab1;
+	}
+.Content3
+{
+	margin:0px 0px 0px 0px;
+    width:98%; 
+    height:460px; 
+    background-color:White;
+    border: solid 1px #0c7ab1;
+	}
+.Content2
+{
+	background:url(../../Images/499.png) top repeat-x; 
+	height:499px;
+	}
+.Content4
+{
+	margin:0px 0px 0px 0px;
+    width:98%; 
+    height:425px; 
+    background-color:White;
+    border: solid 1px #0c7ab1;
+	}
+.Content5
+{
+	
+    width:98%; 
+    height:430px; 
+    margin:0px 0px 0px 0px !Important;
+	margin:0px 0px 0px 0px; 
+    background-color:White;
+    border: solid 1px #0c7ab1;
+	}
+.Content6
+{
+	
+    width:98%; 
+    height:330px; 
+    margin:0px 0px 0px 0px !Important;
+	margin:0px 0px 0px 0px; 
+    background-color:White;
+    border: solid 1px #0c7ab1;
+	}
+.Content7
+{
+    margin:5px 0px 0px 0px;
+    width:98%; 
+    height:380px; 
+    background-color:White;
+    border: solid 1px #0c7ab1;
+	}
+.ContentLeft
+{
+	float:left; 
+	width:200px; 
+	text-align:left; 
+	overflow:auto;
+	height:430px; 
+	margin:37px 0px 0px 5px !Important;
+	margin:37px 0px 0px 2px; 
+	background-color:White;
+	}
+.ContentRight
+{
+	float:right; 
+	width:635px; 
+	text-align:left; 
+	height:430px;  
+	margin:37px 5px 0px 0px !Important;
+	margin:37px 2px 0px 0px; 
+	background-color:White;
+	}
+.ContentLeft1
+{
+	float:left; 
+	width:180px; 
+	text-align:left; 
+	height:430px; 
+	overflow:auto;
+	margin:0px 0px 0px 5px !Important;
+	margin:0px 0px 0px 2px; 
+	background-color:White;
+	}
+.ContentRight1
+{
+	float:right; 
+	width:605px; 
+	text-align:left; 
+	height:430px;  
+	margin:0px 5px 0px 0px !Important;
+	margin:0px 2px 0px 0px; 
+	background-color:White;
+	}
+.Button
+{
+	border:  0px;
+	background:url(../../Images/Select.png) no-repeat;	
+	height:22px;
+	width:44px;
+	cursor: pointer;
+	}
+.ButtonTJ
+{
+	border:  0px;
+	background:url(../../Images/tj.png) no-repeat;	
+	height:22px;
+	width:44px;
+	cursor: pointer;
+	}
+	
+	.ButtonTJ2
+{
+	border:  0px;
+	background:url(../../Images/mx.png) no-repeat;	
+	height:22px;
+	width:44px;
+	cursor: pointer;
+	}
+.SelectBtn
+{
+	border:#7f9db9 1px solid;
+	height:16px !Important;
+	height:18px;
+	}
+.BtnD
+{
+	border:0px;
+	background:url(../../Images/op1.png) no-repeat;	
+	height:25px;
+	width:75px;
+	color:White;
+	cursor: pointer;
+	}
+.BtnX
+{
+	border:0px;
+	background:url(../../Images/op2.png) no-repeat;	
+	height:25px;
+	width:48px;
+	color:White;
+	cursor: pointer;
+	}
+.Wdate{
+	border:#7f9db9 1px solid;
+	height:16px !Important;
+	height:18px;
+	background:#fff url(../../Images/datePicker.gif) no-repeat right;
+	cursor: pointer;
+}
+
+	

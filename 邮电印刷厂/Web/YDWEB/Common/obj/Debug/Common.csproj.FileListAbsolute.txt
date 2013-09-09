@@ -1,0 +1,8 @@
+C:\工程文件\工程文件\Common\bin\Debug\Common.dll
+C:\工程文件\工程文件\Common\bin\Debug\Common.pdb
+C:\工程文件\工程文件\Common\bin\Debug\Microsoft.Office.Interop.Excel.dll
+C:\工程文件\工程文件\Common\bin\Debug\office.dll
+C:\工程文件\工程文件\Common\bin\Debug\Microsoft.Vbe.Interop.dll
+C:\工程文件\工程文件\Common\obj\Debug\ResolveAssemblyReference.cache
+C:\工程文件\工程文件\Common\obj\Debug\Common.dll
+C:\工程文件\工程文件\Common\obj\Debug\Common.pdb

@@ -1,0 +1,52 @@
+﻿body 
+{
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+body,td,th,div {
+	font-size: 10pt;
+	font-family:  "宋体";
+}
+A:link,A:visited{
+ display:block;
+ font-size:13px;
+ color:Black;
+ text-decoration:none;
+}
+A:hover{
+ color:#0099FF;
+ font-size:13px;
+ text-decoration:none;
+}
+.MainLeft
+{
+	
+	padding:50px 0px 0px 0px;
+    height:1000px;
+	}
+.MainLeftYY
+{
+	padding:30px 0px 0px 0px;
+    height:1000px;
+    
+	}
+.MainRight
+{
+	
+    height:1000px;
+    width:226px;
+    background:url(../Images/xuxian.png) no-repeat;	
+    }
+ li {
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	line-height:150% !Important;line-height:75%;
+	}
+ ul 
+{
+	list-style-type: none;
+	margin: 30px 0px 0px 10px;
+	padding: 0px 0px 0px 10px;
+	}

@@ -1,0 +1,5 @@
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Model\bin\Debug\Model.dll
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Model\bin\Debug\Model.pdb
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Model\obj\Debug\ResolveAssemblyReference.cache
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Model\obj\Debug\Model.dll
+F:\吴灼峰工作资料\邮电印刷厂查询系统\工程文件\Model\obj\Debug\Model.pdb

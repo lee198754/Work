@@ -1,0 +1,10 @@
+C:\Users\Administrator.MINI-20120925TT\Desktop\在线文件管理\精美的WEB在线文件管理源码\FileManager\bin\Debug\FileManager.dll
+C:\Users\Administrator.MINI-20120925TT\Desktop\在线文件管理\精美的WEB在线文件管理源码\FileManager\bin\Debug\FileManager.pdb
+C:\Users\Administrator.MINI-20120925TT\Desktop\在线文件管理\精美的WEB在线文件管理源码\FileManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator.MINI-20120925TT\Desktop\在线文件管理\精美的WEB在线文件管理源码\FileManager\obj\Debug\FileManager.dll
+C:\Users\Administrator.MINI-20120925TT\Desktop\在线文件管理\精美的WEB在线文件管理源码\FileManager\obj\Debug\FileManager.pdb
+C:\工程文件\工程文件\YDYSSWEB\FileManager\bin\Debug\FileManager.dll
+C:\工程文件\工程文件\YDYSSWEB\FileManager\bin\Debug\FileManager.pdb
+C:\工程文件\工程文件\YDYSSWEB\FileManager\obj\Debug\ResolveAssemblyReference.cache
+C:\工程文件\工程文件\YDYSSWEB\FileManager\obj\Debug\FileManager.dll
+C:\工程文件\工程文件\YDYSSWEB\FileManager\obj\Debug\FileManager.pdb
