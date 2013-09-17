@@ -20,7 +20,7 @@ inherited Main_Frm: TMain_Frm
     Width = 150
     Height = 562
     Align = alLeft
-    ActiveGroupIndex = 0
+    ActiveGroupIndex = 1
     TabOrder = 0
     View = 12
     OptionsBehavior.Common.AllowSelectLinks = True
@@ -237,10 +237,10 @@ inherited Main_Frm: TMain_Frm
       LargeImageIndex = 12
     end
     object NBCustomerControl: TdxNavBarGroupControl
-      Left = 10
-      Top = 4
-      Width = 130
-      Height = 25
+      Left = 11
+      Top = 32
+      Width = 128
+      Height = 41
       Caption = 'NBCustomerControl'
       TabOrder = 1
       GroupIndex = 0
@@ -10312,11 +10312,11 @@ inherited Main_Frm: TMain_Frm
     LookAndFeel.Kind = lfOffice11
     LookAndFeel.NativeStyle = False
     ParentColor = False
-    PopupMenu = PopupMenu1
     TabOrder = 4
     TabSlants.Kind = skCutCorner
     TabSlants.Positions = []
     OnChange = cxPageControl1Change
+    OnMouseDown = cxPageControl1MouseDown
     ClientRectBottom = 562
     ClientRectRight = 803
     ClientRectTop = 0
@@ -10475,10 +10475,13 @@ inherited Main_Frm: TMain_Frm
         ImageIndex = 68
       end
       object N2: TMenuItem
+        AutoCheck = True
         Caption = '-'
+        Visible = False
       end
       object M_Frm_Style: TMenuItem
         Caption = #31995#32479#39118#26684#35774#32622
+        Visible = False
         OnClick = M_Frm_StyleClick
       end
     end
@@ -10488,9 +10491,8 @@ inherited Main_Frm: TMain_Frm
         Caption = #20351#29992#24110#21161
         ImageIndex = 67
       end
-      object M_Frm_About: TMenuItem
+      object M_Frm_abort: TMenuItem
         Action = actabort
-        ImageIndex = 34
       end
     end
   end
@@ -10655,6 +10657,7 @@ inherited Main_Frm: TMain_Frm
       Category = #24110#21161
       Caption = #20851#20110'..'
       ImageIndex = 64
+      Visible = False
       OnExecute = actabortExecute
     end
     object actSysSet: TAction

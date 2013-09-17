@@ -7,6 +7,7 @@ inherited Frm_ShareCust: TFrm_ShareCust
   Position = poMainFormCenter
   OnClose = FormClose
   OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Label1: TLabel [0]

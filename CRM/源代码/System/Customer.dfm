@@ -322,7 +322,7 @@ inherited Frm_CustManager: TFrm_CustManager
       Top = 345
       Width = 622
       Height = 253
-      ActivePage = TabActive
+      ActivePage = TabContact
       Align = alBottom
       Color = clBtnFace
       LookAndFeel.Kind = lfUltraFlat
@@ -344,8 +344,8 @@ inherited Frm_CustManager: TFrm_CustManager
         object cxGrid2: TcxGrid
           Left = 0
           Top = 0
-          Width = 703
-          Height = 233
+          Width = 622
+          Height = 217
           Align = alClient
           TabOrder = 0
           LookAndFeel.NativeStyle = False
@@ -683,8 +683,8 @@ inherited Frm_CustManager: TFrm_CustManager
         object cxGrid7: TcxGrid
           Left = 0
           Top = 0
-          Width = 703
-          Height = 233
+          Width = 622
+          Height = 217
           Align = alClient
           TabOrder = 0
           LookAndFeel.NativeStyle = False
@@ -1015,7 +1015,7 @@ inherited Frm_CustManager: TFrm_CustManager
     end
   end
   inherited xpmn1: TXPMenu
-    Left = 696
+    Left = 672
     Top = 8
   end
   inherited actlst1: TActionList

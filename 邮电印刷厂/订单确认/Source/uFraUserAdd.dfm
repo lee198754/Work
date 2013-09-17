@@ -17,7 +17,7 @@ object Fra_UserAdd: TFra_UserAdd
     Height = 78
     Align = alBottom
     BorderOuter = fsNone
-    TabOrder = 0
+    TabOrder = 2
     object edt_UserName: Ti_TxtFilter
       Left = 61
       Top = 8
@@ -73,7 +73,7 @@ object Fra_UserAdd: TFra_UserAdd
       TabEnter = True
       MaxLength = 50
       PasswordChar = '*'
-      TabOrder = 1
+      TabOrder = 2
       AllowNegative = True
       BorderLine = False
       BorderLineColor = clBlack
@@ -134,7 +134,7 @@ object Fra_UserAdd: TFra_UserAdd
       LabelSpacing = 3
       TabEnter = True
       MaxLength = 50
-      TabOrder = 2
+      TabOrder = 4
       Visible = False
       AllowNegative = True
       BorderLine = False
@@ -155,21 +155,21 @@ object Fra_UserAdd: TFra_UserAdd
       Left = 223
       Top = 45
       Caption = #28155#21152
-      TabOrder = 4
+      TabOrder = 5
       OnClick = btn_addClick
     end
     object btn_mod: TRzButton
       Left = 423
       Top = 45
       Caption = #20462#25913
-      TabOrder = 5
+      TabOrder = 6
       OnClick = btn_modClick
     end
     object btn_del: TRzButton
       Left = 775
       Top = 45
       Caption = #21024#38500
-      TabOrder = 6
+      TabOrder = 7
       Visible = False
       OnClick = btn_delClick
     end
@@ -192,7 +192,7 @@ object Fra_UserAdd: TFra_UserAdd
       LabelSpacing = 3
       TabEnter = True
       MaxLength = 50
-      TabOrder = 7
+      TabOrder = 1
       AllowNegative = True
       BorderLine = False
       BorderLineColor = clBlack
@@ -281,12 +281,12 @@ object Fra_UserAdd: TFra_UserAdd
     Height = 41
     Align = alTop
     Caption = #26597#35810#26465#20214
-    TabOrder = 2
+    TabOrder = 0
     object btn_cx: TRzButton
       Left = 299
       Top = 10
       Caption = #26597#35810
-      TabOrder = 0
+      TabOrder = 3
       OnClick = btn_cxClick
     end
     object cb_Type: Ti_ComboBox
@@ -301,7 +301,7 @@ object Fra_UserAdd: TFra_UserAdd
       LabelSpacing = 3
       Style = csDropDownList
       ItemHeight = 12
-      TabOrder = 1
+      TabOrder = 0
       Text = #29992#25143#21517
       OnChange = cb_TypeChange
       Items.Strings = (
@@ -326,7 +326,7 @@ object Fra_UserAdd: TFra_UserAdd
       LabelPosition = lpLeft
       LabelSpacing = 3
       TabEnter = True
-      TabOrder = 2
+      TabOrder = 1
       AllowNegative = True
       BorderLine = False
       BorderLineColor = clBlack
@@ -346,7 +346,7 @@ object Fra_UserAdd: TFra_UserAdd
       Left = 394
       Top = 10
       Caption = #37325#32622
-      TabOrder = 3
+      TabOrder = 4
       OnClick = btn_czClick
     end
     object cbb_UserType: Ti_ComboBox
@@ -361,7 +361,7 @@ object Fra_UserAdd: TFra_UserAdd
       LabelSpacing = 3
       Style = csDropDownList
       ItemHeight = 12
-      TabOrder = 4
+      TabOrder = 2
       Visible = False
     end
   end

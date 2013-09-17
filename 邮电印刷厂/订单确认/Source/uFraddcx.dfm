@@ -1,19 +1,21 @@
 object Fra_ddcx: TFra_ddcx
-  Left = 0
-  Top = 0
+  Left = 327
+  Top = 211
   Width = 800
   Height = 554
+  Color = clBtnFace
   Font.Charset = GB2312_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = #26032#23435#20307
   Font.Style = []
-  ParentFont = False
-  TabOrder = 0
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 12
   object gb_cx: TRzGroupBox
     Left = 0
     Top = 0
-    Width = 800
+    Width = 784
     Height = 169
     Align = alTop
     Caption = #26597#35810
@@ -464,28 +466,50 @@ object Fra_ddcx: TFra_ddcx
       Caption = #21382#21490#35746#21333
       TabOrder = 21
     end
+    object cb_cybz: Ti_ComboBox
+      Left = 400
+      Top = 142
+      Width = 81
+      Height = 20
+      EditLabel.Width = 60
+      EditLabel.Height = 12
+      EditLabel.Caption = #37325#21360#26631#24535#65306
+      EditLabel.Transparent = True
+      LabelCaption = #37325#21360#26631#24535#65306
+      LabelPosition = lpLeft
+      LabelSpacing = 3
+      Style = csDropDownList
+      ItemHeight = 12
+      TabOrder = 22
+      Text = '--'#20840#37096'--'
+      Items.Strings = (
+        '--'#20840#37096'--'
+        #26080
+        #37325#21360)
+      ItemIndex = 0
+    end
   end
   object RzPanel1: TRzPanel
     Left = 0
     Top = 169
-    Width = 800
-    Height = 385
+    Width = 784
+    Height = 347
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 1
     object gb_dd: TRzGroupBox
       Left = 0
       Top = 0
-      Width = 800
-      Height = 385
+      Width = 784
+      Height = 347
       Align = alClient
       Caption = #35746#21333
       TabOrder = 0
       object dbg_jhxd: TDBGridEh
         Left = 1
         Top = 13
-        Width = 798
-        Height = 342
+        Width = 782
+        Height = 304
         Align = alClient
         ColumnDefValues.Layout = tlCenter
         ColumnDefValues.Title.Alignment = taCenter
@@ -735,8 +759,8 @@ object Fra_ddcx: TFra_ddcx
       end
       object pan_data: TPanel
         Left = 1
-        Top = 355
-        Width = 798
+        Top = 317
+        Width = 782
         Height = 29
         Align = alBottom
         BevelOuter = bvNone
@@ -748,7 +772,7 @@ object Fra_ddcx: TFra_ddcx
         ParentFont = False
         TabOrder = 1
         DesignSize = (
-          798
+          782
           29)
         object lab_up: TLabel
           Left = 562

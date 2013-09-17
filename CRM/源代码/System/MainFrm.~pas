@@ -95,7 +95,6 @@ type
     M_Frm_Note: TMenuItem;
     MHelp: TMenuItem;
     M_Frm_HelpTools: TMenuItem;
-    M_Frm_About: TMenuItem;
     cxLookAndFeelController1: TcxLookAndFeelController;
     PopupMenu1: TPopupMenu;
     actlst1: TActionList;
@@ -130,7 +129,6 @@ type
     actChange: TAction;
     actNote: TAction;
     actCount: TAction;
-    NBCustomerControl: TdxNavBarGroupControl;
     skndt1: TSkinData;
     actmail: TAction;
     actabort: TAction;
@@ -150,6 +148,8 @@ type
     N4: TMenuItem;
     NBISupply: TdxNavBarItem;
     cxPageControl1: TcxPageControl;
+    M_Frm_abort: TMenuItem;
+    NBCustomerControl: TdxNavBarGroupControl;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure NBCustomerExpanded(Sender: TObject);
@@ -166,6 +166,8 @@ type
     procedure FormShow(Sender: TObject);
     procedure M_Frm_StyleClick(Sender: TObject);
     procedure M_Frm_BaseSetClick(Sender: TObject);
+    procedure cxPageControl1MouseDown(Sender: TObject;
+      Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
   private
     procedure MenuItemClick(Sender: TObject);
     Procedure RefreshActive;
@@ -191,8 +193,19 @@ Uses NewUser, LoginFrm, DataBase, Password, Right, Dict, Customer, NewCust, Publ
 
 
 procedure TMain_Frm.FormCreate(Sender: TObject);
+var
+  StyleIni:TiniFile;
 begin
   inherited;
+  Styleini:=TiniFile.Create(ExtractFilePath(Application.ExeName)+'style.ini');
+  Case StrToInt(Styleini.ReadString('option','style','')) OF
+  1:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\mxskin28.skn';
+  2:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\office2003.skn';
+  3:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\mxskin24.skn';
+  End;
+  Styleini.Free;
+
+  Skndt1.Active := True;
   Login_Frm := TLogin_Frm.Create(Self);
   with Login_Frm Do
   begin
@@ -262,6 +275,7 @@ procedure TMain_Frm.actDictExecute(Sender: TObject);
 var
   tabname:String;
   M:Integer;
+  StyleIni:TiniFile;
 function ExistsTab(Tabname:String):Boolean;
 var
   i:Integer;
@@ -684,6 +698,13 @@ begin
         PopupMenu1.Items.Items[PopupMenu1.Items.Count -1 ].OnClick := MenuItemClick;
       End
     End;
+    Styleini:=TiniFile.Create(ExtractFilePath(Application.ExeName)+'style.ini');
+    Case StrToInt(Styleini.ReadString('option','style','')) OF
+    1:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\mxskin28.skn';
+    2:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\office2003.skn';
+    3:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\mxskin24.skn';
+    End;
+    Styleini.Free;
 
 end;
 
@@ -707,14 +728,17 @@ begin
         IF TabName='Bulletin' Then Frm_Bulletin:=Nil;
         IF TabName='SaleManager' Then Frm_SaleManage:=Nil;
         IF TabName='Pay' Then Frm_Pay:=Nil;
-        {for t := PopupMenu1.Items.Count -1 downTo 0 Do
+        //------------lpj2013.09.12-------------
+        for t := PopupMenu1.Items.Count -1 downTo 0 Do
           if PopupMenu1.Items[t].Name = TMenuItem(Sender).Name Then
           begin
              PopupMenu1.Items[t].Free;
              exit;
-          end;}
+          end;
+        //------------------------------------------
      End;
   End;
+
 end;
 
 procedure TMain_Frm.RefreshActive;
@@ -784,7 +808,8 @@ begin
       MainMenu.Items.Items[I].Visible:=True;
       FOR T:=0 To mainMenu.Items.Items[i].Count - 1 DO
         Begin
-          mainMenu.Items.Items[i].Items[t].Visible := True;
+          //inMenu.Items.Items[i].Items[t].Visible := True;
+          mainMenu.Items.Items[i].Items[t].Visible := mainMenu.Items.Items[i].Items[t].Visible;
         End;
     End;
   FOR i := 0 To  NavBar.Groups.Count -1 do
@@ -874,7 +899,7 @@ var
   Frmname,MenuItemName:String;
   StyleIni:TiniFile;
 begin
-  
+
   Styleini:=TiniFile.Create(ExtractFilePath(Application.ExeName)+'style.ini');
   Case StrToInt(Styleini.ReadString('option','style','')) OF
   1:Skndt1.SkinFile:=ExtractFilePath(Application.ExeName)+'Style\mxskin28.skn';
@@ -963,5 +988,21 @@ begin
   Frm_BaseSet:=TFrm_BaseSet.Create(Self);
   Frm_BaseSet.ShowModal;
 end;
+
+
+//------------lpj2013.09.12 »•µÙPopupMenu Ù–‘PopupMenu1-------------
+procedure TMain_Frm.cxPageControl1MouseDown(Sender: TObject;
+  Button: TMouseButton; Shift: TShiftState; X, Y: Integer);
+var
+  pt: TPoint;
+begin
+  inherited;
+  if Button = mbRight then
+  begin
+    GetCursorPos(pt);
+    PopupMenu1.Popup(pt.x,pt.y);
+  end;
+end;
+//--------------------------------------------------
 
 end.

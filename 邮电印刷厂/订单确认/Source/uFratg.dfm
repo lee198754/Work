@@ -1,19 +1,21 @@
 object Fra_tg: TFra_tg
-  Left = 0
-  Top = 0
+  Left = 354
+  Top = 228
   Width = 782
   Height = 530
+  Color = clBtnFace
   Font.Charset = GB2312_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = #26032#23435#20307
   Font.Style = []
-  ParentFont = False
-  TabOrder = 0
+  OldCreateOrder = True
+  PixelsPerInch = 96
+  TextHeight = 12
   object RzGroupBox1: TRzGroupBox
     Left = 0
     Top = 0
-    Width = 782
+    Width = 766
     Height = 153
     Align = alTop
     Caption = #26597#35810
@@ -351,8 +353,8 @@ object Fra_tg: TFra_tg
   end
   object GroupBox1: TGroupBox
     Left = 0
-    Top = 466
-    Width = 782
+    Top = 428
+    Width = 766
     Height = 64
     Align = alBottom
     Caption = #24405#20837
@@ -439,24 +441,24 @@ object Fra_tg: TFra_tg
   object RzPanel1: TRzPanel
     Left = 0
     Top = 153
-    Width = 782
-    Height = 313
+    Width = 766
+    Height = 275
     Align = alClient
     BorderOuter = fsNone
     TabOrder = 1
     object gb_dd: TRzGroupBox
       Left = 0
       Top = 0
-      Width = 782
-      Height = 313
+      Width = 766
+      Height = 275
       Align = alClient
       Caption = #35746#21333
       TabOrder = 0
       object lv_jhxd: TRzListView
         Left = 1
         Top = 13
-        Width = 780
-        Height = 270
+        Width = 764
+        Height = 232
         Align = alClient
         Checkboxes = True
         Columns = <
@@ -509,7 +511,7 @@ object Fra_tg: TFra_tg
             AutoSize = True
             Caption = #29366#24577
             WidthType = (
-              -74)
+              -90)
           end>
         ReadOnly = True
         RowSelect = True
@@ -522,8 +524,8 @@ object Fra_tg: TFra_tg
       end
       object pan_data: TPanel
         Left = 1
-        Top = 283
-        Width = 780
+        Top = 245
+        Width = 764
         Height = 29
         Align = alBottom
         BevelOuter = bvNone
@@ -535,7 +537,7 @@ object Fra_tg: TFra_tg
         ParentFont = False
         TabOrder = 1
         DesignSize = (
-          780
+          764
           29)
         object lab_up: TLabel
           Left = 536

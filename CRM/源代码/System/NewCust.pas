@@ -11,7 +11,16 @@ uses
   cxLookAndFeelPainters, StdCtrls, cxButtons, ComCtrls, cxHyperLinkEdit,
   cxStyles, cxCustomData, cxGraphics, cxFilter, cxData, cxDataStorage,
   cxDBData, cxGridLevel, cxGridCustomView, cxGridCustomTableView,
-  cxGridTableView, cxGridDBTableView, cxGrid;
+  cxGridTableView, cxGridDBTableView, cxGrid, dxSkinsCore, dxSkinBlack,
+  dxSkinBlue, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinFoggy, dxSkinGlassOceans, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSharp, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
+  dxSkinXmas2008Blue, dxSkinsdxBarPainter, dxSkinscxPCPainter;
 
 type
   TFrm_NewCust = class(TBaseData_Frm)
@@ -108,11 +117,13 @@ var
 
 implementation
 
-uses DataBase, Dict, PublicClass, Search, NewExpend;
+uses DataBase, Dict, PublicClass, Search, NewExpend,uCheckKey,
+  {lpj2013.09.13}Customer;
 
 {$R *.dfm}
 Var
   OldCustName:String;
+
 
 { TFrm_NewCust }
 
@@ -426,6 +437,12 @@ end;
 
 procedure TFrm_NewCust.SaveCustRecord;
 begin
+  if not DataBaseModule.IsCheckAdd then
+  begin
+    Application.MessageBox(PChar('现在客户数已经大于等于 '+IntToStr(c_ALLOWCOUNT)+' ,如需要继续添加客户请插入加密狗!'),'提示',MB_OK+MB_Iconwarning);
+    Exit;
+  end;
+
   IF ISAdd=True Then
     Begin
       With DatabaseModule Do
@@ -522,6 +539,8 @@ begin
 
           dtclsData.CommitTrans;
           NewCustRecord;
+          //lpj2013.09.13
+          Frm_CustManager.TreeViewChange(Frm_CustManager.Treeview,Frm_CustManager.Treeview.Selected);
         Except
           dtclsData.RollbackTrans;
           Raise;
@@ -630,7 +649,7 @@ begin
             Begin
               SaveCustRecord;
               BtnExit.Click;
-            End  
+            End
           Else Application.MessageBox('客户名称重复','提示',MB_OK+MB_Iconwarning);
         End
       Else
@@ -726,6 +745,7 @@ end;
 procedure TFrm_NewCust.cxButton1Click(Sender: TObject);
 begin
   inherited;
+
   IF CustName.Text='' Then Application.MessageBox('客户名称不能为空','提示',MB_OK+MB_Iconwarning)
   Else
     Begin
@@ -799,5 +819,7 @@ begin
         End;
     End;
 end;
+
+
 
 end.

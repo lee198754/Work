@@ -69,8 +69,6 @@ type
     dlgSave1: TSaveDialog;
     LAdoExpend: TbainaADOQuery;
     lbl1: TLabel;
-    cxSplitter1: TcxSplitter;
-    cxSplitter2: TcxSplitter;
     LAdoSale: TbainaADOQuery;
     LAdoCust: TbainaADOQuery;
     N26: TMenuItem;
@@ -228,6 +226,8 @@ type
     N35: TMenuItem;
     RBShareRightCust: TcxRadioButton;
     GrdCustColumn26: TcxGridDBColumn;
+    Splitter1: TSplitter;
+    Splitter2: TSplitter;
     procedure N4Click(Sender: TObject);
     procedure N5Click(Sender: TObject);
     procedure N6Click(Sender: TObject);
@@ -334,7 +334,7 @@ type
   public
     { Public declarations }
     CustBeginDate,CustEndDate:String;
-    
+
   end;
 
 var
@@ -1257,9 +1257,12 @@ begin
       ISAdd:=True;
       ISEdit:=False;
       ISCust:=True;
+      //lpj2013.09.13
+      LSqlCust:=False;
       Frm_NewCust := TFrm_NewCust.Create(Self);
       Frm_NewCust.ShowModal;
-      LSqlCust:=False;
+      //lpj2013.09.13
+      //LSqlCust:=False;
       SetupTree;
       TreeViewChange(Treeview,Treeview.Selected);
       DSCust.DataSet.Last;
@@ -2608,7 +2611,7 @@ begin
          DisplayText:='¿Í»§Êý';
          FieldName :=  CustColumn.DataBinding.FieldName; 
          //Format  :=  '#,##0.00'; 
-         Kind  :=  skCount; 
+         Kind  :=  skCount;
        end;}
 end;
 

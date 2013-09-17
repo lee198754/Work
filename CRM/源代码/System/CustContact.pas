@@ -8,7 +8,16 @@ uses
   ImgList, ActnList, XPMenu, DB, ADODB, bainaADOQuery, cxTextEdit,
   cxControls, cxContainer, cxEdit, cxLabel, cxGraphics, cxMemo,
   cxDropDownEdit, cxCalendar, cxButtonEdit, cxMaskEdit, Menus,
-  cxLookAndFeelPainters, StdCtrls, cxButtons;
+  cxLookAndFeelPainters, StdCtrls, cxButtons, dxSkinsCore, dxSkinBlack,
+  dxSkinBlue, dxSkinCaramel, dxSkinCoffee, dxSkinDarkRoom, dxSkinDarkSide,
+  dxSkinFoggy, dxSkinGlassOceans, dxSkiniMaginary, dxSkinLilian,
+  dxSkinLiquidSky, dxSkinLondonLiquidSky, dxSkinMcSkin, dxSkinMoneyTwins,
+  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
+  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
+  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinPumpkin, dxSkinSeven,
+  dxSkinSharp, dxSkinSilver, dxSkinSpringTime, dxSkinStardust,
+  dxSkinSummer2008, dxSkinsDefaultPainters, dxSkinValentine,
+  dxSkinXmas2008Blue, dxSkinsdxBarPainter;
 
 type
   TFrm_CustContact = class(TBaseData_Frm)
@@ -256,6 +265,11 @@ begin
     Application.MessageBox('联系人名不能空','提示',MB_OK+MB_IconInformation);
     Exit;
   End;
+  if not DataBaseModule.IsCheckAdd then
+  begin
+    Application.MessageBox(PChar('现在客户数已经大于等于 '+IntToStr(c_ALLOWCOUNT)+' ,如需要继续添加客户请插入加密狗!'),'提示',MB_OK+MB_Iconwarning);
+    Exit;
+  end;
   IF ISAdd=True Then
     Begin
       With DatabaseModule Do

@@ -80,7 +80,7 @@ object Fra_WYNJQD: TFra_WYNJQD
     Width = 800
     Height = 559
     Align = alClient
-    Caption = #26448#26009#32479#35745
+    Caption = #26410#21360#20869#20214#20449#24687
     TabOrder = 1
     object stg_wynjqd: Ti_StgEdit
       Left = 1

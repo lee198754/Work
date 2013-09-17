@@ -1247,4 +1247,8 @@ inherited Login_Frm: TLogin_Frm
     Left = 32
     Top = 40
   end
+  object TcpServer1: TTcpServer
+    Left = 312
+    Top = 120
+  end
 end

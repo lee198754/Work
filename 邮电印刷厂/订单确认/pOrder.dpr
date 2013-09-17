@@ -108,7 +108,9 @@ uses
   U_FileMd5 in 'Source\U_FileMd5.pas',
   uFrm_TSGYGL in 'Source\uFrm_TSGYGL.pas' {Frm_TSGYGL},
   uFrm_TSGYGL_Dlg in 'Source\uFrm_TSGYGL_Dlg.pas' {Frm_TSGYGL_Dlg},
-  uBaseForm in 'Source\uBaseForm.pas';
+  uBaseForm in 'Source\uBaseForm.pas',
+  uOrderRecoveryFrm in 'Source\YCXDDQD\uOrderRecoveryFrm.pas' {Frm_OrderRecovery},
+  uYCXDDQDFrm in 'Source\YCXDDQD\uYCXDDQDFrm.pas' {Frm_YCXDDQD};
 
 {$R *.res}
 //var

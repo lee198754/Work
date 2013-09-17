@@ -6,12 +6,12 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, ExtCtrls, StdCtrls, RzCmboBx, iComboBox, ButtonEdit, ComCtrls,
   RzListVw, RzButton, RzPanel, uDM_DataBase,ADODB, iGrid,
-  PostService, Menus,iLabel, ImgList,DBGridEh,DB, ComObj;
+  PostService, Menus,iLabel, ImgList,DBGridEh,DB, ComObj,uBaseForm;
 
 
 
 type
-  TFra_tg = class(TFrame)
+  TFra_tg = class(TFrmFrame)
     RzGroupBox1: TRzGroupBox;
     edt_cpbh: Ti_TxtFilter;
     edt_khmc: Ti_TxtFilter;
@@ -96,6 +96,7 @@ type
     procedure FraShow;
     procedure CustomLvAdd;
     procedure SellLvAdd;
+    constructor Create(AOwner: TComponent); override;
   end;
 
 implementation
@@ -1208,7 +1209,53 @@ begin
 end;
 
 procedure TFra_tg.FraShow;
+var
+  str: string;
 begin
+    btn_fk.Visible := False;
+    btn_ok.Visible := True;
+
+    if cbb_tgzt.ItemIndex = -1 then
+      cbb_tgzt.ItemIndex := 0;
+
+    cbb_tgzt.Enabled := True;
+    with cbb_llzt.Items do
+    begin
+      Clear;
+      Add('--请选择--');
+      Add('图稿未收到');
+      Add('图稿已收到');
+  //    Add('打样中');
+      Add('图稿未合格');
+      Add('图稿已合格');
+      Add('已打样');
+      Add('图稿待处理');
+  //    Add('已签样');
+    end;
+    //获取产品类别
+    str := cbb_cplb.Text;
+    cbb_cplb.Clear;
+    cbb_cplb.Items.Add('--全部--');
+    CbbAdd(cbb_cplb,pkProductCategory);
+    cbb_cplb.ItemIndex := cbb_cplb.Items.IndexOf(str);
+    if cbb_cplb.ItemIndex = -1 then
+      cbb_cplb.ItemIndex := c_Default_CPLB;       //默认选择邮政贺卡
+
+    str := cbb_cplx.Text;
+    cbb_cplx.Clear;
+    cbb_cplx.Items.Add('--全部--');
+    CbbAdd(cbb_cplx,pkProductType,FindProductCategoryID(cbb_cplb.ItemIndex));
+    cbb_cplx.ItemIndex := cbb_cplx.Items.IndexOf(str);
+    if cbb_cplx.ItemIndex = -1 then
+      cbb_cplx.ItemIndex := 0;
+
+    if cbb_llzt.ItemIndex = -1 then
+      cbb_llzt.ItemIndex := 0;
+    if cbb_bb.ItemIndex = -1 then
+      cbb_bb.ItemIndex := 0;
+
+    CustomLvAdd;
+
   f_MakeAllow;
   edt_bz.Visible := False;
 end;
@@ -1220,6 +1267,13 @@ var
   iAllowID, iAllowCode: Integer;
 begin
   Result := False;
+  case LoginData.m_iUserType of
+    c_User_Small,c_Admin_Small:
+      begin
+        cbb_xpl.Enabled := False;
+      end;
+  end;
+
   if LoginData.m_iAllowCode >= 0 then
   begin
     iAllowCode := LoginData.m_iAllowCode;
@@ -1476,6 +1530,30 @@ begin
     edt_bz.Visible := True
   else
     edt_bz.Visible := False;
+end;
+
+constructor TFra_tg.Create(AOwner: TComponent);
+begin
+  inherited;
+  cbb_xpl.Enabled := True;
+  cbb_xpl.ItemIndex := 0;
+  case LoginData.m_iUserType of
+    c_User:
+      cbb_xpl.ItemIndex := 1;
+    c_Admin:
+      cbb_xpl.ItemIndex := 1;
+    c_User_Small:
+      begin
+        cbb_xpl.ItemIndex := 2;
+        cbb_xpl.Enabled := False;
+      end;
+    c_Admin_Small:
+      begin
+        cbb_xpl.ItemIndex := 2;
+        cbb_xpl.Enabled := False;
+      end;
+    c_SuperAdmin:;
+  end;
 end;
 
 end.

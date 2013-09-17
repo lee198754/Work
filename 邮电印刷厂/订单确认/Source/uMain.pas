@@ -164,6 +164,7 @@ type
     procedure rg_scglItems8Click(Sender: TObject);
     procedure rg_SysManageItems8Click(Sender: TObject);
     procedure rg_SysManageItems9Click(Sender: TObject);
+    procedure rg_tjbbItems9Click(Sender: TObject);
   private
     { Private declarations }
     Fra_WYNJQD1: TFra_WYNJQD;
@@ -202,7 +203,7 @@ implementation
 
 uses
   uLogin, uPub_Type, uPub_Func, uDDMX_DZX, uDDMX_XSX, uPub_Text, PubStr, Math,
-  DB;
+  DB,uYCXDDQDFrm;
 
 {$R *.dfm}
 
@@ -249,7 +250,7 @@ end;
 
 procedure TFrm_Main.FormShow(Sender: TObject);
 var
-  sType,sSqlData: string;
+  sType: string;
   //aField:TArrSelectField;
 begin
   Application.OnException := AppException;
@@ -866,8 +867,6 @@ begin
 end;
 
 procedure TFrm_Main.rg_yhglItems1Click(Sender: TObject);
-var
-  sSqlData: string;
 begin
   {
    //注销退出程序再运行
@@ -955,43 +954,9 @@ begin
     if not Assigned(Fra_ddcx1) then
     begin
       Fra_ddcx1 := TFra_ddcx.Create(Self);
-      Fra_ddcx1.Hide;
-      Fra_ddcx1.Parent := Self;
-      case LoginData.m_iUserType of
-        c_User:
-          Fra_ddcx1.cbb_xpl.ItemIndex := 1;       //普通;
-        c_Admin:
-          Fra_ddcx1.cbb_xpl.ItemIndex := 1;       //普通;
-        c_User_Small:
-          Fra_ddcx1.cbb_xpl.ItemIndex := 2;       //小批量
-        c_Admin_Small:
-          Fra_ddcx1.cbb_xpl.ItemIndex := 2;         //小批量
-        c_SuperAdmin:;
-      end;
     end;
-    str := Fra_ddcx1.cbb_bb.Text;
-    Fra_ddcx1.cbb_bb.ItemIndex := Fra_ddcx1.cbb_bb.Items.IndexOf(str);
-    if Fra_ddcx1.cbb_bb.ItemIndex = -1 then
-      Fra_ddcx1.cbb_bb.ItemIndex := 0;
-    Fra_ddcx1.cbb_bb.Enabled := True;
 
-    str := Fra_ddcx1.cbb_cplb.Text;
-    Fra_ddcx1.cbb_cplb.Clear;
-    Fra_ddcx1.cbb_cplb.Items.Add('--全部--');
-    CbbAdd(Fra_ddcx1.cbb_cplb,pkProductCategory);
-    Fra_ddcx1.cbb_cplb.ItemIndex := Fra_ddcx1.cbb_cplb.Items.IndexOf(str);
-    if Fra_ddcx1.cbb_cplb.ItemIndex = -1 then
-    Fra_ddcx1.cbb_cplb.ItemIndex := c_Default_CPLB;       //默认选择邮政贺卡
-
-    str := Fra_ddcx1.cbb_cplx.Text;
-    Fra_ddcx1.cbb_cplx.Clear;
-    Fra_ddcx1.cbb_cplx.Items.Add('--全部--');
-    CbbAdd(Fra_ddcx1.cbb_cplx,pkProductType,FindProductCategoryID(Fra_ddcx1.cbb_cplb.ItemIndex));
-    Fra_ddcx1.cbb_cplx.ItemIndex := Fra_ddcx1.cbb_cplx.Items.IndexOf(str);
-    if Fra_ddcx1.cbb_cplx.ItemIndex = -1 then
-      Fra_ddcx1.cbb_cplx.ItemIndex := 0;
-
-    Fra_ddcx1.Align := alClient;
+    //Fra_ddcx1.Align := alClient;
     Fra_ddcx1.FraShow;
     Fra_ddcx1.Visible := True;
     Application.ProcessMessages;
@@ -1071,72 +1036,8 @@ begin
     if not Assigned(Fra_tg1) then
     begin
       Fra_tg1 := TFra_tg.Create(Self);
-      Fra_tg1.Hide;
-      Fra_tg1.Parent := Self;
-      Fra_tg1.cbb_xpl.Enabled := True;
-      Fra_tg1.cbb_xpl.ItemIndex := 0;
-      case LoginData.m_iUserType of
-        c_User:
-          Fra_tg1.cbb_xpl.ItemIndex := 1;
-        c_Admin:
-          Fra_tg1.cbb_xpl.ItemIndex := 1;
-        c_User_Small:
-          begin
-            Fra_tg1.cbb_xpl.ItemIndex := 2;
-            Fra_tg1.cbb_xpl.Enabled := False;
-          end;
-        c_Admin_Small:
-          begin
-            Fra_tg1.cbb_xpl.ItemIndex := 2;
-            Fra_tg1.cbb_xpl.Enabled := False;
-          end;
-        c_SuperAdmin:;
-      end;
     end;
-    Fra_tg1.Align := alClient;
-    Fra_tg1.btn_fk.Visible := False;
-    Fra_tg1.btn_ok.Visible := True;
-
-    if Fra_tg1.cbb_tgzt.ItemIndex = -1 then
-      Fra_tg1.cbb_tgzt.ItemIndex := 0;
-
-    Fra_tg1.cbb_tgzt.Enabled := True;
-    with Fra_tg1.cbb_llzt.Items do
-    begin
-      Clear;
-      Add('--请选择--');
-      Add('图稿未收到');
-      Add('图稿已收到');
-  //    Add('打样中');
-      Add('图稿未合格');
-      Add('图稿已合格');
-      Add('已打样');
-      Add('图稿待处理');
-  //    Add('已签样');
-    end;
-    //获取产品类别
-    str := Fra_tg1.cbb_cplb.Text;
-    Fra_tg1.cbb_cplb.Clear;
-    Fra_tg1.cbb_cplb.Items.Add('--全部--');
-    CbbAdd(Fra_tg1.cbb_cplb,pkProductCategory);
-    Fra_tg1.cbb_cplb.ItemIndex := Fra_tg1.cbb_cplb.Items.IndexOf(str);
-    if Fra_tg1.cbb_cplb.ItemIndex = -1 then
-      Fra_tg1.cbb_cplb.ItemIndex := c_Default_CPLB;       //默认选择邮政贺卡
-
-    str := Fra_tg1.cbb_cplx.Text;
-    Fra_tg1.cbb_cplx.Clear;
-    Fra_tg1.cbb_cplx.Items.Add('--全部--');
-    CbbAdd(Fra_tg1.cbb_cplx,pkProductType,FindProductCategoryID(Fra_tg1.cbb_cplb.ItemIndex));
-    Fra_tg1.cbb_cplx.ItemIndex := Fra_tg1.cbb_cplx.Items.IndexOf(str);
-    if Fra_tg1.cbb_cplx.ItemIndex = -1 then
-      Fra_tg1.cbb_cplx.ItemIndex := 0;
-
-    if Fra_tg1.cbb_llzt.ItemIndex = -1 then
-      Fra_tg1.cbb_llzt.ItemIndex := 0;
-    if Fra_tg1.cbb_bb.ItemIndex = -1 then
-      Fra_tg1.cbb_bb.ItemIndex := 0;
-    
-    Fra_tg1.CustomLvAdd;
+    //Fra_tg1.Align := alClient;
 
     Fra_tg1.FraShow;
     Fra_tg1.Visible := True;
@@ -1272,6 +1173,15 @@ begin
     end;
     Fra_yztgl1.FraShow;
     Fra_yztgl1.Visible := True;
+  end else
+  if sCaption = '已撤销订单清单' then
+  begin
+    if not Assigned(Frm_YCXDDQD) then
+    begin
+      Frm_YCXDDQD := TFrm_YCXDDQD.Create(Self);
+    end;
+    Frm_YCXDDQD.FraShow;
+    Frm_YCXDDQD.Visible := True;
   end;
 
 
@@ -1325,8 +1235,6 @@ begin
 end;
 
 procedure TFrm_Main.FormClose(Sender: TObject; var Action: TCloseAction);
-var
-  i: Integer;
 begin
 //  if Assigned(Frm_DDMX_DZX) then Frm_DDMX_DZX.Free;
 //  if Assigned(Frm_DDMX_XSX) then Frm_DDMX_XSX.Free;
@@ -1809,6 +1717,12 @@ begin
   Caption := c_TitleName +'--特殊工艺管理';
   FraHide(Sender);
 
+end;
+
+procedure TFrm_Main.rg_tjbbItems9Click(Sender: TObject);
+begin
+  Caption := c_TitleName +'--已撤销订单清单';
+  FraHide(Sender);
 end;
 
 end.

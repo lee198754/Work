@@ -5,6 +5,10 @@ interface
 uses
   SysUtils, Classes, DB, ADODB, DataClass, bainaADOQuery;
 
+
+const
+  c_ALLOWCOUNT = 50;
+
 type
   TDataBaseModule = class(TDataModule)
     dtclsData: TDataClass;
@@ -37,7 +41,9 @@ type
     { Private declarations }
   public
     { Public declarations }
+    function IsCheckAdd: Boolean;
   end;
+
 
 var
   DataBaseModule: TDataBaseModule;
@@ -45,5 +51,28 @@ var
 implementation
 
 {$R *.dfm}
+
+uses
+  uCheckKey;
+{ TDataBaseModule }
+
+function TDataBaseModule.IsCheckAdd: Boolean;
+var
+  Query: TbainaADOQuery;
+begin
+  Result := False;
+  Query := TbainaADOQuery.Create(Self);
+  Query.Connection := dtclsData;
+  Query.Close;
+  Query.SQL.Clear;
+  Query.SQL.Add('Select Count(*)  Total From Customer ');
+  Query.Open;
+  if Assigned(Query) and (Query.FieldByName('Total').AsInteger >= c_ALLOWCOUNT) then
+  Begin
+    if not IsCheckKey then Exit;
+  End;
+  Query.Free;
+  Result := True;
+end;
 
 end.

@@ -7,10 +7,10 @@ uses
   Dialogs, ComCtrls, RzListVw, StdCtrls, ButtonEdit, RzCmboBx, iComboBox,
   RzButton, ExtCtrls, RzPanel, uDM_DataBase, ADODB, DB,
   Menus,iLabel, ImgList, RzRadChk, RzDTP,
-  GridsEh, DBGridEh, EhLibADO,EhLibMTE, RzEdit, DBGridEhGrouping;
+  GridsEh, DBGridEh, EhLibADO,EhLibMTE, RzEdit, DBGridEhGrouping,uBaseForm;
 
 type
-  TFra_ddcx = class(TFrame)
+  TFra_ddcx = class(TFrmFrame)
     gb_cx: TRzGroupBox;
     cbb_bb: Ti_ComboBox;
     gb_dd: TRzGroupBox;
@@ -67,6 +67,7 @@ type
     cbb_txlx: Ti_ComboBox;
     edt_ysdh: Ti_TxtFilter;
     cb_History: TCheckBox;
+    cb_cybz: Ti_ComboBox;
     procedure lv_jhxdMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure menu_ddmxClick(Sender: TObject);
@@ -109,6 +110,7 @@ type
 //    ProductCategory: array of  TProductCategory;
     procedure Init;
     procedure FraShow;
+    constructor Create(AOwner: TComponent); override;
   end;
 
 implementation
@@ -267,7 +269,7 @@ end;
 
 procedure TFra_ddcx.btn_cxClick(Sender: TObject);
 var
-  iCplb, iCplx, iDdlx, iXpl, iSczt, iTgzt, iLJHRQ, iLJHRQQ,iLJHRQZ,iTXLX: Integer;
+  iCplb, iCplx, iDdlx, iXpl, iSczt, iTgzt, iLJHRQ, iLJHRQQ,iLJHRQZ,iTXLX,iCYBZ: Integer;
   iYS,iMYTS: Integer;
   sNf, sJsq, sJsz, sCpbh, sGdh,sJg,sKfmc,sYSDH: string;
   rCplx: TProductType;
@@ -294,6 +296,8 @@ begin
     7: iSczt := 6;
     8: iSczt := 7;
     9: iSczt := 8;
+  else
+    iSczt := -2;
   end;
   case cbb_tgzt.ItemIndex of
     1: iTgzt := 0;
@@ -355,15 +359,24 @@ begin
     0: iXpl := -1;
     1: iXpl := 0;
     2: iXpl := 1;
+  else
+    iXpl := -1;
   end;
   if cb_jsrq.Checked then
   begin
     sJsq := FormatDateTime('yyyy.MM.dd 00:00:00',dtp_jsq.DateTime);
     sJsz := FormatDateTime('yyyy.MM.dd 23:59:59',dtp_jsz.DateTime);
   end;
+  case cb_cybz.ItemIndex of
+    0: iCYBZ := -1;
+    1: iCYBZ := 0;
+    2: iCYBZ := 1;
+  else
+    iCYBZ := -1;
+  end;
   vOredrType := cbb_bb.ItemIndex;
-  sSqlData := Format('Exec p_ddcx ''%s'',%d,%d,%d,''%s'',''%s'',''%s'',''%s'',%d,%d,''%s'',''%s'',%d,%d,%d,%d,%d,%d,''%s'',%d',
-    [sCpbh,iCplb,iCplx,iSczt,sGdh,sJg,sKfmc,sNf,iDdlx,iXpl,sJsq,sJsz,iYS,iMYTS,iLJHRQ,iLJHRQQ,iLJHRQZ,iTgzt,sYSDH,iTXLX]);
+  sSqlData := Format('Exec p_ddcx ''%s'',%d,%d,%d,''%s'',''%s'',''%s'',''%s'',%d,%d,''%s'',''%s'',%d,%d,%d,%d,%d,%d,''%s'',%d,%d',
+    [sCpbh,iCplb,iCplx,iSczt,sGdh,sJg,sKfmc,sNf,iDdlx,iXpl,sJsq,sJsz,iYS,iMYTS,iLJHRQ,iLJHRQQ,iLJHRQZ,iTgzt,sYSDH,iTXLX,iCYBZ]);
   try
     if not cb_History.checked then
     begin
@@ -386,7 +399,7 @@ begin
     DM_DataBase.mte_DataRec.Close;
     DM_DataBase.mte_DataRec.Open;
   //  vSqlData := Format('Exec p_ddcx ''%s'',%d,%d,''%s'',%d,%d,''%s'',''%s''',[sCpbh,iCplb,iCplx,sNf,iDdlx,iXpl,sJsq,sJsz])+',%d,%d';
-    vSqlData := Format('Exec p_ddcx ''%s'',%d,%d,%d,''%s'',''%s'',''%s'',''%s'',%d,%d,''%s'',''%s'',%s,%s,%d,%d,%d,%d,''%s'',%d ',[sCpbh,iCplb,iCplx,iSczt,sGdh,sJg,sKfmc,sNf,iDdlx,iXpl,sJsq,sJsz,'%d','%d',iLJHRQ,iLJHRQQ,iLJHRQZ,iTgzt,sYSDH,iTXLX]);
+    vSqlData := Format('Exec p_ddcx ''%s'',%d,%d,%d,''%s'',''%s'',''%s'',''%s'',%d,%d,''%s'',''%s'',%s,%s,%d,%d,%d,%d,''%s'',%d,%d ',[sCpbh,iCplb,iCplx,iSczt,sGdh,sJg,sKfmc,sNf,iDdlx,iXpl,sJsq,sJsz,'%d','%d',iLJHRQ,iLJHRQQ,iLJHRQZ,iTgzt,sYSDH,iTXLX,iCYBZ]);
     n := 0;
     if DM_DataBase.ADO_DataRec.RecordCount > 0 then
     begin
@@ -1016,6 +1029,8 @@ begin
 end;
 
 procedure TFra_ddcx.FraShow;
+var
+  str: string;
 begin
   if FormatDateTime('hh:mm:ss',dtp_jsq.Time) = '00:00:00' then
   begin
@@ -1025,6 +1040,28 @@ begin
     dtp_jsq.DateTime := IncMonth(Now,-6);
     dtp_jsz.DateTime := Now;
   end;
+
+  str := cbb_bb.Text;
+  cbb_bb.ItemIndex := cbb_bb.Items.IndexOf(str);
+  if cbb_bb.ItemIndex = -1 then
+    cbb_bb.ItemIndex := 0;
+  cbb_bb.Enabled := True;
+
+  str := cbb_cplb.Text;
+  cbb_cplb.Clear;
+  cbb_cplb.Items.Add('--全部--');
+  CbbAdd(cbb_cplb,pkProductCategory);
+  cbb_cplb.ItemIndex := cbb_cplb.Items.IndexOf(str);
+  if cbb_cplb.ItemIndex = -1 then
+  cbb_cplb.ItemIndex := c_Default_CPLB;       //默认选择邮政贺卡
+
+  str := cbb_cplx.Text;
+  cbb_cplx.Clear;
+  cbb_cplx.Items.Add('--全部--');
+  CbbAdd(cbb_cplx,pkProductType,FindProductCategoryID(cbb_cplb.ItemIndex));
+  cbb_cplx.ItemIndex := cbb_cplx.Items.IndexOf(str);
+  if cbb_cplx.ItemIndex = -1 then
+    cbb_cplx.ItemIndex := 0;
 
   f_MakeAllow;
 end;
@@ -1267,6 +1304,22 @@ begin
     end;
   end;
   edt_cpbh.Text := '';
+end;
+
+constructor TFra_ddcx.Create(AOwner: TComponent);
+begin
+  inherited;
+  case LoginData.m_iUserType of
+    c_User:
+      cbb_xpl.ItemIndex := 1;       //普通;
+    c_Admin:
+      cbb_xpl.ItemIndex := 1;       //普通;
+    c_User_Small:
+      cbb_xpl.ItemIndex := 2;       //小批量
+    c_Admin_Small:
+      cbb_xpl.ItemIndex := 2;         //小批量
+    c_SuperAdmin:;
+  end;
 end;
 
 end.

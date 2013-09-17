@@ -1166,11 +1166,11 @@ inherited Frm_About: TFrm_About
     OnDblClick = Image1DblClick
   end
   object Label1: TLabel [1]
-    Left = 96
+    Left = 136
     Top = 144
-    Width = 297
+    Width = 239
     Height = 30
-    Caption = #21327#35802#23458#25143#20851#31995#31649#29702#31995#32479' '
+    Caption = #23458#25143#20851#31995#31649#29702#31995#32479' '
     Font.Charset = GB2312_CHARSET
     Font.Color = clBlack
     Font.Height = -29
@@ -1206,6 +1206,7 @@ inherited Frm_About: TFrm_About
     Font.Style = []
     ParentFont = False
     Transparent = True
+    Visible = False
   end
   inherited xpmn1: TXPMenu
     Left = 16

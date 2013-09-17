@@ -334,7 +334,7 @@ type
   public
     { Public declarations }
     CustBeginDate,CustEndDate:String;
-    
+
   end;
 
 var
@@ -1257,9 +1257,12 @@ begin
       ISAdd:=True;
       ISEdit:=False;
       ISCust:=True;
+      //lpj2013.09.13
+      LSqlCust:=False;
       Frm_NewCust := TFrm_NewCust.Create(Self);
       Frm_NewCust.ShowModal;
-      LSqlCust:=False;
+      //lpj2013.09.13
+      //LSqlCust:=False;
       SetupTree;
       TreeViewChange(Treeview,Treeview.Selected);
       DSCust.DataSet.Last;
@@ -2608,7 +2611,7 @@ begin
          DisplayText:='¿Í»§Êý';
          FieldName :=  CustColumn.DataBinding.FieldName; 
          //Format  :=  '#,##0.00'; 
-         Kind  :=  skCount; 
+         Kind  :=  skCount;
        end;}
 end;
 

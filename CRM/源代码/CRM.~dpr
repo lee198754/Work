@@ -40,7 +40,7 @@ uses
   Preview in 'System\Preview.pas' {ExcelLook_Frm},
   Bulletin in 'System\Bulletin.pas' {Frm_Bulletin},
   NewBulletin in 'System\NewBulletin.pas' {Frm_NewBulletin},
-  cxSchedulerEventEditor in 'E:\lpj\delphi\代码\第三方控件\DevExpress VCL\ExpressScheduler 3\Sources\cxSchedulerEventEditor.pas' {cxSchedulerEventEditorForm},
+  cxSchedulerEventEditor in '..\..\..\delphi\代码\第三方控件\DevExpress VCL\ExpressScheduler 3\Sources\cxSchedulerEventEditor.pas' {cxSchedulerEventEditorForm},
   EventEditForm in 'System\EventEditForm.pas' {Frm_EventEdit},
   Day in 'System\Day.pas' {Frm_Day},
   Sale in 'System\Sale.pas' {Frm_SaleManage},
@@ -77,7 +77,8 @@ uses
   Dictother in 'System\Dictother.pas' {Frm_Dictother},
   BaseSet in 'System\BaseSet.pas' {Frm_BaseSet},
   AdoConEd in '..\系统包\AdoConEd.pas' {ConnEditForm},
-  TMNC_OCX_TLB in 'D:\Borland\Delphi7\Imports\TMNC_OCX_TLB.pas';
+  TMNC_OCX_TLB in 'System\TMNC_OCX_TLB.pas',
+  uCheckKey in '..\系统包\uCheckKey.pas';
 
 {$R *.res}
 
@@ -86,7 +87,7 @@ begin
   Application.CreateForm(TDataBaseModule, DataBaseModule);
   Application.CreateForm(TMain_Frm, Main_Frm);
   Application.CreateForm(TFrm_Day, Frm_Day);
-  Application.CreateForm(TFrm_ShareCust, Frm_ShareCust);
+  //Application.CreateForm(TFrm_ShareCust, Frm_ShareCust);
   Application.CreateForm(TFrm_Supply, Frm_Supply);
   Application.CreateForm(TFrm_Dictother, Frm_Dictother);
   Application.CreateForm(TFrm_BaseSet, Frm_BaseSet);

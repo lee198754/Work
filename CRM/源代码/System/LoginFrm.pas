@@ -17,7 +17,7 @@ uses
   dxSkinOffice2010Black, dxSkinOffice2010Blue, dxSkinOffice2010Silver,
   dxSkinPumpkin, dxSkinSeven, dxSkinSharp, dxSkinSilver, dxSkinSpringTime,
   dxSkinStardust, dxSkinSummer2008, dxSkinsDefaultPainters,
-  dxSkinValentine, dxSkinXmas2008Blue;
+  dxSkinValentine, dxSkinXmas2008Blue, Sockets;
 
 type
   TLogin_Frm = class(TBase_Frm)
@@ -63,7 +63,7 @@ begin
   bndqryUser.Active := True;
   SetLoginLogo(img1);
   ShellExecute(0, 'OPEN', PChar('RegSvr32.exe'), PChar('/s TMNC_OCX.ocx'),
-               PChar(ExtractFilePath(Application.ExeName)), SW_HIDE);
+               PChar(ExtractFilePath(Application.ExeName)+'\ocx\'), SW_HIDE);
   IF Not DirectoryExists(ExtractFilePath(Application.ExeName)+'temp') Then
     Begin
       ForceDirectories(ExtractFilePath(Application.ExeName)+'temp');
@@ -83,8 +83,11 @@ begin
 end;
 
 procedure TLogin_Frm.btn2Click(Sender: TObject);
+var
+  ADO_Rec: TADOQuery;
 begin
   inherited;
+
    if cbbUserCode.Text = '' Then
   begin
     ShowMessage('请选择用户名称!');
@@ -97,6 +100,20 @@ begin
     cxtxtdtpwd.SetFocus;
     Exit;
   End;
+  ADO_Rec := DataBaseModule.dtclsData.Query('Select Count(*)  Total From Customer');
+  if Assigned(ADO_Rec) and (ADO_Rec.FieldByName('Total').AsInteger-5 < c_ALLOWCOUNT) then
+  begin
+    if not DataBaseModule.IsCheckAdd then
+    begin
+      if ADO_Rec.RecordCount <= c_ALLOWCOUNT then
+        Application.MessageBox(PChar('现在客户数为 '+IntToStr(ADO_Rec.RecordCount-5)+' 条 ,如果超过 '+IntToStr(c_ALLOWCOUNT)+' 条,则需要插入加密狗才能继续添加客户!'),'提示',MB_OK+MB_Iconwarning)
+      else
+        Application.MessageBox(PChar('现在客户数已经大于等于 '+IntToStr(c_ALLOWCOUNT)+' ,如需要继续添加客户请插入加密狗!'),'提示',MB_OK+MB_Iconwarning);
+
+
+    end;
+    ADO_Rec.Free;
+  end;
   Close;
 end;
 
