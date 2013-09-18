@@ -1441,13 +1441,15 @@ begin
       sSqlData := sSqlData + format(' and (( F_sZH=''%s'' '
         + ' and ( F_sRJHDQ <= right(''000000''+''%s'',6) and F_sRJHDZ >= right(''000000''+''%s'',6) '
         + ' or F_sRJHDQ <= right(''000000''+''%s'',6) and F_sRJHDZ >= right(''000000''+''%s'',6) ) '
-        + ' and a.F_iID <> %d)',[RJHD[i].m_sZH,RJHD[i].m_sRJHDQ,RJHD[i].m_sRJHDQ,RJHD[i].m_sRJHDZ,RJHD[i].m_sRJHDZ,RJHD[i].m_iID]);
+        + ' and SubString(b.F_sCPBH,1,2)=''%s'''
+        + ' and a.F_iID <> %d)',[RJHD[i].m_sZH,RJHD[i].m_sRJHDQ,RJHD[i].m_sRJHDQ,RJHD[i].m_sRJHDZ,RJHD[i].m_sRJHDZ,Copy(RJHD[i].m_sCPBH,1,2),RJHD[i].m_iID]);
     end else
     begin
       sSqlData := sSqlData + format(' or ( F_sZH=''%s'' '
         + ' and ( F_sRJHDQ <= right(''000000''+''%s'',6) and F_sRJHDZ >= right(''000000''+''%s'',6) '
         + ' or F_sRJHDQ <= right(''000000''+''%s'',6) and F_sRJHDZ >= right(''000000''+''%s'',6) ) '
-        + ' and a.F_iID <> %d)',[RJHD[i].m_sZH,RJHD[i].m_sRJHDQ,RJHD[i].m_sRJHDQ,RJHD[i].m_sRJHDZ,RJHD[i].m_sRJHDZ,RJHD[i].m_iID]);
+        + ' and SubString(b.F_sCPBH,1,2)=''%s'''
+        + ' and a.F_iID <> %d)',[RJHD[i].m_sZH,RJHD[i].m_sRJHDQ,RJHD[i].m_sRJHDQ,RJHD[i].m_sRJHDZ,RJHD[i].m_sRJHDZ,Copy(RJHD[i].m_sCPBH,1,2),RJHD[i].m_iID]);
     end;
     if Length(sSqlData) > 2000 then
     begin

@@ -3232,7 +3232,7 @@ begin
       end;
 
       //读取兑奖号码到数组
-      sSqlData := 'select a.* from DO_WorkOrderDetGroupNum a,DO_WorkOrderDetails b where a.F_iDetailsID=b.F_iID and b.F_iWorkID = %d Order By b.F_iGroupID,b.F_iID';
+      sSqlData := 'select a.*,b.F_sCPBH from DO_WorkOrderDetGroupNum a,DO_WorkOrderDetails b where a.F_iDetailsID=b.F_iID and b.F_iWorkID = %d Order By b.F_iGroupID,b.F_iID';
       ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[iID],True);
       SetLength(aRJHD,0);
       with ADO_Rec do
@@ -3241,6 +3241,7 @@ begin
         begin
           SetLength(aRJHD,Length(aRJHD)+1);
           aRJHD[Length(aRJHD)-1].m_iID := FieldByName('F_iID').AsInteger;
+          aRJHD[Length(aRJHD)-1].m_sCPBH := FieldByName('F_sCPBH').AsString;
           aRJHD[Length(aRJHD)-1].m_sZH := FieldByName('F_sZH').AsString;
           aRJHD[Length(aRJHD)-1].m_sRJHDQ := FieldByName('F_sRJHDQ').AsString;
           aRJHD[Length(aRJHD)-1].m_sRJHDZ := FieldByName('F_sRJHDZ').AsString;
@@ -3679,7 +3680,7 @@ begin
       end;
 
       //读取兑奖号码到数组
-      sSqlData := 'select a.* from History_WorkOrderDetGroupNum a,History_WorkOrderDetails b where a.F_iDetailsID=b.F_iID and b.F_iWorkID = %d Order By b.F_iGroupID,b.F_iID';
+      sSqlData := 'select a.*,b.F_sCPBH from History_WorkOrderDetGroupNum a,History_WorkOrderDetails b where a.F_iDetailsID=b.F_iID and b.F_iWorkID = %d Order By b.F_iGroupID,b.F_iID';
       ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[iID],True);
       SetLength(aBSTPrint,0);
       with ADO_Rec do
@@ -3688,6 +3689,7 @@ begin
         begin
           SetLength(aRJHD,Length(aRJHD)+1);
           aRJHD[Length(aRJHD)-1].m_iID := FieldByName('F_iID').AsInteger;
+          aRJHD[Length(aRJHD)-1].m_sCPBH := FieldByName('F_sCPBH').AsString;
           aRJHD[Length(aRJHD)-1].m_sZH := FieldByName('F_sZH').AsString;
           aRJHD[Length(aRJHD)-1].m_sRJHDQ := FieldByName('F_sRJHDQ').AsString;
           aRJHD[Length(aRJHD)-1].m_sRJHDZ := FieldByName('F_sRJHDZ').AsString;

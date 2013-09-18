@@ -41,7 +41,7 @@ type
     procedure p_LvToStg(Item: TListItem);
     //´æÈë¶Ò½±ºÅ¶ÎÊý×é
     function SetaRJHD_old(iApartID: Integer;sZH, sRJHDQ, sRJHDZ: string): Boolean;
-    function SetaRJHD(iApartID: Integer;sZH, sRJHDQ, sRJHDZ: string): Boolean;
+    function SetaRJHD(iApartID: Integer;sZH, sRJHDQ, sRJHDZ, sCPBH: string): Boolean;
     function CreateRJHD(sZH:string): string;  //Éú³É¶Ò½±ºÅ¶Î,·µ»Ø000001;001000
   public
     { Public declarations }
@@ -443,7 +443,7 @@ begin
         OrderData[j].m_sRJHDQ := stg_list.Cells[c_List_RJHDQ,i];
         OrderData[j].m_sRJHDZ := stg_list.Cells[c_List_RJHDZ,i];
         OrderData[j].m_sBZ := stg_list.Cells[c_List_BZ,i];
-        SetaRJHD(OrderData[j].m_iApartID,OrderData[j].m_sZH,OrderData[j].m_sRJHDQ,OrderData[j].m_sRJHDZ);
+        SetaRJHD(OrderData[j].m_iApartID,OrderData[j].m_sZH,OrderData[j].m_sRJHDQ,OrderData[j].m_sRJHDZ,OrderData[j].m_sCPBH);
         Break;
       end;
     end;
@@ -729,7 +729,7 @@ end;
 
 
 function TFrm_OrderList.SetaRJHD(iApartID: Integer; sZH, sRJHDQ,
-  sRJHDZ: string): Boolean;
+  sRJHDZ,sCPBH: string): Boolean;
 var
   i, j, k, len: integer;
 begin
@@ -753,6 +753,7 @@ begin
     aTempRJHD[Len].m_sZH      := PosCopy(sZH,',',i);
     aTempRJHD[Len].m_sRJHDQ   := PosCopy(sRJHDQ,',',i);
     aTempRJHD[Len].m_sRJHDZ   := PosCopy(sRJHDZ,',',i);
+    aTempRJHD[Len].m_sCPBH    := PosCopy(sCPBH,',',i);
   end;
   Result := True;
 end;
