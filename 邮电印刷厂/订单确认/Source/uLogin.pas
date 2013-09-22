@@ -19,6 +19,7 @@ type
     procedure btn_loginClick(Sender: TObject);
     procedure edt_PwdKeyPress(Sender: TObject; var Key: Char);
     procedure FormShow(Sender: TObject);
+    function CheckUser(AUser,APwd: string):Boolean;
 
   private
     { Private declarations }
@@ -82,7 +83,6 @@ end;
 
 procedure TFrm_Login.btn_loginClick(Sender: TObject);
 var
-  ADO_Rec: TADOQuery;
   MyReg: TRegistry;
 begin
   ModalResult := mrNone;
@@ -115,12 +115,23 @@ begin
   vUserName := edt_Name.Text;
   vUserPwd := edt_Pwd.Text;
 
+  if CheckUser(edt_Name.Text,edt_Pwd.Text) then  ModalResult := mrOk;
+
+end;
+
+
+
+function TFrm_Login.CheckUser(AUser, APwd: string): Boolean;
+var
+  ADO_Rec: TADOQuery;
+begin
+  Result := False;
   try
     ADO_Rec := TADOQuery.Create(Self);
-    DM_DataBase.GetTableData(ADO_Rec,'BI_UserList','F_sName='''+Trim(edt_Name.Text)+''' ');
+    DM_DataBase.GetTableData(ADO_Rec,'BI_UserList','F_sName='''+Trim(AUser)+''' ');
     if ADO_Rec.RecordCount > 0 then
     begin
-      if ADO_Rec.FieldByName('F_sPwd').AsString = StrMD5(Trim(edt_Pwd.Text)) then
+      if ADO_Rec.FieldByName('F_sPwd').AsString = StrMD5(Trim(APwd)) then
       begin
         LoginData.m_iUserID := ADO_Rec.FieldByName('F_iID').AsInteger;
         LoginData.m_sUserName := ADO_Rec.FieldByName('F_sName').AsString;
@@ -135,7 +146,7 @@ begin
         else
           LoginData.m_iAllowCode := ADO_Rec['F_iAllowCode'];
 
-        ModalResult := mrOk;
+        Result := True;
       end else
       begin
         Application.MessageBox('密码错误!','提示',MB_ICONINFORMATION);
@@ -155,8 +166,6 @@ begin
   end;
 end;
 
-
-
 procedure TFrm_Login.edt_PwdKeyPress(Sender: TObject; var Key: Char);
 begin
   if Key = #13 then
@@ -166,7 +175,7 @@ end;
 
 procedure TFrm_Login.FormShow(Sender: TObject);
 var
-  UpdateIP,sPath,sAutoUpdatePath,sServicesIP: string;
+  sPath,sServicesIP: string;
   ini: TIniFile;
   F: TSearchRec;
   MyReg: TRegistry;
@@ -177,29 +186,7 @@ begin
   sServicesIP := ini.ReadString('Set','ServicesIP','');
   if sServicesIP = '' then
     Caption := '登陆(本机)';
-  //更新判断
-  sAutoUpdatePath := ini.ReadString('Set','AutoUpdatePath','');
-  if sAutoUpdatePath = '' then
-    sAutoUpdatePath := AutoUpdatePath;
-  UpdateIP := PosCopy(sAutoUpdatePath,'\',3);
-{  IdIcmpClient1.Host := UpdateIP;
-  IdIcmpClient1.Ping;
-  if IdIcmpClient1.ReplyStatus.ReplyStatusType = rsEcho then
-  begin
-    if FindFirst(sAutoUpdatePath+'*.*',faAnyfile,F) <> 0 then
-    begin
-      Str := 'net use \\'+UpdateIP+' '+UpdatePwd+ ' /user:'+UpdateUser;
-      WinExec(pchar(Str),SW_HIDE);
-    end;
-    if CheckFile(sAutoUpdatePath,ExtractFilePath(Application.ExeName)) then
-    begin
-      if Application.MessageBox(pchar('发现新版本,是否更新?'),'提示',MB_ICONINFORMATION+MB_YESNO)= IDYES then
-      begin
-        if winexec(PChar(sPath+'AutoUpdate.exe'),   SW_SHOWNORMAL) < 31 then
-          Application.MessageBox(pchar('更新失败!请关闭系统后手动运行"AutoUpdate.exe"进行更新'),'提示',MB_ICONINFORMATION);
-      end;
-    end;
-  end;   }
+
   MyReg := TRegistry.Create;
   MyReg.RootKey := HKEY_LOCAL_MACHINE;
   if MyReg.OpenKey(c_Reg_Login_CookiePath,False) then

@@ -1031,20 +1031,30 @@ begin
     Fra_WarehEntryBarCode1.Visible := True;
     Application.ProcessMessages;
   end else
-  if sCaption = 'Í¼¸åÉóºË(ÄÚ²¿)' then
+  if (sCaption = 'Í¼¸åÉóºË') or (sCaption = 'Í¼¸åÉóºË(ÄÚ²¿)') then
   begin
     if not Assigned(Fra_tg1) then
     begin
       Fra_tg1 := TFra_tg.Create(Self);
     end;
     //Fra_tg1.Align := alClient;
+    if sCaption = 'Í¼¸åÉóºË(ÄÚ²¿)' then
+    begin
+      Fra_tg1.btn_fk.Visible := False;
+      Fra_tg1.btn_ok.Visible := True;
+    end else
+    if sCaption = 'Í¼¸åÉóºË' then
+    begin
+      Fra_tg1.btn_fk.Visible := True;
+      Fra_tg1.btn_ok.Visible := False;
+    end;
 
     Fra_tg1.FraShow;
     Fra_tg1.Visible := True;
     Application.ProcessMessages;
     Fra_tg1.btn_cx.Click;
   end else
-  if sCaption = 'Í¼¸åÉóºË' then
+  {if (sCaption = 'Í¼¸åÉóºË') or (sCaption = 'Í¼¸åÉóºË(ÄÚ²¿)') then
   begin
     if not Assigned(Fra_tg1) then
     begin
@@ -1072,9 +1082,16 @@ begin
       end;
     end;
     Fra_tg1.Align := alClient;
-
-    Fra_tg1.btn_fk.Visible := True;
-    Fra_tg1.btn_ok.Visible := False;
+    if sCaption = 'Í¼¸åÉóºË(ÄÚ²¿)' then
+    begin
+      Fra_tg1.btn_fk.Visible := False;
+      Fra_tg1.btn_ok.Visible := True;
+    end else
+    if sCaption = 'Í¼¸åÉóºË' then
+    begin
+      Fra_tg1.btn_fk.Visible := True;
+      Fra_tg1.btn_ok.Visible := False;
+    end;
 
     if Fra_tg1.cbb_tgzt.ItemIndex = -1 then
       Fra_tg1.cbb_tgzt.ItemIndex := 0;
@@ -1120,7 +1137,7 @@ begin
     Fra_tg1.Visible := True;
     Application.ProcessMessages;
     Fra_tg1.btn_cx.Click;
-  end else
+  end else            }
   if sCaption = '¶©µ¥Â¼Èë' then
   begin
     if not Assigned(Fra_DDLR1) then

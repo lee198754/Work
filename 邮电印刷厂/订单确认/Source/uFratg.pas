@@ -1212,8 +1212,8 @@ procedure TFra_tg.FraShow;
 var
   str: string;
 begin
-    btn_fk.Visible := False;
-    btn_ok.Visible := True;
+    //btn_fk.Visible := False;
+    //btn_ok.Visible := True;
 
     if cbb_tgzt.ItemIndex = -1 then
       cbb_tgzt.ItemIndex := 0;
