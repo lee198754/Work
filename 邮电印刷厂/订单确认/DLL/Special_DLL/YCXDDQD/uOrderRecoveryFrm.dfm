@@ -1,0 +1,194 @@
+object Frm_OrderRecovery: TFrm_OrderRecovery
+  Left = 560
+  Top = 268
+  Width = 781
+  Height = 403
+  Caption = #35746#21333#24674#22797#31383#21475
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  PixelsPerInch = 96
+  TextHeight = 13
+  object gb_HFDD: TGroupBox
+    Left = 0
+    Top = 0
+    Width = 765
+    Height = 365
+    Align = alClient
+    Caption = #24674#22797#35746#21333
+    Font.Charset = GB2312_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -14
+    Font.Name = #26032#23435#20307
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    object lal_Cxr: TLabel
+      Left = 18
+      Top = 32
+      Width = 56
+      Height = 14
+      Caption = #25764#38144#20154#65306
+    end
+    object lab_Cpbh: TLabel
+      Left = 498
+      Top = 32
+      Width = 70
+      Height = 14
+      Caption = #20135#21697#32534#21495#65306
+    end
+    object lal_hfyy: TLabel
+      Left = 18
+      Top = 123
+      Width = 63
+      Height = 14
+      Caption = #24674#22797#21407#22240':'
+    end
+    object lal_hfr: TLabel
+      Left = 26
+      Top = 323
+      Width = 56
+      Height = 14
+      Caption = #24674#22797#20154#65306
+    end
+    object lal_cxyy: TLabel
+      Left = 18
+      Top = 72
+      Width = 70
+      Height = 14
+      Caption = #25764#38144#21407#22240#65306
+    end
+    object lal_cxbz: TLabel
+      Left = 282
+      Top = 72
+      Width = 70
+      Height = 14
+      Caption = #25764#38144#22791#27880#65306
+    end
+    object lal_cxrq: TLabel
+      Left = 226
+      Top = 32
+      Width = 70
+      Height = 14
+      Caption = #25764#38144#26085#26399#65306
+    end
+    object lbl_sczts: TLabel
+      Left = 594
+      Top = 99
+      Width = 119
+      Height = 14
+      Caption = #36824#21487#20197#36755#20837'100'#20010#23383
+    end
+    object lal_czrbm: TLabel
+      Left = 730
+      Top = 195
+      Width = 84
+      Height = 14
+      Caption = #25805#20316#20154#32534#30721': '
+      Visible = False
+    end
+    object lal_ddid: TLabel
+      Left = 730
+      Top = 259
+      Width = 49
+      Height = 14
+      Caption = #35746#21333'ID:'
+      Visible = False
+    end
+    object edt_CXR: TEdit
+      Left = 90
+      Top = 30
+      Width = 121
+      Height = 22
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object edt_CPBH: TEdit
+      Left = 562
+      Top = 30
+      Width = 169
+      Height = 22
+      ReadOnly = True
+      TabOrder = 1
+    end
+    object mem_HFYY: TMemo
+      Left = 90
+      Top = 123
+      Width = 641
+      Height = 185
+      TabOrder = 2
+      OnKeyUp = mem_HFYYKeyUp
+    end
+    object edt_HFR: TEdit
+      Left = 90
+      Top = 321
+      Width = 121
+      Height = 22
+      ReadOnly = True
+      TabOrder = 3
+    end
+    object btn_QUXIAO: TButton
+      Left = 628
+      Top = 321
+      Width = 75
+      Height = 25
+      Caption = #21462#28040
+      TabOrder = 4
+      OnClick = btn_QUXIAOClick
+    end
+    object btn_QUEDING: TButton
+      Left = 516
+      Top = 321
+      Width = 75
+      Height = 25
+      Caption = #30830#23450
+      TabOrder = 5
+      OnClick = btn_QUEDINGClick
+    end
+    object edt_CXYY: TEdit
+      Left = 90
+      Top = 69
+      Width = 169
+      Height = 22
+      ReadOnly = True
+      TabOrder = 6
+    end
+    object edt_CXBZ: TEdit
+      Left = 354
+      Top = 69
+      Width = 353
+      Height = 22
+      ReadOnly = True
+      TabOrder = 7
+    end
+    object edt_CXRQ: TEdit
+      Left = 298
+      Top = 30
+      Width = 185
+      Height = 22
+      ReadOnly = True
+      TabOrder = 8
+    end
+    object edt_CZRBM: TEdit
+      Left = 730
+      Top = 219
+      Width = 121
+      Height = 22
+      TabOrder = 9
+      Visible = False
+    end
+    object edt_DDID: TEdit
+      Left = 730
+      Top = 283
+      Width = 121
+      Height = 22
+      TabOrder = 10
+      Visible = False
+    end
+  end
+end

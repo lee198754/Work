@@ -80,7 +80,7 @@ var
 implementation
 
 uses
-  IniFiles;
+  IniFiles,uPub_Func;
 
 {$R *.dfm}
 
@@ -256,6 +256,7 @@ begin
     begin
       Result.Free;
       Result := nil;
+      f_WriteOperationLog('数据库访问出错:'+E.message+' SQL语句:'+Format(SQLText,Args),999);
       if Pos('连接失败',E.message)>0 then
       begin
         vbReconnection := True;

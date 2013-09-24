@@ -110,7 +110,8 @@ uses
   uFrm_TSGYGL_Dlg in 'Source\uFrm_TSGYGL_Dlg.pas' {Frm_TSGYGL_Dlg},
   uBaseForm in 'Source\uBaseForm.pas',
   uOrderRecoveryFrm in 'Source\YCXDDQD\uOrderRecoveryFrm.pas' {Frm_OrderRecovery},
-  uYCXDDQDFrm in 'Source\YCXDDQD\uYCXDDQDFrm.pas' {Frm_YCXDDQD};
+  uYCXDDQDFrm in 'Source\YCXDDQD\uYCXDDQDFrm.pas' {Frm_YCXDDQD},
+  uDLLAPI in 'DLL\uDLLAPI.pas';
 
 {$R *.res}
 //var

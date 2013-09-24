@@ -203,7 +203,7 @@ implementation
 
 uses
   uLogin, uPub_Type, uPub_Func, uDDMX_DZX, uDDMX_XSX, uPub_Text, PubStr, Math,
-  DB,uYCXDDQDFrm;
+  DB,uYCXDDQDFrm,uDLLAPI;
 
 {$R *.dfm}
 
@@ -1193,6 +1193,8 @@ begin
   end else
   if sCaption = '已撤销订单清单' then
   begin
+    //p_Special(12,'',Self.Handle,Application.Handle);
+    //Exit;
     if not Assigned(Frm_YCXDDQD) then
     begin
       Frm_YCXDDQD := TFrm_YCXDDQD.Create(Self);

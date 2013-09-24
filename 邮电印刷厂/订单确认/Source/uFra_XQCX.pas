@@ -63,6 +63,7 @@ type
     cbb_xpl: Ti_ComboBox;
     btn_export: TRzButton;
     SavePath: TSaveDialog;
+    btn_BQPrint: TRzBitBtn;
     procedure btn_cxClick(Sender: TObject);
     procedure btn_saveClick(Sender: TObject);
     procedure btn_okClick(Sender: TObject);
@@ -88,6 +89,7 @@ type
     procedure btn_xgdyxxClick(Sender: TObject);
     procedure btn_gxrjhdClick(Sender: TObject);
     procedure btn_exportClick(Sender: TObject);
+    procedure btn_BQPrintClick(Sender: TObject);
   private
     { Private declarations }
     vMYTS: Integer;     //当前每页条数
@@ -217,6 +219,7 @@ begin
         begin
           btn_print.Visible   := False;
           btn_printB5.Visible := False;
+          btn_BQPrint.Visible := False;
           btn_xgdyxx.Visible  := False;
           edt_shrdz.Visible   := False;
           edt_shrxx.Visible   := False;
@@ -226,6 +229,7 @@ begin
         begin
           btn_print.Visible   := True;
           btn_printB5.Visible := True;
+          btn_BQPrint.Visible := True;
           btn_xgdyxx.Visible  := True;
           edt_shrdz.Visible   := True;
           edt_shrxx.Visible   := True;
@@ -1894,6 +1898,47 @@ begin
   {FraShow;
   Application.ProcessMessages;
   btn_cx.Click;}
+end;
+
+procedure TFra_XQCX.btn_BQPrintClick(Sender: TObject);
+var
+  pBookmark: Pointer;
+  n,i,iOrderID,iOrderType: Integer;
+  sCPBH: string;
+begin
+  Screen.Cursor := crHourGlass;
+  with DM_DataBase do
+  begin
+    pBookmark := ADO_xqxx.GetBookmark;
+    ADO_xqxx.FindFirst;
+    n := 0;
+    for i := 0 to ADO_xqxx.RecordCount -1 do
+    begin
+      if ADO_xqxx.FindField('XZ').AsBoolean then
+      begin
+        iOrderID := ADO_XQXX.FindField('OrderID').AsInteger;
+        iOrderType := ADO_XQXX.FindField('OrderType').AsInteger;
+        sCPBH := ADO_XQXX.FindField('F_sCpbh').AsString;
+        inc(n);
+      end;
+      if i < ADO_xqxx.RecordCount -1 then
+        ADO_xqxx.FindNext;
+    end;
+    ADO_xqxx.GotoBookmark(pBookmark);
+  end;
+  if n > 1 then
+  begin
+    p_MessageBoxDlg('一次只能选择一个订单进行打印!','提示');
+    Screen.Cursor := crDefault;
+    Exit;
+  end;
+  if n = 0 then
+  begin
+    Screen.Cursor := crDefault;
+    p_MessageBoxDlg('请选择一个订单!','提示');
+    Exit;
+  end;
+
 end;
 
 end.
