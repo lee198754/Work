@@ -111,7 +111,9 @@ uses
   uBaseForm in 'Source\uBaseForm.pas',
   uOrderRecoveryFrm in 'Source\YCXDDQD\uOrderRecoveryFrm.pas' {Frm_OrderRecovery},
   uYCXDDQDFrm in 'Source\YCXDDQD\uYCXDDQDFrm.pas' {Frm_YCXDDQD},
-  uDLLAPI in 'DLL\uDLLAPI.pas';
+  uDLLAPI in 'DLL\uDLLAPI.pas',
+  uXQBQInfoFrm in 'Source\uXQBQInfoFrm.pas' {Frm_XQBQInfo},
+  uCDFPSKAPI in 'Source\uCDFPSKAPI.pas';
 
 {$R *.res}
 //var

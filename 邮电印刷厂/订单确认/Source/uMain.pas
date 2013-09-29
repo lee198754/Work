@@ -203,7 +203,7 @@ implementation
 
 uses
   uLogin, uPub_Type, uPub_Func, uDDMX_DZX, uDDMX_XSX, uPub_Text, PubStr, Math,
-  DB,uYCXDDQDFrm,uDLLAPI;
+  DB,uYCXDDQDFrm,uDLLAPI,uFrm_Remind;
 
 {$R *.dfm}
 

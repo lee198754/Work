@@ -25,6 +25,7 @@ type
   protected
     procedure CreateParams(var Params: TCreateParams); override;
   end;
+  procedure p_ShowRemind(const Text: string; const Caption: string; aField:TArrSelectField; SqlData: string);
 
 var
   Frm_Remind: TFrm_Remind;
@@ -38,6 +39,68 @@ uses
   uDM_DataBase, uWorkOrder,PubStr;
 
 { TFrm_Remind }
+
+procedure p_ShowRemind(const Text: string; const Caption: string; aField:TArrSelectField; SqlData: string);
+var
+  i, n: Integer;
+  sFields: string;
+  ADO_Rec: TADOQuery;
+begin
+  ADO_Rec := DM_DataBase.OpenQuery(SqlData,[]);
+  if ADO_Rec.RecordCount > 0 then
+  begin
+    Frm_Remind := TFrm_Remind.Create(nil);
+    Frm_Remind.aField := aField;
+    Frm_Remind.Caption := Caption;
+    Frm_Remind.lab_Text.Caption := Text;
+    Frm_Remind.stg_Remind.ColCount := Length(aField)+1;
+    sFields := 'ÐòºÅ';
+    for i := 0 to Length(aField) -1 do
+    begin
+      sFields := sFields + '|' + aField[i].m_sName;
+      Frm_Remind.stg_Remind.ColWidths[i+1] := aField[i].m_iWidth;
+      case aField[i].m_FMode of
+        fmNone:;
+        fmSelect:Frm_Remind.stg_Remind.ColBuddy[i+1] := 'edt_Temp';
+        fmLink:;
+      end;
+    end;
+  //  if sFields <> '' then
+  //  begin
+  //    sFields := Copy(sFields,2,Length(sFields));
+  //  end;
+    Frm_Remind.stg_Remind.FormatString := sFields;
+    Frm_Remind.stg_Remind.Clear;
+    Frm_Remind.gb_Remind.Caption := '¹² '+ IntToStr(ADO_Rec.RecordCount) + 'Ìõ';
+    if Assigned(ADO_Rec) and (ADO_Rec.RecordCount > 0) then
+    begin
+      Frm_Remind.stg_Remind.RowCount := iif(ADO_Rec.RecordCount > 0, ADO_Rec.RecordCount +1, 2);
+      n := 1;
+      with ADO_Rec do
+      begin
+        while not Eof do
+        begin
+          Frm_Remind.stg_Remind.Cells[0,n] := IntToStr(n);
+          for i := 1 to Length(aField) do
+          begin
+            Frm_Remind.stg_Remind.Cells[i,n] := ADO_Rec.FieldByName(aField[i-1].m_sField).AsString;
+            if aField[i-1].m_FMode = fmLink then
+            begin
+              Frm_Remind.stg_Remind.CellsLink[i,n] := ADO_Rec.FieldByName(aField[i-1].m_sField).AsString;
+            end;
+          end;
+          Inc(n);
+          ADO_Rec.Next;
+        end;
+      end;
+    end;
+    if Assigned(ADO_Rec) then
+      ADO_Rec.Free;
+
+    Frm_Remind.Show;
+  end;
+end;
+
 
 procedure TFrm_Remind.CreateParams(var Params: TCreateParams);
 begin

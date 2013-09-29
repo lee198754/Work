@@ -110,7 +110,7 @@ type
     function f_IsRJHDPP(iYL: Integer): Boolean;        //ºÏ≤È∂“Ω±∫≈¬Î ˝¡ø”Î∂©µ•”°¡ø «∑Ò∆•≈‰
   public
     { Public declarations }
-    constructor Create(AOwner: TComponent); override;
+    constructor Create(AOwner: TComponent); override;        
     procedure FraShow;
   end;
 
@@ -118,7 +118,7 @@ implementation
 
 uses
   uPub_Text, PubStr, uDM_DataBase, uPub_Type, uPub_Func, uFrm_LableGroup,
-  uDDMX_DZX, uDDMX_XSX, uFrm_XQDYXG, uFrm_SelectDlg, DBGridEhImpExp;
+  uDDMX_DZX, uDDMX_XSX, uFrm_XQDYXG, uFrm_SelectDlg, DBGridEhImpExp,uXQBQInfoFrm;
 {$R *.dfm}
 
 { TFraXQCX }
@@ -1903,8 +1903,8 @@ end;
 procedure TFra_XQCX.btn_BQPrintClick(Sender: TObject);
 var
   pBookmark: Pointer;
-  n,i,iOrderID,iOrderType: Integer;
-  sCPBH: string;
+  n,i,iOrderID,iOrderType,iMZBZ,iZXS,iCBSL,iCXSL,iYL: Integer;
+  sCPBH,sTXM,sTMBZ: string;
 begin
   Screen.Cursor := crHourGlass;
   with DM_DataBase do
@@ -1919,6 +1919,11 @@ begin
         iOrderID := ADO_XQXX.FindField('OrderID').AsInteger;
         iOrderType := ADO_XQXX.FindField('OrderType').AsInteger;
         sCPBH := ADO_XQXX.FindField('F_sCpbh').AsString;
+        sTMBZ := ADO_xqxx.FindField('TMBZ').AsString;
+        iZXS := ADO_xqxx.FindField('ZXS').AsInteger;
+        iCXSL := ADO_xqxx.FindField('CXSL').AsInteger;
+        iCBSL := ADO_xqxx.FindField('CBSL').AsInteger;
+        iYL := ADO_xqxx.FindField('YL').AsVariant*10000;
         inc(n);
       end;
       if i < ADO_xqxx.RecordCount -1 then
@@ -1939,6 +1944,25 @@ begin
     Exit;
   end;
 
+  if  Trim(sTMBZ) = '√∂' then
+    iMZBZ := 0
+  else if  Trim(sTMBZ) = 'Ã◊' then
+    iMZBZ := 1;
+  sTXM := f_GetTXM(iOrderID,iOrderType,iMZBZ);
+  Frm_XQBQInfo := TFrm_XQBQInfo.Create(Self,[sCPBH,iOrderID,iOrderType,sTXM,iZXS,iCXSL,iCBSL,iYL,iMZBZ]);
+  Frm_XQBQInfo.ShowModal;
+  Frm_XQBQInfo.Free;
+//  A_Prn_Text_TrueType(50, 20, 30, 'Arial', 1, 400, 0, 0, 0, 'TrueType Font', Edt_Address.Text, 1);//save in ram.
+//
+//  A_Prn_Barcode(50, 60, 1, 'E', 2, 2, 80, 'B', 1, c_BarCode);
+//
+//  A_Prn_Text_TrueType(50, 160, 30, 'Arial', 1, 400, 0, 0, 0, 'TrueType Font2', Edt_Name.Text, 1);//save in ram.
+//  // output.
+//  A_Print_Out(1, 1, 1, 1);   // copy 2.
+//
+//  // close port.
+//  A_ClosePrn();
+  Screen.Cursor := crDefault;
 end;
 
 end.
