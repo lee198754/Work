@@ -68,8 +68,9 @@ uses
 
 
 const
-  c_Name = 0;
-  c_TXM  = 1;
+  c_Name      = 0;
+  c_TXM       = 1;
+  c_JiangCode =2;
 
 constructor TFrm_XQBQInfo.Create(AOwner: TComponent;const Args: array of const );
 begin
@@ -102,27 +103,26 @@ end;
 procedure TFrm_XQBQInfo.WriteStgBQXX;
 var
   i,j,n,iOrderNum,iApartCount,iZXS,iZBS: Integer;
-  sName,sXQTXM,sBQTXM: string;
+  sName,sXQTXM,sBQTXM,sJiangCode: string;
   ADOQ_Rec: TADOQuery;
   sSqlData: string;
-  iPackages,iTao,iPackageID,iOutNum,iCXSL: integer;
+  iPackages,iTao,iPackageID,iOutNum,iCXSL,iXH,iTempNum,iZMS,iCBSL: integer;
 begin
+
+  sSqlData := 'Select 1 from DO_OrderApart where F_iOrderID=%d and F_tiOrderType=%d and IsNull(F_tiNJBZ,0)=0 and F_tiCXBZ = 0 ';
+  ADOQ_Rec := DM_DataBase.OpenQuery(sSqlData,[FOrderID,FOrderType]);
+  iApartCount := ADOQ_Rec.RecordCount;
+  ADOQ_Rec.Free;
+
   f_SetArrJiangCode(FOrderID,FOrderType);
-
-  if (RightStr(FCPBH,3)='999') or (FMZBZ=0)then
-  begin
-    sSqlData := 'Select 1 from DO_OrderApart where F_iOrderID=%d and F_tiOrderType=%d and IsNull(F_tiNJBZ,0)=0 and F_tiCXBZ = 0 ';
-    ADOQ_Rec := DM_DataBase.OpenQuery(sSqlData,[FOrderID,FOrderType]);
-    iApartCount := ADOQ_Rec.RecordCount;
-    ADOQ_Rec.Free;
-  end;
-
   n:= 1;
   iOrderNum := 1;
   iZXS := FZXS;
-  iTao := FMTBZ;
+  iTao := FMZBZ;
   iCXSL := FCXSL;
+  iCBSL := FCBSL;
   iXH := 0;
+  iZMS := FYL;
   for i := 1 to iZXS do
   begin
     iZBS := FZBS;
@@ -150,8 +150,8 @@ begin
             if i mod (FZXS div iApartCount) = 0 then
             begin
               inc(iOrderNum);
-              iZBS :=  (FZXS div iApartCount*FCXSL - FYL div iApartCount) div FCBSL;
-              if (FZXS div iApartCount*FCXSL - FYL div iApartCount) mod FCBSL > 0 then
+              iZBS :=  (FZXS div iApartCount*iCXSL - iZMS div iApartCount) div iCBSL;
+              if (FZXS div iApartCount*iCXSL - iZMS div iApartCount) mod iCBSL > 0 then
                 iZBS := iZBS+1;
             end;
           end;
@@ -178,8 +178,8 @@ begin
     end;
     if (i = iZXS) and (iTao = 1) then
     begin
-      iZBS :=  (iZXS*iCXSL - FYL) div FCBSL;
-      if (iZXS*iCXSL - FYL) mod FCBSL > 0 then
+      iZBS :=  (iZXS*iCXSL - iZMS) div iCBSL;
+      if (iZXS*iCXSL - iZMS) mod iCBSL > 0 then
         iZBS := iZBS + 1;
     end;
     sJiangCode := f_GetJiangCode(iXH, iOutNum);
@@ -191,19 +191,20 @@ begin
       if i mod (FZXS div iApartCount) = 0 then
       begin
         inc(iOrderNum);
-        iZBS :=  (FZXS div iApartCount*FCXSL - FYL div iApartCount) div FCBSL;
-        if (FZXS div iApartCount*FCXSL - FYL div iApartCount) mod FCBSL > 0 then
+        iZBS :=  (FZXS div iApartCount*iCXSL - iZMS div iApartCount) div iCBSL;
+        if (FZXS div iApartCount*iCXSL - iZMS div iApartCount) mod iCBSL > 0 then
           iZBS := iZBS+1;
       end;
     end;
     if (i = FZXS) and (FMZBZ = 1) then
     begin
-      iZBS :=  (FZXS*FCXSL - FYL) div FCBSL;
-      if (FZXS*FCXSL - FYL) mod FCBSL > 0 then
+      iZBS :=  (FZXS*iCXSL - iZMS) div iCBSL;
+      if (FZXS*iCXSL - iZMS) mod iCBSL > 0 then
         iZBS := iZBS + 1;
     end;
     stg_BQXX.Cells[c_Name,n] := sName;
     stg_BQXX.Cells[c_TXM,n] := sXQTXM;
+    stg_BQXX.Cells[c_JiangCode,n] := sJiangCode;
     stg_BQXX.RowCount := stg_BQXX.RowCount + 1;
     Inc(n);
     for j := 1 to iZBS do

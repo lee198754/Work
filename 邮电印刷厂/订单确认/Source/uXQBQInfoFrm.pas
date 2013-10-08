@@ -49,6 +49,7 @@ type
     procedure WriteStgBQXX;
     procedure PrintTXM;
     function f_GetJiangCode(var _XH: Integer;SYSL: Integer): string;
+    function f_GetBQJiangCode(var _XH: Integer;SYSL: Integer): string;
     function f_SetArrJiangCode(OrderID,OrderType: Integer): Boolean;
   public
     { Public declarations }
@@ -106,7 +107,7 @@ var
   sName,sXQTXM,sBQTXM,sJiangCode: string;
   ADOQ_Rec: TADOQuery;
   sSqlData: string;
-  iPackages,iTao,iPackageID,iOutNum,iCXSL,iXH,iTempNum,iZMS,iCBSL: integer;
+  iPackages,iTao,iPackageID,iXQNum,iBQNum,iCXSL,iXH,iTempNum,iZMS,iCBSL: integer;
 begin
 
   sSqlData := 'Select 1 from DO_OrderApart where F_iOrderID=%d and F_tiOrderType=%d and IsNull(F_tiNJBZ,0)=0 and F_tiCXBZ = 0 ';
@@ -163,17 +164,17 @@ begin
       if i mod iPackages = 0 then
       begin
         if iTao = 1 then
-          iOutNum := iZMS - iCXSL * (iPackages-1)
+          iXQNum := iZMS - iCXSL * (iPackages-1)
         else
-          iOutNum := iZMS div iApartCount - iCXSL * (iPackages-1);
+          iXQNum := iZMS div iApartCount - iCXSL * (iPackages-1);
       end else
-        iOutNum := iCXSL;
+        iXQNum := iCXSL;
     end else
     begin
-      iOutNum := iCXSL;
+      iXQNum := iCXSL;
       if i = iZXS then
       begin
-        iOutNum := iZMS - iCXSL*(iZXS-1)
+        iXQNum := iZMS - iCXSL*(iZXS-1)
       end;
     end;
     if (i = iZXS) and (iTao = 1) then
@@ -182,10 +183,10 @@ begin
       if (iZXS*iCXSL - iZMS) mod iCBSL > 0 then
         iZBS := iZBS + 1;
     end;
-    sJiangCode := f_GetJiangCode(iXH, iOutNum);
+    //sJiangCode := f_GetJiangCode(iXH, iOutNum);
 
 
-    if (RightStr(FCPBH,3)='999') and (FMZBZ=0) then
+   { if (RightStr(FCPBH,3)='999') and (FMZBZ=0) then
     begin
       sXQTXM :=  Copy(sXQTXM,1,11)+RightStr('000'+IntToStr(iOrderNum),3)+Copy(sXQTXM,14,Length(sXQTXM));
       if i mod (FZXS div iApartCount) = 0 then
@@ -201,19 +202,27 @@ begin
       iZBS :=  (FZXS*iCXSL - iZMS) div iCBSL;
       if (FZXS*iCXSL - iZMS) mod iCBSL > 0 then
         iZBS := iZBS + 1;
-    end;
+    end;     }
     stg_BQXX.Cells[c_Name,n] := sName;
     stg_BQXX.Cells[c_TXM,n] := sXQTXM;
-    stg_BQXX.Cells[c_JiangCode,n] := sJiangCode;
+    //stg_BQXX.Cells[c_JiangCode,n] := sJiangCode;
     stg_BQXX.RowCount := stg_BQXX.RowCount + 1;
     Inc(n);
+
     for j := 1 to iZBS do
     begin
+      iBQNum := iCBSL;
+      if j = iZBS then
+      begin
+        iBQNum := iXQNum - iCBSL*(iZBS-1)
+      end;
+      sJiangCode := f_GetJiangCode(iXH, iBQNum);
       sName := IntToStr(i)+' - ' + IntToStr(j);
       sBQTXM  :=  sXQTXM+RightStr('000'+IntToStr(j),3);
       stg_BQXX.Cells[c_Name,n] := sName;
       stg_BQXX.Cells[c_TXM,n] := sBQTXM;
-      stg_BQXX.RowCount := stg_BQXX.RowCount + 1;
+       stg_BQXX.Cells[c_JiangCode,n] := sJiangCode;
+     stg_BQXX.RowCount := stg_BQXX.RowCount + 1;
       Inc(n);
     end;
   end;
@@ -381,6 +390,40 @@ begin
   end;
   if FZXS > 0 then
     stg_BQXX.RowCount := stg_BQXX.RowCount - 1;
+end;
+
+function TFrm_XQBQInfo.f_GetBQJiangCode(var _XH: Integer;
+  SYSL: Integer): string;
+begin
+  Result := '';
+  while 1=1 do
+  begin
+    if _XH >= Length(aJiangCode) then Break;
+    while ((aJiangCode[_XH].m_sZH = '') or (aJiangCode[_XH].m_iRJHDQ = 0) or (aJiangCode[_XH].m_iRJHDZ = 0))
+      and  (_XH < Length(aJiangCode)) do
+    begin
+      Inc(_XH);
+    end;
+    if _XH >= Length(aJiangCode) then Break;
+    while (aJiangCode[_XH].m_iRJHDZ - aJiangCode[_XH].m_iRJHDQ +1 <= SYSL) and (_XH < Length(aJiangCode)) do
+    begin
+      Result := Result + aJiangCode[_XH].m_sZH +','+StrRight('000000'+IntToStr (aJiangCode[_XH].m_iRJHDQ),6) +','
+        + StrRight('000000'+IntToStr(aJiangCode[_XH].m_iRJHDZ),6)+';';
+      SYSL := SYSL - (aJiangCode[_XH].m_iRJHDZ- aJiangCode[_XH].m_iRJHDQ +1);
+      Inc(_XH);
+    end;
+    if aJiangCode[_XH].m_iRJHDZ - aJiangCode[_XH].m_iRJHDQ +1 > SYSL then
+    begin
+      if SYSL >0 then
+      begin
+        Result := Result + aJiangCode[_XH].m_sZH +','+StrRight('000000'+IntToStr (aJiangCode[_XH].m_iRJHDQ),6) +','
+          + StrRight('000000'+IntToStr (aJiangCode[_XH].m_iRJHDQ + SYSL-1),6)+';';
+        aJiangCode[_XH].m_iRJHDQ := aJiangCode[_XH].m_iRJHDQ + SYSL;
+      end;
+      Break;
+    end;
+
+  end;
 end;
 
 end.

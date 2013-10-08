@@ -159,6 +159,7 @@ object Frm_XQBQInfo: TFrm_XQBQInfo
       Top = 13
       Width = 153
       Height = 20
+      Color = clBtnFace
       ReadOnly = True
       TabOrder = 0
     end
@@ -167,6 +168,7 @@ object Frm_XQBQInfo: TFrm_XQBQInfo
       Top = 13
       Width = 105
       Height = 20
+      Color = clBtnFace
       ReadOnly = True
       TabOrder = 1
     end
@@ -175,6 +177,7 @@ object Frm_XQBQInfo: TFrm_XQBQInfo
       Top = 45
       Width = 105
       Height = 20
+      Color = clBtnFace
       ReadOnly = True
       TabOrder = 2
     end
@@ -183,6 +186,7 @@ object Frm_XQBQInfo: TFrm_XQBQInfo
       Top = 77
       Width = 105
       Height = 20
+      Color = clBtnFace
       ReadOnly = True
       TabOrder = 3
     end
@@ -191,6 +195,7 @@ object Frm_XQBQInfo: TFrm_XQBQInfo
       Top = 77
       Width = 105
       Height = 20
+      Color = clBtnFace
       ReadOnly = True
       TabOrder = 4
     end
@@ -199,6 +204,7 @@ object Frm_XQBQInfo: TFrm_XQBQInfo
       Top = 45
       Width = 105
       Height = 20
+      Color = clBtnFace
       ReadOnly = True
       TabOrder = 5
     end
