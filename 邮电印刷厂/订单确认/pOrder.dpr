@@ -24,7 +24,7 @@ uses
   uFrakd in 'Source\uFrakd.pas' {Fra_kd: TFrame},
   uFraParamSet in 'Source\uFraParamSet.pas' {Fra_ParamSet: TFrame},
   uFrascgl in 'Source\uFrascgl.pas' {Fra_scgl: TFrame},
-  uFratg in 'Source\uFratg.pas' {Fra_tg: TFrame},
+  uFratg in 'Source\TGSH\uFratg.pas' {Fra_tg: TFrame},
   uFraUserAdd in 'Source\uFraUserAdd.pas' {Fra_UserAdd: TFrame},
   uFraWorkerManage in 'Source\uFraWorkerManage.pas' {Fra_WorkerManage: TFrame},
   uFraYZTGL in 'Source\uFraYZTGL.pas' {Fra_yztgl: TFrame},
@@ -113,7 +113,8 @@ uses
   uYCXDDQDFrm in 'Source\YCXDDQD\uYCXDDQDFrm.pas' {Frm_YCXDDQD},
   uDLLAPI in 'DLL\uDLLAPI.pas',
   uXQBQInfoFrm in 'Source\uXQBQInfoFrm.pas' {Frm_XQBQInfo},
-  uCDFPSKAPI in 'Source\uCDFPSKAPI.pas';
+  uCDFPSKAPI in 'Source\uCDFPSKAPI.pas',
+  uTGCYDlgFrm in 'Source\TGSH\uTGCYDlgFrm.pas' {TGCYDlgFrm};
 
 {$R *.res}
 //var
@@ -136,6 +137,7 @@ begin
   begin
     Application.Title := '” µÁ”°À¢≥ß';
     Application.CreateForm(TFrm_Main, Frm_Main);
+  Application.CreateForm(TTGCYDlgFrm, TGCYDlgFrm);
   //Application.CreateForm(TFrm_Main_New, Frm_Main_New);
   end;
   Frm_login.Free;

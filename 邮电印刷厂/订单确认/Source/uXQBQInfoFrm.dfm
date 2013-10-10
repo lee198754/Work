@@ -92,6 +92,7 @@ object Frm_XQBQInfo: TFrm_XQBQInfo
       Anchors = [akTop, akRight]
       Caption = #25171#21360#21253#31614
       TabOrder = 0
+      OnClick = btn_DYBQClick
     end
     object Button1: TButton
       Left = 400

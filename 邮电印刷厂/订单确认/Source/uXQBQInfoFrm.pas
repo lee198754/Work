@@ -33,6 +33,7 @@ type
     edt_CXSL: TEdit;
     Button1: TButton;
     procedure Button1Click(Sender: TObject);
+    procedure btn_DYBQClick(Sender: TObject);
   private
     { Private declarations }
     FCPBH: string;
@@ -424,6 +425,25 @@ begin
     end;
 
   end;
+end;
+
+procedure TFrm_XQBQInfo.btn_DYBQClick(Sender: TObject);
+var
+  i: Integer;
+begin
+//  for i := 1 to stg_BQXX.RowCount do
+//  begin
+//    stg_BQXX.Cells[c_Name,i]
+//  end;
+//  i := 3;
+//  A_Prn_Text_TrueType(50, 20, 30, 'Arial', 1, 400, 0, 0, 0, 'TrueType Font', Edt_Address.Text, stg_BQXX.Cells[c_Name,i]);//save in ram.
+//  //A_Prn_Text_Chinese(p_Num(40), p_Num(20), 1, '', Edt_Address.Text, 1);
+//
+//  A_Prn_Barcode(0, 0, 1, 'E', 1, 1, 150, 'N', 0, stg_BQXX.Cells[c_TXM,i]);
+//
+//  //A_Prn_Text_Chinese(p_Num(40), p_Num(160), 1, '', Edt_Name.Text, 1);
+//  A_Prn_Text_TrueType(50, 160, 30, 'Arial', 1, 400, 0, 0, 0, 'TrueType Font2', Edt_Name.Text, stg_BQXX.Cells[c_JiangCode,i]);//save in ram.
+
 end;
 
 end.
