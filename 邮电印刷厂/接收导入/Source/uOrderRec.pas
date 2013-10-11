@@ -149,6 +149,7 @@ type
     function WriteCustomOrderDetails(Node: IXMLNode;var Rec_ID: Integer): Boolean;  //录入到表BI_CustomOrderDetails    sDetailsID为空是增加,有数据则修改
     function WriteCustomOrderImg(Node: IXMLNode;var Rec_ID: Integer): Boolean;    //录入到表BI_CustomOrderImg
     function WriteCustomOrderTsgy(Node: IXMLNode;var Rec_ID: Integer): Boolean;    //录入到表BI_CustomOrderTsgy
+    function WriteCustomOrderSBSX(Node: IXMLNode;Rec_ID: Integer): Boolean;    //录入到表BI_CustomOrderSBSX
     function WriteCartonLable(Node: IXMLNode;out Rec_ID: Integer): Boolean;    //录入到表BI_CartonLable
     function WritePackageLable(Node: IXMLNode;Rec_ID: Integer): Boolean;    //录入到表BI_PackageLable
 
@@ -204,7 +205,7 @@ uses
 
 {$R *.dfm}
 const
-  TitleName = '订单接收 v1.7 ';
+  TitleName = '订单接收 v1.8 ';
   c_Reg_Program = 'SOFTWARE\YDPrint\OrderRec\';
 
 function CustomThread(p: Pointer): Integer;
@@ -654,6 +655,16 @@ begin
                 iID := iDetailsID;
                 ChildNode := ChildNodeList[j];
                 WriteCustomOrderTsgy(ChildNode,iID);
+              end;
+            end;
+            if node.ChildNodes['sbsx'].HasChildNodes then
+            begin
+              ChildNodeList := node.ChildNodes['sbsx'].ChildNodes;
+              for j := 0 to ChildNodeList.Count -1 do
+              begin
+                iID := iDetailsID;
+                ChildNode := ChildNodeList[j];
+                WriteCustomOrderSBSX(ChildNode,iID);
               end;
             end;
             //WriteWorkLog('成功','定制型计划单 '+IntToStr(iCusdomID)+' 中订单 申报ID:'+sDetailsID+' 导入成功!');
@@ -2505,7 +2516,7 @@ begin
       DelFileList(FPicPath,1024*1024*1024);
   end;
   //每天早上7点接收前一天的订单
-  if (HourOf(Now) = 7) and (DayOf(Now) > DayOf(vdSrartTime)) then
+  if ((HourOf(Now) = 7) or (HourOf(Now) = 17)) and (HourOf(Now) <> HourOf(vdSrartTime)) then
   begin
     tmr_EverydayStart.Enabled := False;
     if btn_Rec.Caption = '暂停接收' then
@@ -2523,7 +2534,7 @@ begin
        // iDayCount := DaysBetween(vdSrartTime,Now);
         dDate := vdSrartTime;
 
-        for k := 1 to iDayCount do
+        for k := 0 to iDayCount do
         begin
           sDate := FormatDateTime('yyyy-MM-dd',dDate);
           sType := iif(iType=0,'定制型','销售型');
@@ -4054,6 +4065,52 @@ begin
         Break;
       end;
     end;
+  end;
+end;
+
+function TFrm_OrderRec.WriteCustomOrderSBSX(Node: IXMLNode;
+  Rec_ID: Integer): Boolean;
+var
+  nodeList: IXMLNodeList;
+  strName,strValue, FieldName: string;
+  NameList: TStringList;
+  i: Integer;
+  ADO_Rec: TADOQuery;
+begin
+  Result := False;
+  if not node.HasChildNodes then Exit;
+  NameList := TStringList.Create;
+  if not GetFieldName(NameList,'BI_CustomOrderSBSX') then
+  begin
+    NameList.Free;
+    Exit;
+  end;
+  ADO_Rec := TADOQuery.Create(Self);
+  nodeList := node.ChildNodes;
+  try
+    GetTableData(ADO_Rec,'BI_CustomOrderSBSX','1=2');
+    ADO_Rec.Insert;
+    FieldName := FindFieldName(NameList,'CustomDetailsID');
+    if FieldName <> '' then
+      ADO_Rec.FieldByName(FieldName).AsInteger := Rec_ID;
+    FieldName := '';
+    for i := 0 to nodeList.Count -1 do
+    begin
+      if nodeList[i].IsTextElement then
+      begin
+        strName := nodeList[i].NodeName;
+        strValue := nodeList[i].NodeValue;
+        FieldName := FindFieldName(NameList,strName);
+      end;
+      if FieldName <> '' then
+        ADO_Rec.FieldByName(FieldName).AsString := Trim(strValue) ;
+    end;
+    ADO_Rec.Post;
+    //Rec_ID := ADO_Rec.FieldByName('F_iID').AsInteger;
+    Result := True;
+  finally
+    NameList.Free;
+    ADO_Rec.Free;
   end;
 end;
 
