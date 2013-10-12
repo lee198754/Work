@@ -79,7 +79,6 @@ type
   function InputQueryEH(const ACaption:string; APrompt: array of string;  var Value: array of string;EdtType: array of Integer): Boolean; overload;
   function f_SelectDlg(const Text: string; const Caption: string; AButtom: string; BButtom: string): Integer;  overload;
   function f_SelectDlg(const Text: string; const Caption: string; aBtnCap: array of const): Integer;  overload;
-  procedure p_ShowRemind(const Text: string; const Caption: string; aField:TArrSelectField; SqlData: string);
   function f_ShowSelectCL(sBM: string=''):TArrSelectField;
   function f_ShowSelectCLPCH(sBM: string;iSL: Integer):TArrSelectField;
   function f_ShowSelectSHXX(sCPBH: string=''):TArrSelectField;
@@ -107,12 +106,16 @@ type
   // sServerPath为服务端文件，相对路径文件名
   function p_DownloadFile(const sLocalPath, sServerPath: string): boolean;
 
+  procedure p_WriteGroup(iCartonID,iOrderID,iOrderType: Integer; sZH,sRJHDQ,sRJHDZ: string);
+  function SetLabelGroup(iOrderID,iOrderType: Integer;sZH, sRJHDQ, sRJHDZ: string): Boolean;
+
+
 
 implementation
 
 uses
   uDM_DataBase,IdHashMessageDigest, Registry, PubStr, DB,
-  uFrm_Select, uFrm_SelectDlg, uFrm_Remind, U_FileMd5,
+  uFrm_Select, uFrm_SelectDlg, U_FileMd5,
   NetDataDef,FileClientDll,InitSock, uPub_Text,uDDMX_DZX;
 
 var
@@ -259,66 +262,7 @@ begin
     Frm_SelectDlg.Free;
 
 end;
-procedure p_ShowRemind(const Text: string; const Caption: string; aField:TArrSelectField; SqlData: string);
-var
-  i, n: Integer;
-  sFields: string;
-  ADO_Rec: TADOQuery;
-begin
-  ADO_Rec := DM_DataBase.OpenQuery(SqlData,[]);
-  if ADO_Rec.RecordCount > 0 then
-  begin
-    Frm_Remind := TFrm_Remind.Create(nil);
-    Frm_Remind.aField := aField;
-    Frm_Remind.Caption := Caption;
-    Frm_Remind.lab_Text.Caption := Text;
-    Frm_Remind.stg_Remind.ColCount := Length(aField)+1;
-    sFields := '序号';
-    for i := 0 to Length(aField) -1 do
-    begin
-      sFields := sFields + '|' + aField[i].m_sName;
-      Frm_Remind.stg_Remind.ColWidths[i+1] := aField[i].m_iWidth;
-      case aField[i].m_FMode of
-        fmNone:;
-        fmSelect:Frm_Remind.stg_Remind.ColBuddy[i+1] := 'edt_Temp';
-        fmLink:;
-      end;
-    end;
-  //  if sFields <> '' then
-  //  begin
-  //    sFields := Copy(sFields,2,Length(sFields));
-  //  end;
-    Frm_Remind.stg_Remind.FormatString := sFields;
-    Frm_Remind.stg_Remind.Clear;
-    Frm_Remind.gb_Remind.Caption := '共 '+ IntToStr(ADO_Rec.RecordCount) + '条';
-    if Assigned(ADO_Rec) and (ADO_Rec.RecordCount > 0) then
-    begin
-      Frm_Remind.stg_Remind.RowCount := iif(ADO_Rec.RecordCount > 0, ADO_Rec.RecordCount +1, 2);
-      n := 1;
-      with ADO_Rec do
-      begin
-        while not Eof do
-        begin
-          Frm_Remind.stg_Remind.Cells[0,n] := IntToStr(n);
-          for i := 1 to Length(aField) do
-          begin
-            Frm_Remind.stg_Remind.Cells[i,n] := ADO_Rec.FieldByName(aField[i-1].m_sField).AsString;
-            if aField[i-1].m_FMode = fmLink then
-            begin
-              Frm_Remind.stg_Remind.CellsLink[i,n] := ADO_Rec.FieldByName(aField[i-1].m_sField).AsString;
-            end;
-          end;
-          Inc(n);
-          ADO_Rec.Next;
-        end;
-      end;
-    end;
-    if Assigned(ADO_Rec) then
-      ADO_Rec.Free;
 
-    Frm_Remind.Show;
-  end;
-end;
 
 function InputQueryEH(const ACaption, APrompt: string;
   var Value: string;EdtType: Integer=0): Boolean;
@@ -1857,6 +1801,94 @@ begin
     end;
     Inc(n);
     AADO_Data.Next;
+  end;
+  Result := True;
+end;
+
+
+procedure p_WriteGroup(iCartonID,iOrderID,iOrderType: Integer; sZH,sRJHDQ,sRJHDZ: string);
+var
+  ADO_Rec: TADOQuery;
+  sSqlData: string;
+  i: integer;
+begin
+  sSqlData := 'Select * from DO_CartonLableGroupNum where F_iCartonInfoID=%d';
+  ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[iCartonID]);
+  SetLabelGroup(iOrderID,iOrderType,sZH,sRJHDQ,sRJHDZ);
+  for i := 0 to Length(LabelGroup) -1 do
+  begin
+    if (LabelGroup[i].m_iOrderID = iOrderID) and (LabelGroup[i].m_iOrderType = iOrderType) then
+    begin
+      if (LabelGroup[i].m_sZH = '') and (LabelGroup[i].m_sRJHDQ = '') and (LabelGroup[i].m_sRJHDZ = '') then Continue;
+      if not ADO_Rec.Eof then
+      begin
+        ADO_Rec.Edit;
+        ADO_Rec.FieldByName('F_sZH').AsString :=  LabelGroup[i].m_sZH;
+        ADO_Rec.FieldByName('F_sRJHDQ').AsString :=  LabelGroup[i].m_sRJHDQ;
+        ADO_Rec.FieldByName('F_sRJHDZ').AsString :=  LabelGroup[i].m_sRJHDZ;
+        ADO_Rec.FieldByName('F_iGroupID').AsInteger :=  LabelGroup[i].m_iGroupID;
+        ADO_Rec.FieldByName('F_iCartonInfoID').AsInteger :=  iCartonID;
+
+        ADO_Rec.Post;
+        ADO_Rec.Next;
+      end else
+      begin
+        ADO_Rec.Insert;
+        ADO_Rec.FieldByName('F_sZH').AsString :=  LabelGroup[i].m_sZH;
+        ADO_Rec.FieldByName('F_sRJHDQ').AsString :=  LabelGroup[i].m_sRJHDQ;
+        ADO_Rec.FieldByName('F_sRJHDZ').AsString :=  LabelGroup[i].m_sRJHDZ;
+        ADO_Rec.FieldByName('F_iGroupID').AsInteger :=  LabelGroup[i].m_iGroupID;
+        ADO_Rec.FieldByName('F_iCartonInfoID').AsInteger :=  iCartonID;
+        ADO_Rec.Post;
+        ADO_Rec.Next;
+      end;
+    end;
+  end;
+  while not ADO_Rec.Eof do
+  begin
+    ADO_Rec.Delete
+  end;
+end;
+
+function SetLabelGroup(iOrderID,iOrderType: Integer; sZH, sRJHDQ,
+  sRJHDZ: string): Boolean;
+var
+  i, j, len: integer;
+  b: Boolean;
+begin
+  Result := False;
+  for i := 0 to Length(LabelGroup) -1 do
+  begin
+    if (LabelGroup[i].m_iOrderID = iOrderID) and  (LabelGroup[i].m_iOrderType = iOrderType) then
+    begin
+      LabelGroup[i].m_iOrderID := -1;
+      LabelGroup[i].m_iOrderType := -1;
+    end;
+  end;
+  for i := 1 to PosNum(sZH,',') + 1 do
+  begin
+    Len := Length(LabelGroup);
+    for j := 0 to  Len -1 do
+    begin
+      b := False;
+      if LabelGroup[j].m_iOrderID = -1 then
+      begin
+        LabelGroup[j].m_sZH        := PosCopy(sZH,',',i);
+        LabelGroup[j].m_sRJHDQ     := PosCopy(sRJHDQ,',',i);
+        LabelGroup[j].m_sRJHDZ     := PosCopy(sRJHDZ,',',i);
+        LabelGroup[j].m_iOrderID   := iOrderID;
+        LabelGroup[j].m_iOrderType := iOrderType;
+        b := True;
+        Break;
+      end;
+    end;
+    if b then Continue;
+    SetLength(LabelGroup,Len+1);
+    LabelGroup[Len].m_sZH        := PosCopy(sZH,',',i);
+    LabelGroup[Len].m_sRJHDQ     := PosCopy(sRJHDQ,',',i);
+    LabelGroup[Len].m_sRJHDZ     := PosCopy(sRJHDZ,',',i);
+    LabelGroup[Len].m_iOrderID   := iOrderID;
+    LabelGroup[Len].m_iOrderType := iOrderType;
   end;
   Result := True;
 end;

@@ -209,6 +209,7 @@ type
     procedure ImgDblClick(Sender: TObject);
     procedure ImgMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    Procedure DisplaySBSX;
   public
     { Public declarations }
     Lab: array of TLabel;
@@ -367,6 +368,7 @@ begin
             Top := Len*10;
             Font.Color := clHighlight;
             Tag := Len;
+            Cursor := crHandPoint;
             Caption := 'Áí´æÎª...';
           end;
           Lab[Len] := TLabel.Create(self);
@@ -548,6 +550,7 @@ begin
       end;
       ADO_Rec.Next;
     end;
+    DisplaySBSX;
   end;
   menu_SaveTo.OnClick := SaveToClick;
   if vTGSHOW  then
@@ -1135,6 +1138,64 @@ procedure TFrm_DDMX_DZX.ImgMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
   menu_SaveTo.Tag := TControl(Sender).Tag;
+end;
+
+procedure TFrm_DDMX_DZX.DisplaySBSX;
+var
+  sSqlData,sSXMC,sSXQZ: string;
+  ADO_Rec: TADOQuery;
+  shp_SXMC,shp_SXQZ:TShape;
+  lab_SXQZ: Ti_Label;
+begin
+  sSqlData := 'Select * from BI_CustomOrderSBSX where F_iCustomDetailsID=%d';
+  ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[vCustomID]);
+  if Assigned(ADO_Rec) and (ADO_Rec.RecordCount>0) then
+  begin
+    sSXMC := ADO_Rec.FieldByName('F_sSXMC').AsString;
+    sSXQZ := ADO_Rec.FieldByName('F_sSXQZ').AsString;
+    shp_SXMC := TShape.Create(Self);
+    shp_SXMC.Parent := Self;
+    with shp_SXMC do
+    begin
+      Parent := Self;
+      Left := Shape22.Left;
+      Top := pan_gy.Top;
+      Width := Shape22.Width;
+      Height := Shape22.Height;
+      Brush.Color := Shape22.Brush.Color;
+    end;
+    shp_SXQZ := TShape.Create(Self);
+    with shp_SXQZ do
+    begin
+      Parent := Self;
+      Left := Shape48.Left;
+      Top := pan_gy.Top;
+      Width := Shape48.Width;
+      Height := Shape48.Height;
+    end;
+    lab_SXQZ := Ti_Label.Create(Self);
+    with lab_SXQZ do
+    begin
+      Parent := Self;
+      Caption := sSXQZ;
+      LabelCaption := sSXMC+' ';
+      Left := lab_qttsgy.Left;
+      Top := shp_SXQZ.Top + 8;
+      Color := lab_qttsgy.Color;
+      ParentColor := lab_qttsgy.ParentColor;
+      OnMouseEnter := lab_qttsgy.OnMouseEnter;
+      LabelPosition := lab_qttsgy.LabelPosition;
+      LabelSpacing := lab_qttsgy.LabelSpacing;
+      Visible := True;
+    end;
+
+    shp_SXQZ.Parent := Self;
+    shp_SXMC.Top := pan_gy.Top;
+    shp_SXQZ.Top := pan_gy.Top;
+    pan_gy.Top := shp_SXMC.Top + shp_SXMC.Height-1;
+  end;
+
+  if Assigned(ADO_Rec) then ADO_Rec.Free;
 end;
 
 end.

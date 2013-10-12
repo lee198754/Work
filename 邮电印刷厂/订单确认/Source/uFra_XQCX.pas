@@ -103,11 +103,9 @@ type
     procedure CartonLablePrint;
     procedure p_SetPrint(Rmrprt:TRMReport;sName, sValue: string;sType: integer=0);
     function p_GetRJHD(sZH,sRJHDQ,sRJHDZ: string): string;
-    procedure p_WriteGroup(iCartonID,iOrderID,iOrderType: Integer; sZH,sRJHDQ,sRJHDZ: string);
     function f_MakeAllow: Boolean;   //操作允许
-    //存入兑奖号段数组
-    function SetLabelGroup(iOrderID,iOrderType: Integer;sZH, sRJHDQ, sRJHDZ: string): Boolean;
-    function f_IsRJHDPP(iYL: Integer): Boolean;        //检查兑奖号码数量与订单印量是否匹配
+    //检查兑奖号码数量与订单印量是否匹配
+    function f_IsRJHDPP(iYL: Integer): Boolean;
   public
     { Public declarations }
     constructor Create(AOwner: TComponent); override;        
@@ -1116,7 +1114,7 @@ begin
   end;
 end;
 
-procedure TFra_XQCX.p_WriteGroup(iCartonID,iOrderID,iOrderType: Integer; sZH,sRJHDQ,sRJHDZ: string);
+{procedure TFra_XQCX.p_WriteGroup(iCartonID,iOrderID,iOrderType: Integer; sZH,sRJHDQ,sRJHDZ: string);
 var
   ADO_Rec: TADOQuery;
   sSqlData: string;
@@ -1161,7 +1159,7 @@ begin
 
 
 
-end;
+end;   }
 
 procedure TFra_XQCX.dbg_xqxxTitleClick(Column: TColumnEh);
 var
@@ -1440,7 +1438,7 @@ begin
   end;
 end;
 
-function TFra_XQCX.SetLabelGroup(iOrderID,iOrderType: Integer; sZH, sRJHDQ,
+{function TFra_XQCX.SetLabelGroup(iOrderID,iOrderType: Integer; sZH, sRJHDQ,
   sRJHDZ: string): Boolean;
 var
   i, j, len: integer;
@@ -1481,7 +1479,7 @@ begin
     LabelGroup[Len].m_iOrderType := iOrderType;
   end;
   Result := True;
-end;
+end; }
 
 procedure TFra_XQCX.btn_printB5Click(Sender: TObject);
 var

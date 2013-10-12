@@ -1,8 +1,8 @@
 object Frm_FJ: TFrm_FJ
-  Left = 621
-  Top = 89
-  Width = 500
-  Height = 457
+  Left = 628
+  Top = 163
+  Width = 577
+  Height = 432
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = #37325#26032#20998#35299
   Color = clBtnFace
@@ -15,14 +15,14 @@ object Frm_FJ: TFrm_FJ
   Position = poScreenCenter
   OnShow = FormShow
   DesignSize = (
-    484
-    419)
+    561
+    394)
   PixelsPerInch = 96
   TextHeight = 12
   object Bevel1: TBevel
     Left = 8
     Top = 320
-    Width = 465
+    Width = 542
     Height = 26
     Anchors = [akLeft, akTop, akRight]
     Shape = bsBottomLine
@@ -62,6 +62,13 @@ object Frm_FJ: TFrm_FJ
     Height = 12
     Caption = #37325#21360#65306
   end
+  object Label4: TLabel
+    Left = 237
+    Top = 304
+    Width = 36
+    Height = 12
+    Caption = #20869#20214#65306
+  end
   object btn_Ok: TRzButton
     Left = 280
     Top = 355
@@ -80,7 +87,7 @@ object Frm_FJ: TFrm_FJ
     OnClick = RzButton1Click
   end
   object btn_Add: TRzButton
-    Left = 248
+    Left = 344
     Top = 298
     Width = 73
     Caption = #28155#21152
@@ -116,10 +123,10 @@ object Frm_FJ: TFrm_FJ
   object stg_yl: Ti_StgEdit
     Left = 5
     Top = 56
-    Width = 468
+    Width = 545
     Height = 224
     Anchors = [akLeft, akTop, akRight]
-    ColCount = 5
+    ColCount = 6
     DefaultRowHeight = 20
     FixedCols = 0
     Font.Charset = DEFAULT_CHARSET
@@ -147,7 +154,7 @@ object Frm_FJ: TFrm_FJ
     FixedFontName = #23435#20307
     FixedGridLineColor = clBlack
     GridLinesFixed = PGridInset
-    FormatString = #20135#21697#32534#21495'|'#21360#37327'('#19975#26522')|'#37325#21360'|'#25805#20316'|'
+    FormatString = #20135#21697#32534#21495'|'#37038#36164#22270#21517#31216'|'#21360#37327'('#19975#26522')|'#37325#21360'|'#25805#20316'|'
     FixedWordBreak = True
     PermitCellSizing = False
     PermitExport = True
@@ -158,6 +165,7 @@ object Frm_FJ: TFrm_FJ
     EnterAddRow = False
     ColWidths = (
       240
+      86
       64
       64
       64
@@ -167,13 +175,14 @@ object Frm_FJ: TFrm_FJ
       20)
   end
   object cb_NJBS: TRzCheckBox
-    Left = 368
+    Left = 448
     Top = 32
     Width = 97
     Height = 17
     Caption = #26377#20869#20214
     State = cbUnchecked
     TabOrder = 7
+    Visible = False
   end
   object cb_czcybz: TComboBox
     Left = 176
@@ -200,6 +209,35 @@ object Frm_FJ: TFrm_FJ
     ItemIndex = 0
     TabOrder = 9
     Text = #26080
+    Items.Strings = (
+      #26080
+      #37325#21360)
+  end
+  object cbb_NJBZ: TComboBox
+    Left = 272
+    Top = 300
+    Width = 57
+    Height = 20
+    Style = csDropDownList
+    ItemHeight = 12
+    ItemIndex = 0
+    TabOrder = 10
+    Text = #21542
+    Items.Strings = (
+      #21542
+      #26159)
+  end
+  object cbb_YZTMC: TComboBox
+    Left = 160
+    Top = 350
+    Width = 57
+    Height = 20
+    Style = csDropDownList
+    ItemHeight = 12
+    ItemIndex = 0
+    TabOrder = 11
+    Text = #26080
+    Visible = False
     Items.Strings = (
       #26080
       #37325#21360)

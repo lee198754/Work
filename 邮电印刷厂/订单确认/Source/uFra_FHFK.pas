@@ -1571,7 +1571,7 @@ begin
 
   end;
 
-end;
+end;     
 
 function TFra_FHFK.f_SetArrJiangCode(OrderID, OrderType: Integer): Boolean;
 var

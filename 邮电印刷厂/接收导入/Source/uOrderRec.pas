@@ -2515,8 +2515,8 @@ begin
     if FPicPath <> '' then
       DelFileList(FPicPath,1024*1024*1024);
   end;
-  //每天早上7点接收前一天的订单
-  if ((HourOf(Now) = 7) or (HourOf(Now) = 17)) and (HourOf(Now) <> HourOf(vdSrartTime)) then
+  //每天早上7点14点接收前一天的订单
+  if ((HourOf(Now) = 7) or (HourOf(Now) = 14)) and ((DayOf(Now) > DayOf(vdSrartTime)) or (HourOf(Now) <> HourOf(vdSrartTime))) then
   begin
     tmr_EverydayStart.Enabled := False;
     if btn_Rec.Caption = '暂停接收' then

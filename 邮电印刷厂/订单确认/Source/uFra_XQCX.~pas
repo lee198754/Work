@@ -103,14 +103,12 @@ type
     procedure CartonLablePrint;
     procedure p_SetPrint(Rmrprt:TRMReport;sName, sValue: string;sType: integer=0);
     function p_GetRJHD(sZH,sRJHDQ,sRJHDZ: string): string;
-    procedure p_WriteGroup(iCartonID,iOrderID,iOrderType: Integer; sZH,sRJHDQ,sRJHDZ: string);
     function f_MakeAllow: Boolean;   //操作允许
-    //存入兑奖号段数组
-    function SetLabelGroup(iOrderID,iOrderType: Integer;sZH, sRJHDQ, sRJHDZ: string): Boolean;
-    function f_IsRJHDPP(iYL: Integer): Boolean;        //检查兑奖号码数量与订单印量是否匹配
+    //检查兑奖号码数量与订单印量是否匹配
+    function f_IsRJHDPP(iYL: Integer): Boolean;
   public
     { Public declarations }
-    constructor Create(AOwner: TComponent); override;
+    constructor Create(AOwner: TComponent); override;        
     procedure FraShow;
   end;
 
@@ -1116,7 +1114,7 @@ begin
   end;
 end;
 
-procedure TFra_XQCX.p_WriteGroup(iCartonID,iOrderID,iOrderType: Integer; sZH,sRJHDQ,sRJHDZ: string);
+{procedure TFra_XQCX.p_WriteGroup(iCartonID,iOrderID,iOrderType: Integer; sZH,sRJHDQ,sRJHDZ: string);
 var
   ADO_Rec: TADOQuery;
   sSqlData: string;
@@ -1161,7 +1159,7 @@ begin
 
 
 
-end;
+end;   }
 
 procedure TFra_XQCX.dbg_xqxxTitleClick(Column: TColumnEh);
 var
@@ -1440,7 +1438,7 @@ begin
   end;
 end;
 
-function TFra_XQCX.SetLabelGroup(iOrderID,iOrderType: Integer; sZH, sRJHDQ,
+{function TFra_XQCX.SetLabelGroup(iOrderID,iOrderType: Integer; sZH, sRJHDQ,
   sRJHDZ: string): Boolean;
 var
   i, j, len: integer;
@@ -1481,7 +1479,7 @@ begin
     LabelGroup[Len].m_iOrderType := iOrderType;
   end;
   Result := True;
-end;
+end; }
 
 procedure TFra_XQCX.btn_printB5Click(Sender: TObject);
 var
@@ -1903,7 +1901,7 @@ end;
 procedure TFra_XQCX.btn_BQPrintClick(Sender: TObject);
 var
   pBookmark: Pointer;
-  n,i,iOrderID,iOrderType,iMZBZ,iZXS,iCBSL,iCXSL: Integer;
+  n,i,iOrderID,iOrderType,iMZBZ,iZXS,iCBSL,iCXSL,iYL: Integer;
   sCPBH,sTXM,sTMBZ: string;
 begin
   Screen.Cursor := crHourGlass;
@@ -1923,6 +1921,7 @@ begin
         iZXS := ADO_xqxx.FindField('ZXS').AsInteger;
         iCXSL := ADO_xqxx.FindField('CXSL').AsInteger;
         iCBSL := ADO_xqxx.FindField('CBSL').AsInteger;
+        iYL := ADO_xqxx.FindField('YL').AsVariant*10000;
         inc(n);
       end;
       if i < ADO_xqxx.RecordCount -1 then
@@ -1948,7 +1947,7 @@ begin
   else if  Trim(sTMBZ) = '套' then
     iMZBZ := 1;
   sTXM := f_GetTXM(iOrderID,iOrderType,iMZBZ);
-  Frm_XQBQInfo := TFrm_XQBQInfo.Create(Self,[sCPBH,iOrderID,iOrderType,sTXM,iZXS,iCXSL,iCBSL]);
+  Frm_XQBQInfo := TFrm_XQBQInfo.Create(Self,[sCPBH,iOrderID,iOrderType,sTXM,iZXS,iCXSL,iCBSL,iYL,iMZBZ]);
   Frm_XQBQInfo.ShowModal;
   Frm_XQBQInfo.Free;
 //  A_Prn_Text_TrueType(50, 20, 30, 'Arial', 1, 400, 0, 0, 0, 'TrueType Font', Edt_Address.Text, 1);//save in ram.
@@ -1961,7 +1960,7 @@ begin
 //
 //  // close port.
 //  A_ClosePrn();
-
+  Screen.Cursor := crDefault;
 end;
 
 end.

@@ -106,6 +106,12 @@ type
   // sServerPath为服务端文件，相对路径文件名
   function p_DownloadFile(const sLocalPath, sServerPath: string): boolean;
 
+  //存入兑奖号段数组
+  function SetLabelGroup(iOrderID,iOrderType: Integer;sZH, sRJHDQ, sRJHDZ: string): Boolean;
+  //兑奖号段数组写入DO_CartonLableGroupNum表
+  procedure p_WriteGroup(iCartonID,iOrderID,iOrderType: Integer; sZH,sRJHDQ,sRJHDZ: string);
+
+
 
 implementation
 
@@ -1797,6 +1803,94 @@ begin
     end;
     Inc(n);
     AADO_Data.Next;
+  end;
+  Result := True;
+end;
+
+
+procedure p_WriteGroup(iCartonID,iOrderID,iOrderType: Integer; sZH,sRJHDQ,sRJHDZ: string);
+var
+  ADO_Rec: TADOQuery;
+  sSqlData: string;
+  i: integer;
+begin
+  sSqlData := 'Select * from DO_CartonLableGroupNum where F_iCartonInfoID=%d';
+  ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[iCartonID]);
+  SetLabelGroup(iOrderID,iOrderType,sZH,sRJHDQ,sRJHDZ);
+  for i := 0 to Length(LabelGroup) -1 do
+  begin
+    if (LabelGroup[i].m_iOrderID = iOrderID) and (LabelGroup[i].m_iOrderType = iOrderType) then
+    begin
+      if (LabelGroup[i].m_sZH = '') and (LabelGroup[i].m_sRJHDQ = '') and (LabelGroup[i].m_sRJHDZ = '') then Continue;
+      if not ADO_Rec.Eof then
+      begin
+        ADO_Rec.Edit;
+        ADO_Rec.FieldByName('F_sZH').AsString :=  LabelGroup[i].m_sZH;
+        ADO_Rec.FieldByName('F_sRJHDQ').AsString :=  LabelGroup[i].m_sRJHDQ;
+        ADO_Rec.FieldByName('F_sRJHDZ').AsString :=  LabelGroup[i].m_sRJHDZ;
+        ADO_Rec.FieldByName('F_iGroupID').AsInteger :=  LabelGroup[i].m_iGroupID;
+        ADO_Rec.FieldByName('F_iCartonInfoID').AsInteger :=  iCartonID;
+
+        ADO_Rec.Post;
+        ADO_Rec.Next;
+      end else
+      begin
+        ADO_Rec.Insert;
+        ADO_Rec.FieldByName('F_sZH').AsString :=  LabelGroup[i].m_sZH;
+        ADO_Rec.FieldByName('F_sRJHDQ').AsString :=  LabelGroup[i].m_sRJHDQ;
+        ADO_Rec.FieldByName('F_sRJHDZ').AsString :=  LabelGroup[i].m_sRJHDZ;
+        ADO_Rec.FieldByName('F_iGroupID').AsInteger :=  LabelGroup[i].m_iGroupID;
+        ADO_Rec.FieldByName('F_iCartonInfoID').AsInteger :=  iCartonID;
+        ADO_Rec.Post;
+        ADO_Rec.Next;
+      end;
+    end;
+  end;
+  while not ADO_Rec.Eof do
+  begin
+    ADO_Rec.Delete
+  end;
+end;
+
+function SetLabelGroup(iOrderID,iOrderType: Integer; sZH, sRJHDQ,
+  sRJHDZ: string): Boolean;
+var
+  i, j, len: integer;
+  b: Boolean;
+begin
+  Result := False;
+  for i := 0 to Length(LabelGroup) -1 do
+  begin
+    if (LabelGroup[i].m_iOrderID = iOrderID) and  (LabelGroup[i].m_iOrderType = iOrderType) then
+    begin
+      LabelGroup[i].m_iOrderID := -1;
+      LabelGroup[i].m_iOrderType := -1;
+    end;
+  end;
+  for i := 1 to PosNum(sZH,',') + 1 do
+  begin
+    Len := Length(LabelGroup);
+    for j := 0 to  Len -1 do
+    begin
+      b := False;
+      if LabelGroup[j].m_iOrderID = -1 then
+      begin
+        LabelGroup[j].m_sZH        := PosCopy(sZH,',',i);
+        LabelGroup[j].m_sRJHDQ     := PosCopy(sRJHDQ,',',i);
+        LabelGroup[j].m_sRJHDZ     := PosCopy(sRJHDZ,',',i);
+        LabelGroup[j].m_iOrderID   := iOrderID;
+        LabelGroup[j].m_iOrderType := iOrderType;
+        b := True;
+        Break;
+      end;
+    end;
+    if b then Continue;
+    SetLength(LabelGroup,Len+1);
+    LabelGroup[Len].m_sZH        := PosCopy(sZH,',',i);
+    LabelGroup[Len].m_sRJHDQ     := PosCopy(sRJHDQ,',',i);
+    LabelGroup[Len].m_sRJHDZ     := PosCopy(sRJHDZ,',',i);
+    LabelGroup[Len].m_iOrderID   := iOrderID;
+    LabelGroup[Len].m_iOrderType := iOrderType;
   end;
   Result := True;
 end;

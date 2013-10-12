@@ -2194,7 +2194,8 @@ begin
       ADO_Rec.Free;
       sOrderID := Copy(sOrderID,2,Length(sOrderID));
       sOrderType := Copy(sOrderType,2,Length(sOrderType));
-      sSqlData := 'select F_bRJBZ,F_sZH,F_sRJHDQ,F_sRJHDZ,F_sRJHD,dbo.f_GetRJHD(F_iOrderID,F_tiOrderType) RJHD from DO_CartonLableInfo where F_iOrderID in (%s) and F_tiOrderType in (%s) ';
+
+      sSqlData := 'select F_bRJBZ,F_sZH,F_sRJHDQ,F_sRJHDZ,F_sRJHD,dbo.f_GetRJHD(F_iOrderID,F_tiOrderType) RJHD,F_iOrderID,F_tiOrderType,F_iID from DO_CartonLableInfo where F_iOrderID in (%s) and F_tiOrderType in (%s) ';
       ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[sOrderID,sOrderType]);
       if Assigned(ADO_Rec) and (ADO_Rec.RecordCount>0) then
       begin
@@ -2215,6 +2216,10 @@ begin
             ADO_Rec.FieldByName('F_sRJHDZ').AsString := sRJHDZ;
             ADO_Rec.FieldByName('F_sRJHD').AsString  := sRJHD;
             ADO_Rec.Post;
+
+            p_WriteGroup(ADO_Rec.FieldByName('F_iID').AsInteger,
+              ADO_Rec.FieldByName('F_iOrderID').AsInteger,ADO_Rec.FieldByName('F_tiOrderType').AsInteger,
+              sZH,sRJHDQ,sRJHDZ);
             ADO_Rec.Next;
           end;
           //----------------------------------------------------
@@ -4337,6 +4342,7 @@ begin
     mmo_zdyq.Text := mmo_zdyq.Text + sDzgy + #13#10;
     //mmo_zdyq.Text := mmo_zdyq.Text + '£Û' + sDzgy + '£Ý' + #13#10;
 end;
+
 
 end.
 

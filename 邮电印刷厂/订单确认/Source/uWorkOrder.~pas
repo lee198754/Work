@@ -2194,7 +2194,6 @@ begin
       ADO_Rec.Free;
       sOrderID := Copy(sOrderID,2,Length(sOrderID));
       sOrderType := Copy(sOrderType,2,Length(sOrderType));
-      //sSqlData := 'select F_iOrderID,F_tiOrderType from DO_CartonLableInfo where F_iOrderID in (''%s'') and F_tiOrderType in (''%s'') ';
       sSqlData := 'select F_bRJBZ,F_sZH,F_sRJHDQ,F_sRJHDZ,F_sRJHD,dbo.f_GetRJHD(F_iOrderID,F_tiOrderType) RJHD from DO_CartonLableInfo where F_iOrderID in (%s) and F_tiOrderType in (%s) ';
       ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[sOrderID,sOrderType]);
       if Assigned(ADO_Rec) and (ADO_Rec.RecordCount>0) then

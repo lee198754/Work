@@ -27,6 +27,9 @@ type
     cb_czcybz: TComboBox;
     cbb_cybz: TComboBox;
     Label3: TLabel;
+    cbb_NJBZ: TComboBox;
+    Label4: TLabel;
+    cbb_YZTMC: TComboBox;
     procedure FormShow(Sender: TObject);
     procedure btn_AddClick(Sender: TObject);
     procedure stg_ylLinkClick(Sender: TObject; ACol, ARow: Integer);
@@ -37,6 +40,7 @@ type
     { Private declarations }
     vOrderID: Integer;
     vOrderType: Integer;
+    FYZTMC: string;
   public
     { Public declarations }
     vSucceed: Boolean;
@@ -55,18 +59,21 @@ uses
 
 const
   c_cpbh    = 0;
-  c_yl      = 1;
-  c_cybz    = 2;
-  c_cz      = 3;
-  c_ApartID = 4;
+  c_yztmc   = 1;
+  c_yl      = 2;
+  c_cybz    = 3;
+  c_cz      = 4;
+  c_ApartID = 5;
 
 procedure TFrm_FJ.FormShow(Sender: TObject);
 var
   i: integer;
 begin
   stg_yl.ColBuddy[c_cpbh]  := 'edt_czcpbh';
+  stg_yl.ColBuddy[c_yztmc]  := 'cbb_YZTMC';
   stg_yl.ColBuddy[c_yl]  := 'edt_czyl';
   stg_yl.ColBuddy[c_cybz]  := 'cb_czcybz';
+
   for i := 0 to Self.ComponentCount -1 do
   begin
     if Self.Components[i].Tag <> 1 then Continue;
@@ -90,11 +97,15 @@ begin
     Exit;
   end;
   n := stg_yl.RowCount-1;
-  sCpbh :=  stg_yl.cells[c_cpbh,n];
-  iNum := StrtoNum(StrRight(sCpbh,2))+1;
-  sCpbh := Copy(sCpbh,1,Length(sCpbh)-2)+StrRight('00'+IntToStr(iNum),2);
+  sCpbh := stg_yl.cells[c_cpbh,n];
+  if StrRight(lab_cpbh.Caption,3)='999' then
+  begin
+    iNum := StrtoNum(StrRight(sCpbh,2))+1;
+    sCpbh := Copy(sCpbh,1,Length(sCpbh)-2)+StrRight('00'+IntToStr(iNum),2);
+  end;    
   stg_yl.AddRow;
   stg_yl.cells[c_cpbh ,n+1] := sCpbh;
+  stg_yl.cells[c_yztmc ,n+1] := iif(cbb_NJBZ.ItemIndex=0,FYZTMC,'无邮资图');
   stg_yl.cells[c_yl,n+1] := edt_yl.Text;
   stg_yl.cells[c_cybz,n+1] := cbb_cybz.Text;
   stg_yl.cells[c_cz,n+1] := '删除';
@@ -132,9 +143,13 @@ begin
     DM_DataBase.GetTableData(ADO_Rec,sTableName,'F_iID='+IntToStr(OrderID));
     sCpbh := ADO_Rec.FieldByName('F_sCpbh').AsString;
     sYl := ADO_Rec.FieldByName('F_nYl').AsString;
+    FYZTMC := ADO_Rec.FieldByName('F_sYZTMC').AsString;
+    cbb_YZTMC.Clear;
+    cbb_YZTMC.Items.Add(FYZTMC);
+    cbb_YZTMC.Items.Add('无邮资图');
     Frm_FJ.lab_cpbh.Caption := sCpbh;
     Frm_FJ.lab_zyl.Caption := '总印量：'+ sYl;
-    DM_DataBase.GetTableData(ADO_Rec,'DO_OrderApart','F_tiOrderType='+IntToStr(BZ)+' and F_iOrderID='+IntToStr(OrderID)+' and F_tiNJBZ=0 and F_tiCXBZ=0 order by F_sCPBH,F_iID');
+    DM_DataBase.GetTableData(ADO_Rec,'DO_OrderApart','F_tiOrderType='+IntToStr(BZ)+' and F_iOrderID='+IntToStr(OrderID)+' and F_tiCXBZ=0 order by F_sCPBH,F_iID');
     stg_yl.Clear;
     stg_yl.RowCount := iif(ADO_Rec.RecordCount > 0, ADO_Rec.RecordCount +1, 2);
     n := 1;
@@ -144,6 +159,7 @@ begin
       while not Eof do
       begin
         stg_yl.cells[c_cpbh ,n] := FieldByName('F_sCPBH').AsString;;
+        stg_yl.cells[c_yztmc ,n] := FieldByName('F_sYZTMC').AsString;;
         stg_yl.cells[c_yl,n] := FieldByName('F_nYl').AsString;
         stg_yl.cells[c_cybz,n] := iif(FieldByName('F_tiCYBZ').AsInteger=1,'重印','无');
         stg_yl.cells[c_cz,n] := '删除';
@@ -169,14 +185,17 @@ begin
     if Application.MessageBox(PChar('是否删除'+#13#10+'    产品编号：'+stg_yl.cells[c_cpbh ,ARow]+#13#10+'    印量: '+stg_yl.cells[c_yl ,ARow]+#13#10+'    重印标志: '+stg_yl.cells[c_cybz ,ARow]),'提示',MB_ICONINFORMATION+MB_YESNO)=IDYES then
     begin
       stg_yl.DelRow(ARow);
-      n := 1;
-      for i := 0 to stg_yl.RowCount -1 do
+      if StrRight(lab_cpbh.Caption,3)='999' then
       begin
-        sCpbh :=  stg_yl.cells[c_cpbh ,n];
-        iNum := StrtoNum(StrRight(sCpbh,2))+1;
-        sCpbh := Copy(sCpbh,1,Length(sCpbh)-2)+StrRight('00'+IntToStr(iNum),2);
-        stg_yl.cells[c_cpbh ,n+1] := sCpbh;
-        Inc(n);
+        n := 1;
+        for i := 0 to stg_yl.RowCount -1 do
+        begin
+          sCpbh :=  stg_yl.cells[c_cpbh ,n];
+          iNum := StrtoNum(StrRight(sCpbh,2))+1;
+          sCpbh := Copy(sCpbh,1,Length(sCpbh)-2)+StrRight('00'+IntToStr(iNum),2);
+          stg_yl.cells[c_cpbh ,n+1] := sCpbh;
+          Inc(n);
+        end;
       end;
     end;
   end;
@@ -193,8 +212,17 @@ var
 
 begin
   vSucceed := False;
-  iNJBS := iif(cb_NJBS.Checked,1,0);
-  sSqlData :='Select * from DO_OrderApart where F_iOrderID=%d and F_tiOrderType=%d and F_tiNJBZ=0 and F_tiCXBZ = 0 order by F_sCPBH,F_iID  ';
+  //iNJBS := iif(cb_NJBS.Checked,1,0);
+  iNJBS := 0;
+  for i := 1 to stg_yl.RowCount do
+  begin
+    if stg_yl.Cells[c_yztmc,i]='无邮资图' then
+    begin
+      iNJBS := 1;
+      Break;
+    end;
+  end;
+  sSqlData :='Select * from DO_OrderApart where F_iOrderID=%d and F_tiOrderType=%d and F_tiCXBZ = 0 order by F_sCPBH,F_iID  ';
   ADO_Rec := DM_DataBase.OpenQuery(sSqlData,[vOrderID,vOrderType]);
   if Assigned(ADO_Rec) and (ADO_Rec.RecordCount > 0) then
   begin
@@ -212,8 +240,14 @@ begin
         ADO_Rec.First;
         while not ADO_Rec.Eof do
         begin
+          if stg_yl.cells[c_cybz ,n]='重印' then
+            iCYBZ := 1
+          else
+            iCYBZ := 0;
           if (ADO_Rec.FieldByName('F_sCPBH').AsString = stg_yl.cells[c_cpbh ,n])
+            and (ADO_Rec.FieldByName('F_sYZTMC').AsString = stg_yl.cells[c_yztmc ,n])
             and (ADO_Rec.FieldByName('F_nYl').AsString = stg_yl.cells[c_yl ,n])
+            and (ADO_Rec.FieldByName('F_tiCYBZ').AsInteger = iCYBZ)
             and (ADO_Rec.FieldByName('F_iID').AsString = stg_yl.cells[c_ApartID ,n]) then
           begin
             Break;
@@ -303,12 +337,12 @@ begin
           if ADO_Rec.RecordCount >0 then
           begin
             ADO_Rec.First;
-            sYZTMC := ADO_Rec.FieldByName('F_sYZTMC').AsString;
             sTSGY := ADO_Rec.FieldByName('F_sTSGY').AsString;
             ExclusionList := TStringList.Create;
             while not ADO_Rec.Eof do
             begin
               bSucceed := False;
+              sYZTMC := ADO_Rec.FieldByName('F_sYZTMC').AsString;
               for n := 1 to stg_yl.RowCount do
               begin
                 case ADO_Rec.FieldByName('F_tiCYBZ').AsInteger of
@@ -318,6 +352,7 @@ begin
                 if (StrToNum(stg_yl.cells[c_ApartID ,n]) = ADO_Rec.FieldByName('F_iID').AsInteger)
                   and (stg_yl.cells[c_cpbh ,n] = ADO_Rec.FieldByName('F_sCPBH').AsString)
                   and (StrToNum(stg_yl.cells[c_yl ,n]) = StrToNum(ADO_Rec.FieldByName('F_nYl').AsString))
+                  and (stg_yl.cells[c_yztmc ,n] = sYZTMC)
                   and (stg_yl.cells[c_cybz ,n] = sCYBZ) and (stg_yl.cells[c_cpbh ,n]<>'') then
                 begin
                   ExclusionList.Add(stg_yl.cells[c_ApartID ,n]);
@@ -367,6 +402,7 @@ begin
 //                end;
               end;
 //              if bSucceed then Continue;
+              sYZTMC := stg_yl.cells[c_yztmc ,n];
               Insert;
               FieldByName('F_tiOrderType').AsInteger := vOrderType;
               FieldByName('F_iOrderID').AsInteger := vOrderID;
@@ -381,8 +417,8 @@ begin
                 iCYBZ := 0;
               FieldByName('F_tiCYBZ').AsInteger := iCYBZ;
               FieldByName('F_dCZRQ').AsDateTime := Now;
-              FieldByName('F_tiNJBZ').AsInteger := 0;
-              if iNJBS = 1 then
+              FieldByName('F_tiNJBZ').AsInteger := iif(sYZTMC='无邮资图',1,0);
+              {if iNJBS = 1 then
               begin
                 Insert;
                 FieldByName('F_tiOrderType').AsInteger := vOrderType;
@@ -395,7 +431,7 @@ begin
                 FieldByName('F_tiCYBZ').AsInteger := iCYBZ;
                 FieldByName('F_dCZRQ').AsDateTime := Now;
                 FieldByName('F_tiNJBZ').AsInteger := 1;
-              end;
+              end;   }
               Post;
               Inc(n);
             end;
