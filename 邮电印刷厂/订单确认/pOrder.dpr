@@ -114,7 +114,8 @@ uses
   uDLLAPI in 'DLL\uDLLAPI.pas',
   uXQBQInfoFrm in 'Source\uXQBQInfoFrm.pas' {Frm_XQBQInfo},
   uCDFPSKAPI in 'Source\uCDFPSKAPI.pas',
-  uTGCYDlgFrm in 'Source\TGSH\uTGCYDlgFrm.pas' {TGCYDlgFrm};
+  uTGCYDlgFrm in 'Source\TGSH\uTGCYDlgFrm.pas' {TGCYDlgFrm},
+  UnitAutoComplete in 'Source\Pub\UnitAutoComplete.pas';
 
 {$R *.res}
 //var

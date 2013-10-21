@@ -35,7 +35,7 @@ implementation
 
 {$R *.dfm}
 uses
-  uPub_Type, uPub_Func, IniFiles, PubStr, Registry, uPub_Text;
+  uPub_Type, uPub_Func, IniFiles, PubStr, Registry, uPub_Text,UnitAutoComplete;
 
 
 
@@ -200,7 +200,6 @@ begin
   end;
   MyReg.CloseKey;
   MyReg.Free;
-
   edt_Name.Text := vUserName;
   edt_Pwd.Text := vUserPwd;
   if vUserPwd = '' then

@@ -149,7 +149,7 @@ begin
     cbb_YZTMC.Items.Add('无邮资图');
     Frm_FJ.lab_cpbh.Caption := sCpbh;
     Frm_FJ.lab_zyl.Caption := '总印量：'+ sYl;
-    DM_DataBase.GetTableData(ADO_Rec,'DO_OrderApart','F_tiOrderType='+IntToStr(BZ)+' and F_iOrderID='+IntToStr(OrderID)+' and F_tiCXBZ=0 order by F_sCPBH,F_iID');
+    DM_DataBase.GetTableData(ADO_Rec,'DO_OrderApart','F_tiOrderType='+IntToStr(BZ)+' and F_iOrderID='+IntToStr(OrderID)+' and F_tiCXBZ=0 order by F_sCPBH,F_tiCYBZ,F_sYZTMC,F_iID');
     stg_yl.Clear;
     stg_yl.RowCount := iif(ADO_Rec.RecordCount > 0, ADO_Rec.RecordCount +1, 2);
     n := 1;

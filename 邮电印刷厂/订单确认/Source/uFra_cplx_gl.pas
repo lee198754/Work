@@ -26,6 +26,8 @@ type
     cbb_day: Ti_ComboBox;
     edt_PrefixStyle: Ti_TxtFilter;
     Label1: TLabel;
+    Label2: TLabel;
+    edt_SmallPrefixStyle: Ti_TxtFilter;
     procedure btn_AddClick(Sender: TObject);
     procedure stg_cplxxxSelectCell(Sender: TObject; ACol, ARow: Integer;
       var CanSelect: Boolean);
@@ -49,15 +51,17 @@ uses
 {$R *.dfm}
 
 const
-  c_cplb          = 0;
-  c_xh            = 1;
-  c_cplx          = 2;
-  c_bm            = 3;
-  c_fjnj          = 4;
-  c_GDHQZ         = 5;
-  c_NFGBRQ        = 6;
-  c_PrefixStyle   = 7;
-  c_F_iID         = 8;
+  c_cplb             = 0;
+  c_xh               = 1;
+  c_cplx             = 2;
+  c_bm               = 3;
+  c_fjnj             = 4;
+  c_GDHQZ            = 5;
+  c_XPLGDHQZ         = 6;
+  c_NFGBRQ           = 7;
+  c_PrefixStyle      = 8;
+  c_SmallPrefixStyle = 9;
+  c_F_iID            = 10;
 
 
 procedure TFra_cplx_gl.ReadDataCPLXXX;
@@ -92,14 +96,17 @@ begin
         end;
         stg_cplxxx.cells[c_fjnj,n] := sFJNJBZ;
         stg_cplxxx.cells[c_GDHQZ,n] := FieldByName('F_sPrefixCode').AsString;
+        stg_cplxxx.cells[c_XPLGDHQZ,n] := FieldByName('F_sSmallPrefixCode').AsString;
         stg_cplxxx.cells[c_NFGBRQ,n] := FieldByName('F_sNFGBRQ').AsString;
         stg_cplxxx.Cells[c_PrefixStyle,n] := FieldByName('F_sPrefixStyle').AsString;
+        stg_cplxxx.Cells[c_SmallPrefixStyle,n] := FieldByName('F_sSmallPrefixStyle').AsString;
         stg_cplxxx.cells[c_F_iID,n] := FieldByName('F_iID').AsString;
         inc(n);
         Next;
       end;
     end;
     stg_cplxxx.ColWidths[c_PrefixStyle] := 0;
+    stg_cplxxx.ColWidths[c_SmallPrefixStyle] := 0;
     stg_cplxxx.ColWidths[c_F_iID] := 0;
   finally
     ADO_Rec.Free;
@@ -110,8 +117,11 @@ procedure TFra_cplx_gl.btn_AddClick(Sender: TObject);
 var
   ADO_Rec: TADOQuery;
   iProductCategoryID: Integer;
-  sPrefixStyle, sPrefixCode, sYear, sMonth, sDay, sDate: string;
+  sPrefixStyle,sSmallPrefixStyle, sPrefixCode, sSmallPrefixCode, sYear, sMonth, sDay, sDate, sNFGBRQ: string;
 begin
+  sPrefixStyle := edt_PrefixStyle.Text;
+  sSmallPrefixStyle := edt_SmallPrefixStyle.Text;
+  sNFGBRQ := cbb_year.Text+cbb_month.Text+cbb_day.Text;
   try
     try
       ADO_Rec := TADOQuery.Create(Self);
@@ -125,25 +135,28 @@ begin
         FieldByName('F_sTypeName').AsString := cbb_CPLX.Text;
         FieldByName('F_sTypeCode').AsString := edt_BM.Text;
         FieldByName('F_tiFJNJBZ').AsInteger := cbb_FJNJ.ItemIndex;
-        sPrefixStyle := edt_PrefixStyle.Text;
         FieldByName('F_sPrefixStyle').AsString := Trim(sPrefixStyle);
-        FieldByName('F_sNFGBRQ').AsString := cbb_year.Text+cbb_month.Text+cbb_day.Text;
-        sPrefixCode := StrReplace(sPrefixStyle,'year',FormatDateTime('yy',now));
+        FieldByName('F_sSmallPrefixStyle').AsString := Trim(sSmallPrefixStyle);
+        FieldByName('F_sNFGBRQ').AsString := sNFGBRQ;
+        sPrefixCode := StrReplace(Trim(sPrefixStyle),'year',FormatDateTime('yy',now));
+        sSmallPrefixCode := StrReplace(Trim(sSmallPrefixStyle),'year',FormatDateTime('yy',now));
         //---------如果当天为更变日期,则前缀更变-----------------
         sYear := cbb_year.Text;
         sMonth := Copy(cbb_month.Text,1,Pos('月',cbb_month.Text)-1);
         sDay := Copy(cbb_day.Text,1,Pos('日',cbb_day.Text)-1);
         sDate := sMonth+sDay;
-        if FormatDateTime('MMdd',Now) = sDate then
+        if FormatDateTime('MMdd',Now) > sDate then
         begin
           if sYear = c_CPLB_NextYear then
             sYear := FormatDateTime('yy',Now)
           else if sYear= c_CPLB_ThisYear then
             sYear := FormatDateTime('yy',IncYear(Now));
-          sPrefixCode := StrReplace(sPrefixStyle,'year',sYear);
+          sPrefixCode := StrReplace(Trim(sPrefixStyle),'year',sYear);
+          sSmallPrefixCode := StrReplace(Trim(sSmallPrefixStyle),'year',sYear);
         end;
         //---------------------------------------------------------
         FieldByName('F_sPrefixCode').AsString := Trim(sPrefixCode);
+        FieldByName('F_sSmallPrefixCode').AsString := Trim(sSmallPrefixCode);
         Post;
       end;
       p_MessageBoxDlg('添加成功!');
@@ -190,6 +203,7 @@ begin
   edt_BM.Text := stg_cplxxx.cells[c_bm ,ARow];
   cbb_FJNJ.ItemIndex := cbb_FJNJ.IndexOf(stg_cplxxx.cells[c_fjnj ,ARow]);
   edt_PrefixStyle.Text := stg_cplxxx.Cells[c_PrefixStyle, ARow];
+  edt_SmallPrefixStyle.Text := stg_cplxxx.Cells[c_SmallPrefixStyle, ARow];
   sNFGBRQ := stg_cplxxx.Cells[c_NFGBRQ, ARow];
   sYear := Copy(sNFGBRQ,1,pos('年',sNFGBRQ)+1);
   sMonth := Copy(sNFGBRQ,pos('年',sNFGBRQ)+2,pos('月',sNFGBRQ)+1-length(sYear));
@@ -204,14 +218,17 @@ procedure TFra_cplx_gl.btn_ModifyClick(Sender: TObject);
 var
   ADO_Rec: TADOQuery;
   iProductCategoryID: Integer;
-  sPrefixStyle, sPrefixCode: string;
-  sYear, sMonth, sDay, sDate: string;
+  sPrefixStyle, sSmallPrefixStyle, sPrefixCode, sSmallPrefixCode: string;
+  sYear, sMonth, sDay, sDate, sNFGBRQ: string;
 begin
   if stgSeletedID =0 then
   begin
     Application.MessageBox('请选择要修改的数据!','提示',MB_ICONINFORMATION);
     Exit;
   end;
+  sPrefixStyle := edt_PrefixStyle.Text;
+  sSmallPrefixStyle := edt_SmallPrefixStyle.Text;
+  sNFGBRQ := cbb_year.Text+cbb_month.Text+cbb_day.Text;
   try
     ADO_Rec := DM_DataBase.OpenQuery('select * from Set_ProductType where F_iID=%d',[stgSeletedID],True);
     with ADO_Rec do
@@ -223,25 +240,28 @@ begin
       FieldByName('F_sTypeName').AsString := cbb_CPLX.Text;
       FieldByName('F_sTypeCode').AsString := edt_BM.Text;
       FieldByName('F_tiFJNJBZ').AsInteger := cbb_FJNJ.ItemIndex;
-      sPrefixStyle := edt_PrefixStyle.Text;
       FieldByName('F_sPrefixStyle').AsString := Trim(sPrefixStyle);
-      FieldByName('F_sNFGBRQ').AsString := cbb_year.Text+cbb_month.Text+cbb_day.Text;
-      sPrefixCode := StrReplace(sPrefixStyle,'year',FormatDateTime('yy',now));
+      FieldByName('F_sSmallPrefixStyle').AsString := Trim(sSmallPrefixStyle);
+      FieldByName('F_sNFGBRQ').AsString := sNFGBRQ;
+      sPrefixCode := StrReplace(Trim(sPrefixStyle),'year',FormatDateTime('yy',now));
+      sSmallPrefixCode := StrReplace(Trim(sSmallPrefixStyle),'year',FormatDateTime('yy',now));
       //------------如果当天为更变日期,则前缀更变---------
       sYear := cbb_year.Text;
       sMonth := Copy(cbb_month.Text,1,Pos('月',cbb_month.Text)-1);
       sDay := Copy(cbb_day.Text,1,Pos('日',cbb_day.Text)-1);
       sDate := sMonth+sDay;
-      if FormatDateTime('MMdd',Now) = sDate then
+      if FormatDateTime('MMdd',Now) > sDate then
       begin
         if sYear = c_CPLB_NextYear then
           sYear := FormatDateTime('yy',Now)
         else if sYear= c_CPLB_ThisYear then
           sYear := FormatDateTime('yy',IncYear(Now));
-        sPrefixCode := StrReplace(sPrefixStyle,'year',sYear);
+        sPrefixCode := StrReplace(Trim(sPrefixStyle),'year',sYear);
+        sSmallPrefixCode := StrReplace(Trim(sSmallPrefixStyle),'year',sYear);
       end;
       //-------------------------------------------------
       FieldByName('F_sPrefixCode').AsString := Trim(sPrefixCode);
+      FieldByName('F_sSmallPrefixCode').AsString := Trim(sSmallPrefixCode);
       Post;
     end;
     p_MessageBoxDlg('修改成功!');

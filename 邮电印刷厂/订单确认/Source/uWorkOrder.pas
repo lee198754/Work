@@ -717,18 +717,20 @@ var
   sDate, sYear, sMonth, sDay: string;
   iMatlID, iXM, iOutSL, iSign: Integer;
   sPCH, sBM, sCZRBM: string;
+  bXPL: Boolean;
 begin
   Result := False;
+  bXPL := OrderData[0].m_iXPL = 1;
   try
     DM_DataBase.Con_YDPrint.BeginTrans;
     //------生成工单号------------------------------------
     if OrderData[0].m_iType = 0 then
-      sSqlData :=  'Select e.F_sPrefixCode,e.F_sNFGBRQ,e.F_sPrefixStyle '
+      sSqlData :=  'Select e.F_sPrefixCode,e.F_sSmallPrefixCode,e.F_sNFGBRQ,e.F_sPrefixStyle,e.F_sSmallPrefixStyle '
         +' from DO_OrderApart a,BI_CustomOrderDetails b,Set_ProductCategory c,Set_PostageType d,Set_ProductType e   '
         +' where a.F_iOrderID=b.F_iID and a.F_sYZTMC like ''%%''+d.F_sYZTMC+''%%'' and b.F_iProductType=c.F_iClassCode '
         +' and c.F_iID = e.F_iProductCategoryID and d.F_iProductTypeID=e.F_iID and a.F_iID=%d and a.F_tiCXBZ = 0 '
     else if OrderData[0].m_iType = 1 then
-      sSqlData := 'Select e.F_sPrefixCode,e.F_sNFGBRQ,e.F_sPrefixStyle '
+      sSqlData := 'Select e.F_sPrefixCode,e.F_sSmallPrefixCode,e.F_sNFGBRQ,e.F_sPrefixStyle,e.F_sSmallPrefixStyle '
         +' from DO_OrderApart a,BI_SellOrderDetails b,Set_ProductCategory c,Set_PostageType d,Set_ProductType e   '
         +' where a.F_iOrderID=b.F_iID and a.F_sYZTMC like ''%%''+d.F_sYZTMC+''%%'' and b.F_iProductType=c.F_iClassCode '
         +' and c.F_iID = e.F_iProductCategoryID and d.F_iProductTypeID=e.F_iID and a.F_iID=%d and a.F_tiCXBZ = 0 ';
@@ -741,23 +743,40 @@ begin
     sPrefixCode := '';
     if ADO_Rec.RecordCount > 0 then
     begin
-      sPrefixCode := Trim(ADO_Rec.FieldByName('F_sPrefixCode').AsString);
+      if not bXPL then
+      begin
+        sPrefixCode := Trim(ADO_Rec.FieldByName('F_sPrefixCode').AsString);
+        sPrefixStyle := Trim(ADO_Rec.FieldByName('F_sPrefixStyle').AsString);
+      end else
+      begin
+        sPrefixCode := Trim(ADO_Rec.FieldByName('F_sSmallPrefixCode').AsString);
+        sPrefixStyle := Trim(ADO_Rec.FieldByName('F_sSmallPrefixStyle').AsString);
+      end;
       sNFGBRQ := ADO_Rec.FieldByName('F_sNFGBRQ').AsString;
-      sPrefixStyle := ADO_Rec.FieldByName('F_sPrefixStyle').AsString;
       sYear := Copy(sNFGBRQ,1,Pos('年',sNFGBRQ)+1);
       sMonth := Copy(sNFGBRQ,Pos('年',sNFGBRQ)+2,Pos('月',sNFGBRQ)-1-length(sYear));
       sDay := Copy(sNFGBRQ,Pos('月',sNFGBRQ)+2,Pos('日',sNFGBRQ)-1-Pos('月',sNFGBRQ)-1);
       sDate := sMonth+sDay;
-      if FormatDateTime('MMdd',Now) = sDate then
+      if FormatDateTime('MMdd',Now) >= sDate then
       begin
         if sYear = c_CPLB_NextYear then
           sYear := FormatDateTime('yy',Now)
         else if sYear= c_CPLB_ThisYear then
           sYear := FormatDateTime('yy',IncYear(Now));
         sPrefixCode := StrReplace(sPrefixStyle,'year',sYear);
-        ADO_Rec.Edit;
-        ADO_Rec.FieldByName('F_sPrefixCode').AsString := sPrefixCode;
-        ADO_Rec.Post;
+
+        if (not bXPL) and (ADO_Rec.FieldByName('F_sPrefixCode').AsString <> sPrefixCode) then
+        begin
+          ADO_Rec.Edit;
+          ADO_Rec.FieldByName('F_sPrefixCode').AsString := sPrefixCode;
+          ADO_Rec.Post;
+        end else
+        if (bXPL) and (ADO_Rec.FieldByName('F_sSmallPrefixCode').AsString <> sPrefixCode) then
+        begin
+          ADO_Rec.Edit;
+          ADO_Rec.FieldByName('F_sSmallPrefixCode').AsString := sPrefixCode;
+          ADO_Rec.Post;
+        end;
       end;
     end else
     begin

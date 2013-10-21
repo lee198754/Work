@@ -14,7 +14,7 @@ object Fra_cplx_gl: TFra_cplx_gl
     Left = 0
     Top = 0
     Width = 800
-    Height = 358
+    Height = 320
     Align = alClient
     Caption = #20135#21697#31867#22411#20449#24687
     TabOrder = 0
@@ -22,9 +22,9 @@ object Fra_cplx_gl: TFra_cplx_gl
       Left = 2
       Top = 14
       Width = 796
-      Height = 342
+      Height = 304
       Align = alClient
-      ColCount = 9
+      ColCount = 11
       DefaultRowHeight = 20
       FixedCols = 0
       Font.Charset = DEFAULT_CHARSET
@@ -52,7 +52,7 @@ object Fra_cplx_gl: TFra_cplx_gl
       FixedFontName = #23435#20307
       FixedGridLineColor = clBlack
       GridLinesFixed = PGridInset
-      FormatString = #20135#21697#31867#21035'|'#24207#21495'|'#20135#21697#31867#22411'|'#32534#30721'|'#26159#21542#21547#26377#20869#20214'|'#24037#21333#21495#21069#32512'|'#24180#20221#26356#21464#26085#26399'||'
+      FormatString = #20135#21697#31867#21035'|'#24207#21495'|'#20135#21697#31867#22411'|'#32534#30721'|'#26159#21542#21547#26377#20869#20214'|'#24037#21333#21495#21069#32512'|'#23567#25209#37327#24037#21333#21495#21069#32512'|'#24180#20221#26356#21464#26085#26399'|||'
       FixedWordBreak = True
       PermitCellSizing = False
       PermitExport = True
@@ -68,7 +68,9 @@ object Fra_cplx_gl: TFra_cplx_gl
         90
         95
         84
-        121
+        103
+        113
+        64
         64
         64)
       RowHeights = (
@@ -78,21 +80,21 @@ object Fra_cplx_gl: TFra_cplx_gl
   end
   object RzGroupBox2: TRzGroupBox
     Left = 0
-    Top = 358
+    Top = 320
     Width = 800
-    Height = 192
+    Height = 230
     Align = alBottom
     Caption = #24405#20837
     TabOrder = 1
     object Label3: TLabel
-      Left = 10
-      Top = 128
+      Left = 34
+      Top = 160
       Width = 84
       Height = 12
       Caption = #24180#20221#26356#21464#26085#26399#65306
     end
     object Label1: TLabel
-      Left = 228
+      Left = 252
       Top = 94
       Width = 162
       Height = 12
@@ -104,8 +106,21 @@ object Fra_cplx_gl: TFra_cplx_gl
       Font.Style = []
       ParentFont = False
     end
+    object Label2: TLabel
+      Left = 252
+      Top = 126
+      Width = 162
+      Height = 12
+      Caption = '(*'#35831#29992#23567#20889#30340'"year"'#20195#34920#24180#20221')'
+      Font.Charset = GB2312_CHARSET
+      Font.Color = clRed
+      Font.Height = -12
+      Font.Name = #26032#23435#20307
+      Font.Style = []
+      ParentFont = False
+    end
     object cbb_CPLX: Ti_TxtFilter
-      Left = 96
+      Left = 120
       Top = 56
       Width = 125
       Height = 20
@@ -139,7 +154,7 @@ object Fra_cplx_gl: TFra_cplx_gl
       AllowEmpty_X = True
     end
     object cbb_XH: Ti_TxtFilter
-      Left = 288
+      Left = 312
       Top = 24
       Width = 73
       Height = 20
@@ -174,7 +189,7 @@ object Fra_cplx_gl: TFra_cplx_gl
       AllowEmpty_X = True
     end
     object cbb_FJNJ: Ti_ComboBox
-      Left = 463
+      Left = 487
       Top = 56
       Width = 73
       Height = 20
@@ -195,7 +210,7 @@ object Fra_cplx_gl: TFra_cplx_gl
       ItemIndex = 0
     end
     object edt_BM: Ti_TxtFilter
-      Left = 287
+      Left = 311
       Top = 56
       Width = 73
       Height = 20
@@ -229,7 +244,7 @@ object Fra_cplx_gl: TFra_cplx_gl
       AllowEmpty_X = True
     end
     object cbb_cplb: Ti_ComboBox
-      Left = 96
+      Left = 120
       Top = 24
       Width = 129
       Height = 20
@@ -245,29 +260,29 @@ object Fra_cplx_gl: TFra_cplx_gl
       TabOrder = 0
     end
     object btn_Add: TRzButton
-      Left = 48
-      Top = 152
+      Left = 72
+      Top = 184
       Caption = #28155#21152
       TabOrder = 5
       OnClick = btn_AddClick
     end
     object btn_Modify: TRzButton
-      Left = 232
-      Top = 152
+      Left = 256
+      Top = 184
       Caption = #20462#25913
       TabOrder = 6
       OnClick = btn_ModifyClick
     end
     object btn_Del: TRzButton
-      Left = 400
-      Top = 152
+      Left = 424
+      Top = 184
       Caption = #21024#38500
       TabOrder = 7
       OnClick = btn_DelClick
     end
     object cbb_year: Ti_ComboBox
-      Left = 96
-      Top = 125
+      Left = 120
+      Top = 157
       Width = 61
       Height = 20
       EditLabel.Width = 6
@@ -285,8 +300,8 @@ object Fra_cplx_gl: TFra_cplx_gl
       ItemIndex = 0
     end
     object cbb_month: Ti_ComboBox
-      Left = 161
-      Top = 125
+      Left = 185
+      Top = 157
       Width = 51
       Height = 20
       EditLabel.Width = 6
@@ -314,8 +329,8 @@ object Fra_cplx_gl: TFra_cplx_gl
       ItemIndex = 0
     end
     object cbb_day: Ti_ComboBox
-      Left = 218
-      Top = 125
+      Left = 242
+      Top = 157
       Width = 51
       Height = 20
       EditLabel.Width = 6
@@ -362,7 +377,7 @@ object Fra_cplx_gl: TFra_cplx_gl
       ItemIndex = 0
     end
     object edt_PrefixStyle: Ti_TxtFilter
-      Left = 96
+      Left = 120
       Top = 90
       Width = 125
       Height = 20
@@ -380,6 +395,40 @@ object Fra_cplx_gl: TFra_cplx_gl
       LabelSpacing = 3
       TabEnter = True
       TabOrder = 11
+      AllowNegative = True
+      BorderLine = False
+      BorderLineColor = clBlack
+      BorderLineGap = 0
+      ErrDialog = False
+      ErrLostFocus = False
+      FullEnter = True
+      LabelEnableFollow = True
+      LabelLeft = -1
+      LabelTransParent = True
+      LayOut = BIVCenter
+      Style = PNomal
+      ReadOnly_X = False
+      AllowEmpty_X = True
+    end
+    object edt_SmallPrefixStyle: Ti_TxtFilter
+      Left = 120
+      Top = 122
+      Width = 125
+      Height = 20
+      Alignment = taLeftJustify
+      WordWrap = False
+      WantReturns = False
+      WantTabs = False
+      ZeroToEmpty = False
+      EditLabel.Width = 108
+      EditLabel.Height = 12
+      EditLabel.Caption = #23567#25209#37327#24037#21333#21495#21069#32512#65306
+      EditLabel.Transparent = True
+      LabelCaption = #23567#25209#37327#24037#21333#21495#21069#32512#65306
+      LabelPosition = lpLeft
+      LabelSpacing = 3
+      TabEnter = True
+      TabOrder = 12
       AllowNegative = True
       BorderLine = False
       BorderLineColor = clBlack

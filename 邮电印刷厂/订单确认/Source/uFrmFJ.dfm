@@ -70,7 +70,7 @@ object Frm_FJ: TFrm_FJ
     Caption = #20869#20214#65306
   end
   object btn_Ok: TRzButton
-    Left = 280
+    Left = 336
     Top = 355
     Default = True
     Caption = #30830#23450
@@ -78,7 +78,7 @@ object Frm_FJ: TFrm_FJ
     OnClick = btn_OkClick
   end
   object RzButton1: TRzButton
-    Left = 384
+    Left = 440
     Top = 355
     Default = True
     ModalResult = 1

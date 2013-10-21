@@ -35,7 +35,7 @@ implementation
 
 {$R *.dfm}
 uses
-  uPub_Type, uPub_Func, IniFiles, PubStr, Registry, uPub_Text;
+  uPub_Type, uPub_Func, IniFiles, PubStr, Registry, uPub_Text,UnitAutoComplete;
 
 
 
@@ -175,10 +175,11 @@ end;
 
 procedure TFrm_Login.FormShow(Sender: TObject);
 var
-  UpdateIP,sPath,sAutoUpdatePath,sServicesIP: string;
+  sPath,sServicesIP: string;
   ini: TIniFile;
   F: TSearchRec;
   MyReg: TRegistry;
+  FStrings: TStrings;
 begin
   Caption := c_TitleName + ' -- 登陆';
   sPath := ExtractFilePath(Application.ExeName);
@@ -186,11 +187,6 @@ begin
   sServicesIP := ini.ReadString('Set','ServicesIP','');
   if sServicesIP = '' then
     Caption := '登陆(本机)';
-  //更新判断
-  sAutoUpdatePath := ini.ReadString('Set','AutoUpdatePath','');
-  if sAutoUpdatePath = '' then
-    sAutoUpdatePath := AutoUpdatePath;
-  UpdateIP := PosCopy(sAutoUpdatePath,'\',3);
 
   MyReg := TRegistry.Create;
   MyReg.RootKey := HKEY_LOCAL_MACHINE;
@@ -205,7 +201,20 @@ begin
   end;
   MyReg.CloseKey;
   MyReg.Free;
-
+  FStrings := TStringList.Create;
+  FStrings.Add(vUserName);
+  TAutoComplete.EnableAutoComplete(edt_Name.Handle, FStrings, ACO_AUTOSUGGEST + ACO_UPDOWNKEYDROPSLIST);
+  FStrings.Add('11');
+  FStrings.Add('111');
+  FStrings.Add('112');
+  FStrings.Add('113');
+  FStrings.Add('114');
+  FStrings.Add('115');
+  FStrings.Add('116');
+  FStrings.Add('117');
+  FStrings.Add('118');
+  FStrings.Add('119');
+  FStrings.Add('110');
   edt_Name.Text := vUserName;
   edt_Pwd.Text := vUserPwd;
   if vUserPwd = '' then
