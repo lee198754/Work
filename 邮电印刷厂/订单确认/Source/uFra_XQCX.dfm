@@ -379,6 +379,13 @@ object Fra_XQCX: TFra_XQCX
           OnUpdateData = dbg_xqxxColumns0UpdateData
         end
         item
+          EditButtons = <>
+          FieldName = 'F_sJG'
+          Footers = <>
+          Title.Caption = #25215#25597#26426#26500#21517#31216
+          Width = 143
+        end
+        item
           DropDownBox.Options = [dlgColLinesEh, dlgRowLinesEh]
           EditButtons = <>
           FieldName = 'F_sCpbh'

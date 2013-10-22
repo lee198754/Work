@@ -528,7 +528,7 @@ var
   s,sSqlData,sFHDH,sPPMC,sSPDW,sLXR,sLXDH,sSHDZ,sFHFS: string;
   sTB,sMZ,sKCID: string;
   i,j,n,iMs,iMbms,iBs,iZms: Integer;
-  str,sCPBH,sTGZT: string;
+  str,sCPBH,sTGZT,sXQZT: string;
   pBookMark:Pointer;
   aYJCPBH, aNJCPBH: array of string;
 begin
@@ -546,6 +546,8 @@ begin
         sCPBH := DM_DataBase.ADO_FHCX.FindField('F_sCPBH').AsString;
         if Trim(DM_DataBase.ADO_FHCX.FindField('TGZT').AsString) <> '' then
           sTGZT := sTGZT + sCPBH + '  ' + DM_DataBase.ADO_FHCX.FindField('TGZT').AsString+#13#10;
+        if Trim(DM_DataBase.ADO_FHCX.FindField('XQZT').AsString) <> '' then
+          sXQZT := sXQZT + sCPBH + '  ' + DM_DataBase.ADO_FHCX.FindField('XQZT').AsString+#13#10;
         if Trim(DM_DataBase.ADO_FHCX.FindField('JCQR').AsString) <> '' then
           sKCID := sKCID + ',' +DM_DataBase.ADO_FHCX.FindField('KCID').AsString;
         inc(n);
@@ -562,6 +564,12 @@ begin
     Exit;
   end;
   //Í¼¸å×´Ì¬Î´ºÏ¸ñÎ´Ç©Ñù
+  if sTGZT <> '' then
+  begin
+    p_MessageBoxDlg('Ê§°Ü£º'+sTGZT);
+    Exit;
+  end;
+  //ÏäÇ©×´Ì¬Î´ÏäÇ©
   if sTGZT <> '' then
   begin
     p_MessageBoxDlg('Ê§°Ü£º'+sTGZT);

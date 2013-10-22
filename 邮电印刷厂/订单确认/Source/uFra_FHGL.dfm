@@ -256,6 +256,13 @@ object Fra_FHGL: TFra_FHGL
         end
         item
           EditButtons = <>
+          FieldName = 'XQZT'
+          Footers = <>
+          Title.Caption = #31665#31614#29366#24577
+          Width = 55
+        end
+        item
+          EditButtons = <>
           FieldName = 'F_sJg'
           Footers = <>
           ReadOnly = True
